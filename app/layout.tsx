@@ -5,9 +5,49 @@ import { GeistMono } from "geist/font/mono"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "monto — Software Engineer",
-  description: "Software Engineer at v0.app. Magic, hacking, and building things.",
+  title: {
+    default: "monto — Software Engineer",
+    template: "%s — monto",
+  },
+  description:
+    "Software Engineer at v0.app. Magic, hacking, and building things.",
   generator: "v0.app",
+  applicationName: "monto",
+  authors: [{ name: "Nicolas Montone", url: "https://github.com/nicolasmontone" }],
+  creator: "Nicolas Montone",
+  publisher: "Nicolas Montone",
+  keywords: [
+    "monto",
+    "Nicolas Montone",
+    "software engineer",
+    "Buenos Aires",
+    "v0.app",
+    "reverse engineering",
+    "magician",
+  ],
+  alternates: { canonical: "/" },
+  robots: { index: true, follow: true },
+  openGraph: {
+    title: "monto — Software Engineer",
+    description:
+      "Software Engineer at v0.app. Magic, hacking, and building things.",
+    url: "/",
+    siteName: "monto",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary",
+    title: "monto — Software Engineer",
+    description:
+      "Software Engineer at v0.app. Magic, hacking, and building things.",
+    creator: "@montonenico",
+  },
+  icons: {
+    icon: "/placeholder-logo.svg",
+    shortcut: "/placeholder-logo.svg",
+    apple: "/placeholder-logo.svg",
+  },
 }
 
 export default function RootLayout({
