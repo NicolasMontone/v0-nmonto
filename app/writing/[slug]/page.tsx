@@ -16,10 +16,11 @@ export async function generateStaticParams() {
   }))
 }
 
-export default function WritingPostPage({ params }: WritingPostPageProps) {
-  const post = getWritingPost(params.slug)
+export default async function WritingPostPage({ params }: WritingPostPageProps) {
+  const { slug } = params
+  const post = getWritingPost(slug)
   const allPosts = getWritingPosts()
-  const otherPosts = allPosts.filter((p) => p.slug !== params.slug)
+  const otherPosts = allPosts.filter((p) => p.slug !== slug)
 
   if (!post) {
     notFound()
