@@ -1,5 +1,7 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
 
 :root {
   --background: oklch(1 0 0);
@@ -73,6 +75,8 @@
 }
 
 @theme inline {
+  --font-sans: 'Geist', 'Geist Fallback';
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -97,6 +101,10 @@
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -113,59 +121,5 @@
   }
   body {
     @apply bg-background text-foreground;
-  }
-}
-
-@layer components {
-  .prose {
-    @apply text-foreground max-w-none;
-  }
-
-  .prose h1 {
-    @apply text-lg font-normal text-foreground mt-8 mb-4 first:mt-0;
-  }
-
-  .prose h2 {
-    @apply text-base font-medium text-foreground mt-6 mb-3;
-  }
-
-  .prose h3 {
-    @apply text-sm font-medium text-foreground mt-4 mb-2;
-  }
-
-  .prose p {
-    @apply text-sm text-muted-foreground mb-4 leading-relaxed;
-  }
-
-  .prose ul {
-    @apply text-sm text-muted-foreground mb-4 pl-4;
-  }
-
-  .prose li {
-    @apply mb-1 leading-relaxed;
-  }
-
-  .prose blockquote {
-    @apply border-l-2 border-border pl-4 italic text-muted-foreground my-4;
-  }
-
-  .prose code {
-    @apply bg-muted px-1 py-0.5 rounded text-xs font-mono;
-  }
-
-  .prose pre {
-    @apply bg-muted p-4 rounded-md overflow-x-auto text-xs font-mono mb-4;
-  }
-
-  .prose a {
-    @apply text-foreground hover:text-primary transition-colors underline;
-  }
-
-  .prose strong {
-    @apply font-medium text-foreground;
-  }
-
-  .prose em {
-    @apply italic;
   }
 }

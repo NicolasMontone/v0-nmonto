@@ -1,72 +1,73 @@
 import { notFound } from "next/navigation"
-import Link from "next/link"
-import { MDXRemote } from "next-mdx-remote/rsc"
-import { getWritingPost, getWritingPosts } from "@/lib/posts"
+
+interface WritingPost {
+  slug: string
+  title: string
+  content: string
+  date: string
+}
+
+// Mock data - replace with your actual data source
+const writingPosts: WritingPost[] = [
+  {
+    slug: "first-post",
+    title: "First Post",
+    content: "This is the content of the first post.",
+    date: "2024-01-01",
+  },
+  {
+    slug: "second-post",
+    title: "Second Post",
+    content: "This is the content of the second post.",
+    date: "2024-01-02",
+  },
+]
+
+function getWritingPost(slug: string): WritingPost | undefined {
+  return writingPosts.find((p) => p.slug === slug)
+}
+
+function getWritingPosts(): WritingPost[] {
+  return writingPosts
+}
 
 interface WritingPostPageProps {
-  params: {
-    slug: string
-  }
+  params: Promise<{ slug: string }>
 }
 
-export async function generateStaticParams() {
-  const posts = getWritingPosts()
-  return posts.map((post) => ({
-    slug: post.slug,
-  }))
-}
+export default async function WritingPostPage({ params }: WritingPostPageProps) {
+  const { slug } = await params
 
-export default function WritingPostPage({ params }: WritingPostPageProps) {
-  const post = getWritingPost(params.slug)
+  const post = getWritingPost(slug)
   const allPosts = getWritingPosts()
-  const otherPosts = allPosts.filter((p) => p.slug !== params.slug)
+  const otherPosts = allPosts.filter((p) => p.slug !== slug)
 
   if (!post) {
     notFound()
   }
 
   return (
-    <main className="min-h-screen bg-background text-muted-foreground font-sans relative">
-      <div className="absolute left-0 top-0 bottom-0 w-px bg-border"></div>
-      <div className="absolute right-0 top-0 bottom-0 w-px bg-border"></div>
+    <main className="max-w-2xl mx-auto p-6">
+      <article>
+        <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
+        <time className="text-gray-500">{post.date}</time>
+        <div className="mt-8 mb-12">{post.content}</div>
+      </article>
 
-      <div className="max-w-xl mx-auto px-4 py-8">
-        {/* Article Header */}
-        <header className="mb-12">
-          <h1 className="text-xl font-medium mb-4 text-foreground leading-tight">{post.title}</h1>
-
-          {post.excerpt && <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{post.excerpt}</p>}
-
-          <p className="text-xs text-muted-foreground/70">{post.date}</p>
-        </header>
-
-        {/* Removed pt-6 spacing to eliminate gap between metadata and content */}
-        <div className="border-t border-border/50 mb-8">
-          <div className="prose prose-sm prose-neutral dark:prose-invert max-w-none">
-            <MDXRemote source={post.content} />
-          </div>
-        </div>
-
-        <footer className="border-t border-border/50 pt-6 space-y-6">
-          {/* Go back link */}
-          <div>
-            <Link href="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              ← Go back
-            </Link>
-          </div>
-
-          {otherPosts.length > 0 && (
-            <div>
-              <Link
-                href={`/writing/${otherPosts[0].slug}`}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Read more: {otherPosts[0].title} →
-              </Link>
-            </div>
-          )}
-        </footer>
-      </div>
+      {otherPosts.length > 0 && (
+        <aside className="border-t pt-8">
+          <h2 className="text-2xl font-bold mb-4">Other Posts</h2>
+          <ul className="space-y-4">
+            {otherPosts.map((p) => (
+              <li key={p.slug}>
+                <a href={`/writing/${p.slug}`} className="text-blue-600 hover:underline">
+                  {p.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </aside>
+      )}
     </main>
   )
 }
