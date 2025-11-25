@@ -69,7 +69,7 @@ export default async function Home() {
               </Link>{" "}
               as a software engineer.
             </p>
-            <p>I'm a magician. I do weird things with cards idk.</p>
+            <p>I'm a magician. I do weird things with cards.</p>
             <p>I'm a hacker. I love doing reverse engineering.</p>
           </div>
         </section>
