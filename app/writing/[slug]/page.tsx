@@ -2,6 +2,7 @@ import { notFound } from "next/navigation"
 import Link from "next/link"
 import { MDXRemote } from "next-mdx-remote/rsc"
 import { getWritingPost, getWritingPosts } from "@/lib/posts"
+import type { Metadata } from "next"
 
 interface WritingPostPageProps {
   params: {
@@ -14,6 +15,20 @@ export async function generateStaticParams() {
   return posts.map((post) => ({
     slug: post.slug,
   }))
+}
+
+export async function generateMetadata({ params }: WritingPostPageProps): Promise<Metadata> {
+  const post = getWritingPost(params.slug)
+
+  if (!post) {
+    return {
+      title: "monto",
+    }
+  }
+
+  return {
+    title: `monto - ${post.title}`,
+  }
 }
 
 export default function WritingPostPage({ params }: WritingPostPageProps) {
