@@ -117,6 +117,12 @@
 }
 
 @layer components {
+  /* Enhanced view transitions support with smooth animations */
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.3s;
+  }
+
   .prose {
     @apply text-foreground max-w-none;
   }

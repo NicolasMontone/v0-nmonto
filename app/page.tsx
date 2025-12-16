@@ -9,12 +9,82 @@ export default async function Home() {
       <div className="absolute left-0 top-0 bottom-0 w-px bg-border"></div>
       <div className="absolute right-0 top-0 bottom-0 w-px bg-border"></div>
 
-      <div className="max-w-xl mx-auto px-4 py-8">
+      <div className="max-w-xl mx-auto px-4 py-8 space-y-8">
         {/* Header */}
-        <header className="mb-8">
-          <h1 className="text-lg font-normal mb-1 text-foreground">monto</h1>
-          <p className="text-xs text-muted-foreground">Software Engineer</p>
+        <header>
+          <h1 className="text-2xl font-normal mb-2 text-foreground">Nicolas Montone</h1>
         </header>
+
+        {/* About */}
+        <section className="space-y-6 text-base leading-relaxed text-muted-foreground">
+          <p>
+            I am a designer and developer at{" "}
+            <Link
+              href="https://v0.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground underline hover:text-muted-foreground transition-colors"
+            >
+              Vercel
+            </Link>
+            . My interests span a broad spectrum of subjects, encompassing web development, creative coding, magic,
+            reverse engineering, and human-computer interaction.
+          </p>
+
+          <p>
+            Since high school, I've spent years on algorithm competitions, web design and development. I earned my
+            degree from Universidad de Buenos Aires, and joined as a software engineer at{" "}
+            <Link
+              href="https://pluggy.ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground underline hover:text-muted-foreground transition-colors"
+            >
+              Pluggy
+            </Link>
+            . In 2025, I joined Vercel to help build the next generation of developer tools including the platform,
+            Next.js, AI SDK, v0, and more.
+          </p>
+
+          <p>
+            You can gain further insights into my background and interests through my{" "}
+            <Link href="/thoughts" className="text-foreground underline hover:text-muted-foreground transition-colors">
+              thoughts
+            </Link>
+            ,{" "}
+            <Link href="/projects" className="text-foreground underline hover:text-muted-foreground transition-colors">
+              projects
+            </Link>
+            , find me on{" "}
+            <Link
+              href="https://github.com/nicolasmontone"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground underline hover:text-muted-foreground transition-colors"
+            >
+              GitHub
+            </Link>
+            ,{" "}
+            <Link
+              href="https://x.com/montonenico"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground underline hover:text-muted-foreground transition-colors"
+            >
+              X/Twitter
+            </Link>
+            , and{" "}
+            <Link
+              href="https://www.linkedin.com/in/nicolas-montone/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground underline hover:text-muted-foreground transition-colors"
+            >
+              LinkedIn
+            </Link>
+            .
+          </p>
+        </section>
 
         {/* Current Role */}
         <section className="mb-8 flex flex-col gap-2">
@@ -48,66 +118,6 @@ export default async function Home() {
                 </Link>
               </div>
               <span className="text-[10px] text-muted-foreground bg-muted/40 px-2 py-0.5 rounded">2021-2025</span>
-            </div>
-          </div>
-        </section>
-
-        {/* About */}
-        <section className="mb-8">
-          <h2 className="text-sm font-normal mb-3 text-foreground">About</h2>
-          <div className="space-y-2 text-xs">
-            <p>I live in Buenos Aires, Argentina.</p>
-            <p>
-              I work at{" "}
-              <Link
-                href="https://v0.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:text-primary/80 transition-colors"
-              >
-                v0.app
-              </Link>{" "}
-              as a software engineer.
-            </p>
-            <p>I'm a magician. I do weird things with cards.</p>
-            <p>I'm a hacker. I love doing reverse engineering.</p>
-          </div>
-        </section>
-
-        {/* Links */}
-        <section className="mb-8">
-          <h2 className="text-sm font-normal mb-3 text-foreground">Links</h2>
-          <div className="space-y-1 text-xs">
-            <div>
-              <Link
-                href="https://github.com/nicolasmontone"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:text-primary/80 transition-colors underline"
-              >
-                Github
-              </Link>
-            </div>
-            <div>
-              <Link
-                href="https://x.com/montonenico"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:text-primary/80 transition-colors underline"
-              >
-                X
-              </Link>
-            </div>
-            <div>
-              <Link
-                href="https://nicolas-montone.notion.site/Reading-177639a6a7ff803ea6a0d3713cc61d6c"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:text-primary/80 transition-colors underline"
-              >
-                My Internet Reading List
-              </Link>
-              <p className="text-[10px] text-muted-foreground mt-0.5">{"Some reads I liked"}</p>
             </div>
           </div>
         </section>
