@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
+import { ViewTransitions } from "next-view-transitions"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -19,8 +20,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`dark ${GeistSans.variable} ${GeistMono.variable}`}>
-      <body className={GeistSans.className}>{children}</body>
-    </html>
+    <ViewTransitions>
+      <html lang="en" className={`dark ${GeistSans.variable} ${GeistMono.variable}`}>
+        <body className={GeistSans.className}>{children}</body>
+      </html>
+    </ViewTransitions>
   )
 }
