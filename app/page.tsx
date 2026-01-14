@@ -23,7 +23,7 @@ export default async function Home() {
             <section>
               <h2 className="text-sm font-normal mb-3 text-foreground">About</h2>
               <div className="space-y-2 text-xs">
-                <p>I live in Buenos Aires, Argentina.</p>
+                <p>I live in San Francisco, California. Originally from Buenos Aires (I love mate).</p>
                 <p>
                   I work at{" "}
                   <Link
