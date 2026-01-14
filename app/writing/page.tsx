@@ -16,12 +16,12 @@ export default async function WritingPage() {
         {/* Writing */}
         <section>
           {posts.length > 0 ? (
-            <div className="space-y-2">
+            <div className="space-y-3">
               {posts.map((post) => (
                 <div key={post.slug}>
                   <Link
                     href={`/writing/${post.slug}`}
-                    className="text-[10px] text-muted-foreground hover:text-primary transition-colors"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
                     {post.title}
                   </Link>
@@ -29,7 +29,7 @@ export default async function WritingPage() {
               ))}
             </div>
           ) : (
-            <p className="text-xs text-muted-foreground">No posts yet.</p>
+            <p className="text-sm text-muted-foreground">No posts yet.</p>
           )}
         </section>
 
