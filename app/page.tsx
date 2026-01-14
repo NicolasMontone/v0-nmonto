@@ -39,7 +39,16 @@ export default async function Home() {
                 <p>I'm a magician. I do weird things with cards.</p>
                 <p>I'm a hacker. I love doing reverse engineering.</p>
                 <p>
-                  Find me on{" "}
+                  Here is my{" "}
+                  <Link
+                    href="https://github.com/nicolasmontone"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:text-primary/80 transition-colors"
+                  >
+                    GitHub
+                  </Link>
+                  {" "}and{" "}
                   <Link
                     href="https://x.com/montonenico"
                     target="_blank"
@@ -50,34 +59,6 @@ export default async function Home() {
                   </Link>
                   .
                 </p>
-              </div>
-            </section>
-
-            {/* Links */}
-            <section>
-              <h2 className="text-sm font-normal mb-3 text-foreground">Links</h2>
-              <div className="space-y-1 text-xs">
-                <div>
-                  <Link
-                    href="https://github.com/nicolasmontone"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:text-primary/80 transition-colors underline"
-                  >
-                    Github
-                  </Link>
-                </div>
-                <div>
-                  <Link
-                    href="https://nicolas-montone.notion.site/Reading-177639a6a7ff803ea6a0d3713cc61d6c"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:text-primary/80 transition-colors underline"
-                  >
-                    My Internet Reading List
-                  </Link>
-                  <p className="text-[10px] text-muted-foreground mt-0.5">{"Some reads I liked"}</p>
-                </div>
               </div>
             </section>
           </div>
