@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation"
-import { Link } from "next-view-transitions"
+import Link from "next/link"
 import { MDXRemote } from "next-mdx-remote/rsc"
 import { getWritingPost, getWritingPosts } from "@/lib/posts"
 import { Header } from "@/components/header"

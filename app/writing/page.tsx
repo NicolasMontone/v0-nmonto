@@ -1,4 +1,4 @@
-import { Link } from "next-view-transitions"
+import Link from "next/link"
 import { Header } from "@/components/header"
 import { getAllPosts } from "@/lib/posts"
 
