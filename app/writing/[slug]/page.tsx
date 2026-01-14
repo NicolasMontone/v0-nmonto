@@ -2,6 +2,7 @@ import { notFound } from "next/navigation"
 import Link from "next/link"
 import { MDXRemote } from "next-mdx-remote/rsc"
 import { getWritingPost, getWritingPosts } from "@/lib/posts"
+import { Header } from "@/components/header"
 import type { Metadata } from "next"
 
 interface WritingPostPageProps {
@@ -46,30 +47,25 @@ export default function WritingPostPage({ params }: WritingPostPageProps) {
       <div className="absolute right-0 top-0 bottom-0 w-px bg-border"></div>
 
       <div className="max-w-xl mx-auto px-4 py-8">
-        {/* Article Header */}
-        <header className="mb-12">
-          <h1 className="text-xl font-medium mb-4 text-foreground leading-tight">{post.title}</h1>
+        <Header />
 
-          {post.excerpt && <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{post.excerpt}</p>}
+        {/* Article Header */}
+        <div className="mb-8">
+          <h2 className="text-lg font-medium mb-2 text-foreground leading-tight">{post.title}</h2>
+
+          {post.excerpt && <p className="text-sm text-muted-foreground mb-2 leading-relaxed">{post.excerpt}</p>}
 
           <p className="text-xs text-muted-foreground/70">{post.date}</p>
-        </header>
+        </div>
 
-        {/* Removed pt-6 spacing to eliminate gap between metadata and content */}
+        {/* Content */}
         <div className="border-t border-border/50 mb-8">
-          <div className="prose prose-sm prose-neutral dark:prose-invert max-w-none">
+          <div className="prose prose-sm prose-neutral dark:prose-invert max-w-none pt-6">
             <MDXRemote source={post.content} />
           </div>
         </div>
 
-        <footer className="border-t border-border/50 pt-6 space-y-6">
-          {/* Go back link */}
-          <div>
-            <Link href="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              ← Go back
-            </Link>
-          </div>
-
+        <footer className="border-t border-border/50 pt-6 space-y-4">
           {otherPosts.length > 0 && (
             <div>
               <Link
