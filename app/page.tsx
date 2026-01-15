@@ -11,7 +11,7 @@ export default function Home() {
         </div>
 
         {/* Bio content */}
-        <section className="pl-8 max-w-lg">
+        <section className="pl-8 max-w-xl">
           <div className="space-y-1.5 text-sm leading-relaxed">
             <p>I live in San Francisco, California.</p>
             <p>Originally from Buenos Aires (I love mate).</p>

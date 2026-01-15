@@ -14,7 +14,7 @@ export default async function WritingPage() {
         </div>
 
         {/* Writing */}
-        <section className="pl-8 max-w-lg">
+        <section className="pl-8 max-w-xl">
           {posts.length > 0 ? (
             <div className="space-y-1.5">
               {posts.map((post) => (

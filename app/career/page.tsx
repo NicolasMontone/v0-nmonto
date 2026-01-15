@@ -11,7 +11,7 @@ export default function CareerPage() {
         </div>
 
         {/* Career */}
-        <section className="pl-8 max-w-lg flex flex-col gap-2">
+        <section className="pl-8 max-w-xl flex flex-col gap-2">
           <div className="bg-muted/20 rounded-sm px-3 py-2">
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-1">

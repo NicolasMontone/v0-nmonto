@@ -11,7 +11,7 @@ export default function ProjectsPage() {
         </div>
 
         {/* Projects */}
-        <section className="pl-8 max-w-lg">
+        <section className="pl-8 max-w-xl">
           <div className="space-y-1.5">
             <p className="text-sm text-muted-foreground">
               <Link
