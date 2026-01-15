@@ -6,12 +6,12 @@ export default function Home() {
     <main className="min-h-screen bg-background text-muted-foreground font-sans">
       <div className="flex py-12 px-8 md:px-16">
         {/* Header on the left */}
-        <div className="w-40 flex-shrink-0 pr-8 border-r border-border/50">
+        <div className="w-40 flex-shrink-0 pr-8 border-r border-border/50 header-container">
           <Header />
         </div>
 
         {/* Bio content */}
-        <section className="pl-8 max-w-xl">
+        <section className="pl-8 max-w-xl content-area">
           <div className="space-y-1.5 text-sm leading-relaxed">
             <p>I live in San Francisco, California.</p>
             <p>Originally from Buenos Aires (I love mate).</p>
