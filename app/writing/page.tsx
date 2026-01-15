@@ -10,11 +10,15 @@ export default async function WritingPage() {
       <div className="absolute left-0 top-0 bottom-0 w-px bg-border"></div>
       <div className="absolute right-0 top-0 bottom-0 w-px bg-border"></div>
 
-      <div className="max-w-xl mx-auto px-4 py-8">
-        <Header />
+      <div className="max-w-4xl mx-auto px-4 py-8">
+        <div className="flex flex-col md:flex-row gap-12 md:gap-16">
+          {/* Header on the left */}
+          <div className="md:w-48 flex-shrink-0">
+            <Header />
+          </div>
 
-        {/* Writing */}
-        <section>
+          {/* Writing */}
+          <section className="flex-1">
           {posts.length > 0 ? (
             <div className="space-y-3">
               {posts.map((post) => (
@@ -31,7 +35,8 @@ export default async function WritingPage() {
           ) : (
             <p className="text-sm text-muted-foreground">No posts yet.</p>
           )}
-        </section>
+          </section>
+        </div>
 
         {/* Footer */}
         <footer className="text-center mt-12">
