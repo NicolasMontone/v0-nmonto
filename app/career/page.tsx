@@ -6,12 +6,12 @@ export default function CareerPage() {
     <main className="min-h-screen bg-background text-muted-foreground font-sans">
       <div className="flex py-12 px-8 md:px-16">
         {/* Header on the left */}
-        <div className="w-40 flex-shrink-0 pr-8 border-r border-border/50">
+        <div className="w-40 flex-shrink-0 pr-8 border-r border-border/50 header-container">
           <Header />
         </div>
 
         {/* Career */}
-        <section className="pl-8 max-w-xl flex flex-col gap-2">
+        <section className="pl-8 max-w-xl flex flex-col gap-2 content-area">
           <div className="bg-muted/20 rounded-sm px-3 py-2">
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-1">

@@ -45,12 +45,12 @@ export default function WritingPostPage({ params }: WritingPostPageProps) {
     <main className="min-h-screen bg-background text-muted-foreground font-sans">
       <div className="flex py-12 px-8 md:px-16">
         {/* Header on the left */}
-        <div className="w-40 flex-shrink-0 pr-8 border-r border-border/50">
+        <div className="w-40 flex-shrink-0 pr-8 border-r border-border/50 header-container">
           <Header />
         </div>
 
         {/* Article content */}
-        <div className="pl-8 max-w-xl">
+        <div className="pl-8 max-w-xl content-area">
           {/* Article Header */}
           <div className="mb-8">
             <h2 className="text-lg font-medium mb-2 text-foreground leading-tight">{post.title}</h2>
