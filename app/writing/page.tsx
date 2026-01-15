@@ -18,9 +18,9 @@ export default async function WritingPage() {
           </div>
 
           {/* Writing */}
-          <section className="flex-1">
+          <section className="flex-1 max-w-xl">
           {posts.length > 0 ? (
-            <div className="space-y-3">
+            <div className="space-y-1.5">
               {posts.map((post) => (
                 <div key={post.slug}>
                   <Link

@@ -15,8 +15,8 @@ export default function ProjectsPage() {
           </div>
 
           {/* Projects */}
-          <section className="flex-1">
-          <div className="space-y-3">
+          <section className="flex-1 max-w-xl">
+          <div className="space-y-1.5">
             <p className="text-sm text-muted-foreground">
               <Link
                 href="https://github.com/NicolasMontone/ai-sdk-agents"

@@ -15,8 +15,8 @@ export default function Home() {
           </div>
 
           {/* Bio in the center/right */}
-          <section className="flex-1">
-            <div className="space-y-3 text-sm leading-relaxed">
+          <section className="flex-1 max-w-xl">
+            <div className="space-y-1.5 text-sm leading-relaxed">
               <p>I live in San Francisco, California.</p>
               <p>Originally from Buenos Aires (I love mate).</p>
               <p>

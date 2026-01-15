@@ -54,7 +54,7 @@ export default function WritingPostPage({ params }: WritingPostPageProps) {
           </div>
 
           {/* Article content */}
-          <div className="flex-1">
+          <div className="flex-1 max-w-xl">
             {/* Article Header */}
             <div className="mb-8">
               <h2 className="text-lg font-medium mb-2 text-foreground leading-tight">{post.title}</h2>
