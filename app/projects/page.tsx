@@ -3,17 +3,17 @@ import { Header } from "@/components/header"
 
 export default function ProjectsPage() {
   return (
-    <main className="min-h-screen bg-background text-muted-foreground font-sans relative">
-      <div className="absolute left-0 top-0 bottom-0 w-px bg-border"></div>
-      <div className="absolute right-0 top-0 bottom-0 w-px bg-border"></div>
-
-      <div className="max-w-xl mx-auto px-4 py-8">
-        <Header />
+    <main className="min-h-screen bg-background text-muted-foreground font-sans">
+      <div className="flex py-12 px-8 md:px-16">
+        {/* Header on the left */}
+        <div className="w-40 flex-shrink-0 pr-8 border-r border-border/50">
+          <Header />
+        </div>
 
         {/* Projects */}
-        <section>
-          <div className="space-y-2">
-            <p className="text-[10px] text-muted-foreground">
+        <section className="pl-8 max-w-xl">
+          <div className="space-y-1.5">
+            <p className="text-sm text-muted-foreground">
               <Link
                 href="https://github.com/NicolasMontone/ai-sdk-agents"
                 target="_blank"
@@ -23,7 +23,7 @@ export default function ProjectsPage() {
                 Install ai tools for AI SDK using shadcn CLI
               </Link>
             </p>
-            <p className="text-[10px] text-muted-foreground">
+            <p className="text-sm text-muted-foreground">
               <Link
                 href="https://github.com/pluggyai/grida"
                 target="_blank"
@@ -33,7 +33,7 @@ export default function ProjectsPage() {
                 User graphical reverse engineering tool for android dynamic instrumentation
               </Link>
             </p>
-            <p className="text-[10px] text-muted-foreground">
+            <p className="text-sm text-muted-foreground">
               <Link
                 href="http://github.com/nicolasmontone/chat-with-your-base"
                 target="_blank"
@@ -43,7 +43,7 @@ export default function ProjectsPage() {
                 Postgres + LLMs
               </Link>
             </p>
-            <p className="text-[10px] text-muted-foreground">
+            <p className="text-sm text-muted-foreground">
               <Link
                 href="https://translatemenu.com/"
                 target="_blank"
@@ -53,7 +53,7 @@ export default function ProjectsPage() {
                 Translate your menu to any language
               </Link>
             </p>
-            <p className="text-[10px] text-muted-foreground">
+            <p className="text-sm text-muted-foreground">
               <Link
                 href="https://github.com/NicolasMontone/cryptosapp-wallet"
                 target="_blank"
@@ -63,7 +63,7 @@ export default function ProjectsPage() {
                 WhatsApp bot where you can transfer crypto
               </Link>
             </p>
-            <p className="text-[10px] text-muted-foreground">
+            <p className="text-sm text-muted-foreground">
               <Link
                 href="https://www.raycast.com/NicolasMontone/kill-node-modules"
                 target="_blank"
@@ -73,7 +73,7 @@ export default function ProjectsPage() {
                 Raycast extension to kill node_modules
               </Link>
             </p>
-            <p className="text-[10px] text-muted-foreground">
+            <p className="text-sm text-muted-foreground">
               <Link
                 href="https://www.raycast.com/NicolasMontone/cookie-string-parser"
                 target="_blank"
@@ -85,11 +85,6 @@ export default function ProjectsPage() {
             </p>
           </div>
         </section>
-
-        {/* Footer */}
-        <footer className="text-center mt-12">
-          <p className="text-[10px] text-muted-foreground">—</p>
-        </footer>
       </div>
     </main>
   )

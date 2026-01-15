@@ -3,15 +3,15 @@ import { Header } from "@/components/header"
 
 export default function CareerPage() {
   return (
-    <main className="min-h-screen bg-background text-muted-foreground font-sans relative">
-      <div className="absolute left-0 top-0 bottom-0 w-px bg-border"></div>
-      <div className="absolute right-0 top-0 bottom-0 w-px bg-border"></div>
-
-      <div className="max-w-xl mx-auto px-4 py-8">
-        <Header />
+    <main className="min-h-screen bg-background text-muted-foreground font-sans">
+      <div className="flex py-12 px-8 md:px-16">
+        {/* Header on the left */}
+        <div className="w-40 flex-shrink-0 pr-8 border-r border-border/50">
+          <Header />
+        </div>
 
         {/* Career */}
-        <section className="flex flex-col gap-2">
+        <section className="pl-8 max-w-xl flex flex-col gap-2">
           <div className="bg-muted/20 rounded-sm px-3 py-2">
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-1">
@@ -45,11 +45,6 @@ export default function CareerPage() {
             </div>
           </div>
         </section>
-
-        {/* Footer */}
-        <footer className="text-center mt-12">
-          <p className="text-[10px] text-muted-foreground">—</p>
-        </footer>
       </div>
     </main>
   )

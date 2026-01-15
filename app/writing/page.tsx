@@ -6,22 +6,22 @@ export default async function WritingPage() {
   const posts = await getAllPosts()
 
   return (
-    <main className="min-h-screen bg-background text-muted-foreground font-sans relative">
-      <div className="absolute left-0 top-0 bottom-0 w-px bg-border"></div>
-      <div className="absolute right-0 top-0 bottom-0 w-px bg-border"></div>
-
-      <div className="max-w-xl mx-auto px-4 py-8">
-        <Header />
+    <main className="min-h-screen bg-background text-muted-foreground font-sans">
+      <div className="flex py-12 px-8 md:px-16">
+        {/* Header on the left */}
+        <div className="w-40 flex-shrink-0 pr-8 border-r border-border/50">
+          <Header />
+        </div>
 
         {/* Writing */}
-        <section>
+        <section className="pl-8 max-w-xl">
           {posts.length > 0 ? (
-            <div className="space-y-2">
+            <div className="space-y-1.5">
               {posts.map((post) => (
                 <div key={post.slug}>
                   <Link
                     href={`/writing/${post.slug}`}
-                    className="text-[10px] text-muted-foreground hover:text-primary transition-colors"
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
                     {post.title}
                   </Link>
@@ -29,14 +29,9 @@ export default async function WritingPage() {
               ))}
             </div>
           ) : (
-            <p className="text-xs text-muted-foreground">No posts yet.</p>
+            <p className="text-sm text-muted-foreground">No posts yet.</p>
           )}
         </section>
-
-        {/* Footer */}
-        <footer className="text-center mt-12">
-          <p className="text-[10px] text-muted-foreground">—</p>
-        </footer>
       </div>
     </main>
   )
