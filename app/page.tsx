@@ -6,7 +6,7 @@ export default function Home() {
     <main className="min-h-screen bg-background text-muted-foreground font-sans">
       <div className="flex py-12 px-8 md:px-16">
         {/* Header on the left */}
-        <div className="w-28 flex-shrink-0 pr-6 border-r border-border/50">
+        <div className="w-40 flex-shrink-0 pr-8 border-r border-border/50">
           <Header />
         </div>
 
