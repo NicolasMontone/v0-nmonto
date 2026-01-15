@@ -13,7 +13,7 @@ export function Header() {
   ]
 
   return (
-    <header className="text-right">
+    <header className="text-left md:text-right">
       <Link href="/" className="hover:opacity-80 transition-opacity">
         <h1 className="text-xl font-normal mb-1 text-foreground">monto</h1>
       </Link>
