@@ -3,19 +3,15 @@ import { Header } from "@/components/header"
 
 export default function CareerPage() {
   return (
-    <main className="min-h-screen bg-background text-muted-foreground font-sans relative">
-      <div className="absolute left-0 top-0 bottom-0 w-px bg-border"></div>
-      <div className="absolute right-0 top-0 bottom-0 w-px bg-border"></div>
+    <main className="min-h-screen bg-background text-muted-foreground font-sans">
+      <div className="flex py-12 px-8 md:px-16">
+        {/* Header on the left */}
+        <div className="w-28 flex-shrink-0 pr-6 border-r border-border/50">
+          <Header />
+        </div>
 
-      <div className="max-w-4xl mx-auto px-4 py-8">
-        <div className="flex flex-col md:flex-row gap-12 md:gap-16">
-          {/* Header on the left */}
-          <div className="md:w-48 flex-shrink-0">
-            <Header />
-          </div>
-
-          {/* Career */}
-          <section className="flex-1 max-w-xl flex flex-col gap-2">
+        {/* Career */}
+        <section className="pl-8 max-w-lg flex flex-col gap-2">
           <div className="bg-muted/20 rounded-sm px-3 py-2">
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-1">
@@ -48,13 +44,7 @@ export default function CareerPage() {
               <span className="text-[10px] text-muted-foreground bg-muted/40 px-2 py-0.5 rounded">2021-2025</span>
             </div>
           </div>
-          </section>
-        </div>
-
-        {/* Footer */}
-        <footer className="text-center mt-12">
-          <p className="text-[10px] text-muted-foreground">—</p>
-        </footer>
+        </section>
       </div>
     </main>
   )

@@ -13,12 +13,12 @@ export function Header() {
   ]
 
   return (
-    <header className="mb-8">
+    <header className="text-right">
       <Link href="/" className="hover:opacity-80 transition-opacity">
         <h1 className="text-xl font-normal mb-1 text-foreground">monto</h1>
       </Link>
       <p className="text-xs text-muted-foreground mb-3">Software Engineer</p>
-      <nav className="flex gap-3">
+      <nav className="flex flex-col gap-1">
         {navLinks.map((link) => (
           <Link
             key={link.href}

@@ -6,19 +6,15 @@ export default async function WritingPage() {
   const posts = await getAllPosts()
 
   return (
-    <main className="min-h-screen bg-background text-muted-foreground font-sans relative">
-      <div className="absolute left-0 top-0 bottom-0 w-px bg-border"></div>
-      <div className="absolute right-0 top-0 bottom-0 w-px bg-border"></div>
+    <main className="min-h-screen bg-background text-muted-foreground font-sans">
+      <div className="flex py-12 px-8 md:px-16">
+        {/* Header on the left */}
+        <div className="w-28 flex-shrink-0 pr-6 border-r border-border/50">
+          <Header />
+        </div>
 
-      <div className="max-w-4xl mx-auto px-4 py-8">
-        <div className="flex flex-col md:flex-row gap-12 md:gap-16">
-          {/* Header on the left */}
-          <div className="md:w-48 flex-shrink-0">
-            <Header />
-          </div>
-
-          {/* Writing */}
-          <section className="flex-1 max-w-xl">
+        {/* Writing */}
+        <section className="pl-8 max-w-lg">
           {posts.length > 0 ? (
             <div className="space-y-1.5">
               {posts.map((post) => (
@@ -35,13 +31,7 @@ export default async function WritingPage() {
           ) : (
             <p className="text-sm text-muted-foreground">No posts yet.</p>
           )}
-          </section>
-        </div>
-
-        {/* Footer */}
-        <footer className="text-center mt-12">
-          <p className="text-[10px] text-muted-foreground">—</p>
-        </footer>
+        </section>
       </div>
     </main>
   )
