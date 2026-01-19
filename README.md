@@ -40,3 +40,5 @@ Continue building your app on:
 *"The only way to do great work is to love what you do."* — Build with passion.
 
 *"Code is poetry written for machines, but read by humans. Make it beautiful."* — Craft with care.
+
+*"Your potential is not defined by where you start, but by how far you're willing to go."* — Dream bigger.
