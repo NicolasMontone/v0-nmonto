@@ -38,3 +38,5 @@ Continue building your app on:
 *"Every line of code you write today is a step closer to the developer you'll become tomorrow."* — Never stop learning.
 
 *"The only way to do great work is to love what you do."* — Build with passion.
+
+*"Code is poetry written for machines, but read by humans. Make it beautiful."* — Craft with care.
