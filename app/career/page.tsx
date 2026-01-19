@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { ViewTransition } from "react"
 import { Header } from "@/components/header"
 
 export default function CareerPage() {
@@ -12,8 +11,7 @@ export default function CareerPage() {
         </div>
 
         {/* Career */}
-        <ViewTransition>
-          <section className="pl-8 max-w-xl content-area">
+        <section className="pl-8 max-w-xl content-area">
             <div className="space-y-1.5">
               <p className="text-sm text-muted-foreground">
                 <Link
@@ -37,7 +35,6 @@ export default function CareerPage() {
               </p>
             </div>
           </section>
-        </ViewTransition>
       </div>
     </main>
   )
