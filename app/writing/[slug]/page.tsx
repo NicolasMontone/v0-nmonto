@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation"
 import Link from "next/link"
+import { ViewTransition } from "react"
 import { MDXRemote } from "next-mdx-remote/rsc"
 import { getWritingPost, getWritingPosts } from "@/lib/posts"
 import { Header } from "@/components/header"
@@ -50,7 +51,8 @@ export default function WritingPostPage({ params }: WritingPostPageProps) {
         </div>
 
         {/* Article content */}
-        <div className="pl-8 max-w-xl content-area">
+        <ViewTransition>
+          <div className="pl-8 max-w-xl content-area">
           {/* Article Header */}
           <div className="mb-8">
             <h2 className="text-lg font-medium mb-2 text-foreground leading-tight">{post.title}</h2>
@@ -79,7 +81,8 @@ export default function WritingPostPage({ params }: WritingPostPageProps) {
               </div>
             )}
           </footer>
-        </div>
+          </div>
+        </ViewTransition>
       </div>
     </main>
   )

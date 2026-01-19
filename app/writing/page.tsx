@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { ViewTransition } from "react"
 import { Header } from "@/components/header"
 import { getAllPosts } from "@/lib/posts"
 
@@ -14,7 +15,8 @@ export default async function WritingPage() {
         </div>
 
         {/* Writing */}
-        <section className="pl-8 max-w-xl content-area">
+        <ViewTransition>
+          <section className="pl-8 max-w-xl content-area">
           {posts.length > 0 ? (
             <div className="space-y-1.5">
               {posts.map((post) => (
@@ -31,7 +33,8 @@ export default async function WritingPage() {
           ) : (
             <p className="text-sm text-muted-foreground">No posts yet.</p>
           )}
-        </section>
+          </section>
+        </ViewTransition>
       </div>
     </main>
   )
