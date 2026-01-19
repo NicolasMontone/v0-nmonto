@@ -32,3 +32,5 @@ Continue building your app on:
 ---
 
 *"The best time to plant a tree was 20 years ago. The second best time is now."* — Start building.
+
+*"Ship it before it's perfect. Iterate until it's great."* — Keep shipping.
