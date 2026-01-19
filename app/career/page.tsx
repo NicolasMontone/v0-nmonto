@@ -11,38 +11,28 @@ export default function CareerPage() {
         </div>
 
         {/* Career */}
-        <section className="pl-8 max-w-xl flex flex-col gap-2 content-area">
-          <div className="bg-muted/20 rounded-sm px-3 py-2">
-            <div className="flex justify-between items-center">
-              <div className="flex items-center gap-1">
-                <span className="text-xs text-muted-foreground">Currently at</span>
-                <Link
-                  href="https://v0.app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary hover:text-primary/80 transition-colors text-xs"
-                >
-                  v0.app
-                </Link>
-              </div>
-              <span className="text-[10px] text-muted-foreground bg-muted/40 px-2 py-0.5 rounded">2025</span>
-            </div>
-          </div>
-          <div className="bg-muted/20 rounded-sm px-3 py-2">
-            <div className="flex justify-between items-center">
-              <div className="flex items-center gap-1">
-                <span className="text-xs text-muted-foreground">Former</span>
-                <Link
-                  href="https://pluggy.ai"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary hover:text-primary/80 transition-colors text-xs"
-                >
-                  pluggy.ai
-                </Link>
-              </div>
-              <span className="text-[10px] text-muted-foreground bg-muted/40 px-2 py-0.5 rounded">2021-2025</span>
-            </div>
+        <section className="pl-8 max-w-xl content-area">
+          <div className="space-y-1.5">
+            <p className="text-sm text-muted-foreground">
+              <Link
+                href="https://v0.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-primary transition-colors"
+              >
+                Currently at v0.app
+              </Link>
+            </p>
+            <p className="text-sm text-muted-foreground">
+              <Link
+                href="https://pluggy.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-primary transition-colors"
+              >
+                Former pluggy.ai
+              </Link>
+            </p>
           </div>
         </section>
       </div>
