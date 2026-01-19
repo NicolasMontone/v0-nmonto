@@ -36,3 +36,5 @@ Continue building your app on:
 *"Ship it before it's perfect. Iterate until it's great."* — Keep shipping.
 
 *"Every line of code you write today is a step closer to the developer you'll become tomorrow."* — Never stop learning.
+
+*"The only way to do great work is to love what you do."* — Build with passion.
