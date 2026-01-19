@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { ViewTransition } from "react"
 import { Header } from "@/components/header"
 
 export default function ProjectsPage() {
@@ -11,7 +12,8 @@ export default function ProjectsPage() {
         </div>
 
         {/* Projects */}
-        <section className="pl-8 max-w-xl content-area">
+        <ViewTransition>
+          <section className="pl-8 max-w-xl content-area">
           <div className="space-y-1.5">
             <p className="text-sm text-muted-foreground">
               <Link
@@ -84,7 +86,8 @@ export default function ProjectsPage() {
               </Link>
             </p>
           </div>
-        </section>
+          </section>
+        </ViewTransition>
       </div>
     </main>
   )
