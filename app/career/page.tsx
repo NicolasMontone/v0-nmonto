@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { ViewTransition } from "react"
 import { Header } from "@/components/header"
 
 export default function CareerPage() {
@@ -12,32 +11,30 @@ export default function CareerPage() {
         </div>
 
         {/* Career */}
-        <ViewTransition>
-          <section className="pl-8 max-w-xl content-area">
-            <div className="space-y-1.5">
-              <p className="text-sm text-muted-foreground">
-                <Link
-                  href="https://v0.app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-primary transition-colors"
-                >
-                  Currently at v0.app
-                </Link>
-              </p>
-              <p className="text-sm text-muted-foreground">
-                <Link
-                  href="https://pluggy.ai"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-primary transition-colors"
-                >
-                  Former pluggy.ai
-                </Link>
-              </p>
-            </div>
-          </section>
-        </ViewTransition>
+        <section className="pl-8 max-w-xl content-area">
+          <div className="space-y-1.5">
+            <p className="text-sm text-muted-foreground">
+              <Link
+                href="https://v0.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-primary transition-colors"
+              >
+                Currently at v0.app
+              </Link>
+            </p>
+            <p className="text-sm text-muted-foreground">
+              <Link
+                href="https://pluggy.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-primary transition-colors"
+              >
+                Former pluggy.ai
+              </Link>
+            </p>
+          </div>
+        </section>
       </div>
     </main>
   )
