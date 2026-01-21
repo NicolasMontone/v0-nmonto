@@ -13,11 +13,11 @@ export function Header() {
   ]
 
   return (
-    <header className="text-left md:text-right">
-      <Link href="/" className="hover:opacity-80 transition-opacity">
-        <h1 className="text-xl font-normal mb-3 text-foreground">monto</h1>
+    <header>
+      <Link href="/" className="hover:opacity-70 transition-opacity">
+        <h1 className="text-base font-normal mb-6 text-foreground">monto</h1>
       </Link>
-      <nav className="flex flex-col gap-1">
+      <nav className="flex flex-col gap-0.5">
         {navLinks.map((link) => (
           <Link
             key={link.href}
@@ -25,7 +25,7 @@ export function Header() {
             className={`text-xs transition-colors ${
               pathname === link.href || pathname.startsWith(`${link.href}/`)
                 ? "text-foreground"
-                : "text-muted-foreground hover:text-foreground"
+                : "text-muted-foreground/70 hover:text-foreground"
             }`}
           >
             {link.label}

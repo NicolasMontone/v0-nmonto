@@ -4,87 +4,85 @@ import { Header } from "@/components/header"
 export default function ProjectsPage() {
   return (
     <main className="min-h-screen bg-background text-muted-foreground font-sans">
-      <div className="flex py-12 px-8 md:px-16">
-        {/* Header on the left */}
-        <div className="w-40 flex-shrink-0 pr-8 border-r border-border/50 header-container">
+      <div className="flex py-16 px-8 md:px-12 gap-16">
+        <div className="w-24 flex-shrink-0 header-container">
           <Header />
         </div>
 
-        {/* Projects */}
-        <section className="pl-8 max-w-xl content-area">
-          <div className="space-y-1.5">
-            <p className="text-sm text-muted-foreground">
+        <section className="max-w-md content-area">
+          <div className="space-y-1 text-sm">
+            <p>
               <Link
                 href="https://github.com/NicolasMontone/ai-sdk-agents"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-primary transition-colors"
+                className="text-foreground/70 hover:text-foreground transition-colors"
               >
-                Install ai tools for AI SDK using shadcn CLI
+                ai-sdk-agents
               </Link>
             </p>
-            <p className="text-sm text-muted-foreground">
+            <p>
               <Link
                 href="https://github.com/pluggyai/grida"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-primary transition-colors"
+                className="text-foreground/70 hover:text-foreground transition-colors"
               >
-                User graphical reverse engineering tool for android dynamic instrumentation
+                grida
               </Link>
             </p>
-            <p className="text-sm text-muted-foreground">
+            <p>
               <Link
                 href="http://github.com/nicolasmontone/chat-with-your-base"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-primary transition-colors"
+                className="text-foreground/70 hover:text-foreground transition-colors"
               >
-                Postgres + LLMs
+                chat-with-your-base
               </Link>
             </p>
-            <p className="text-sm text-muted-foreground">
+            <p>
               <Link
                 href="https://translatemenu.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-primary transition-colors"
+                className="text-foreground/70 hover:text-foreground transition-colors"
               >
-                Translate your menu to any language
+                translatemenu
               </Link>
             </p>
-            <p className="text-sm text-muted-foreground">
+            <p>
               <Link
                 href="https://github.com/NicolasMontone/cryptosapp-wallet"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-primary transition-colors"
+                className="text-foreground/70 hover:text-foreground transition-colors"
               >
-                WhatsApp bot where you can transfer crypto
+                cryptosapp-wallet
               </Link>
             </p>
-            <p className="text-sm text-muted-foreground">
+            <p>
               <Link
                 href="https://www.raycast.com/NicolasMontone/kill-node-modules"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-primary transition-colors"
+                className="text-foreground/70 hover:text-foreground transition-colors"
               >
-                Raycast extension to kill node_modules
+                kill-node-modules
               </Link>
             </p>
-            <p className="text-sm text-muted-foreground">
+            <p>
               <Link
                 href="https://www.raycast.com/NicolasMontone/cookie-string-parser"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-primary transition-colors"
+                className="text-foreground/70 hover:text-foreground transition-colors"
               >
-                Parse cookies in Raycast
+                cookie-string-parser
               </Link>
             </p>
           </div>
-          </section>
+        </section>
       </div>
     </main>
   )

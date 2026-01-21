@@ -4,15 +4,13 @@ import { Header } from "@/components/header"
 export default function Home() {
   return (
     <main className="min-h-screen bg-background text-muted-foreground font-sans">
-      <div className="flex py-12 px-8 md:px-16">
-        {/* Header on the left */}
-        <div className="w-40 flex-shrink-0 pr-8 border-r border-border/50 header-container">
+      <div className="flex py-16 px-8 md:px-12 gap-16">
+        <div className="w-24 flex-shrink-0 header-container">
           <Header />
         </div>
 
-        {/* Bio content */}
-        <section className="pl-8 max-w-xl content-area">
-          <div className="space-y-1.5 text-sm leading-relaxed">
+        <section className="max-w-md content-area">
+          <div className="space-y-1 text-sm leading-relaxed">
             <p>I live in San Francisco, California.</p>
             <p>Originally from Buenos Aires (I love mate).</p>
             <p>
@@ -21,7 +19,7 @@ export default function Home() {
                 href="https://v0.app"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-primary hover:text-primary/80 transition-colors"
+                className="text-foreground/70 hover:text-foreground transition-colors"
               >
                 v0.app
               </Link>{" "}
@@ -31,25 +29,23 @@ export default function Home() {
             <p>I{"'"}m a magician. I do weird things with cards.</p>
             <p>I{"'"}m a hacker. I love doing reverse engineering.</p>
             <p>
-              Here is my{" "}
               <Link
                 href="https://github.com/nicolasmontone"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-primary hover:text-primary/80 transition-colors"
+                className="text-foreground/70 hover:text-foreground transition-colors"
               >
                 GitHub
               </Link>
-              {" "}and{" "}
+              {" / "}
               <Link
                 href="https://x.com/montonenico"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-primary hover:text-primary/80 transition-colors"
+                className="text-foreground/70 hover:text-foreground transition-colors"
               >
                 X
               </Link>
-              .
             </p>
           </div>
         </section>
