@@ -7,31 +7,29 @@ export default async function WritingPage() {
 
   return (
     <main className="min-h-screen bg-background text-muted-foreground font-sans">
-      <div className="flex py-12 px-8 md:px-16">
-        {/* Header on the left */}
-        <div className="w-40 flex-shrink-0 pr-8 border-r border-border/50 header-container">
+      <div className="flex py-16 px-8 md:px-12 gap-16">
+        <div className="w-24 flex-shrink-0 header-container">
           <Header />
         </div>
 
-        {/* Writing */}
-        <section className="pl-8 max-w-xl content-area">
+        <section className="max-w-md content-area">
           {posts.length > 0 ? (
-            <div className="space-y-1.5">
+            <div className="space-y-1 text-sm">
               {posts.map((post) => (
-                <div key={post.slug}>
+                <p key={post.slug}>
                   <Link
                     href={`/writing/${post.slug}`}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    className="text-foreground/70 hover:text-foreground transition-colors"
                   >
                     {post.title}
                   </Link>
-                </div>
+                </p>
               ))}
             </div>
           ) : (
-            <p className="text-sm text-muted-foreground">No posts yet.</p>
+            <p className="text-sm text-muted-foreground/70">No posts yet.</p>
           )}
-          </section>
+        </section>
       </div>
     </main>
   )
