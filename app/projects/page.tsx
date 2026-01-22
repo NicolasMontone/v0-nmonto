@@ -30,7 +30,7 @@ export default function ProjectsPage() {
                 rel="noopener noreferrer"
                 className="hover:text-primary transition-colors"
               >
-                User graphical reverse engineering tool for android dynamic instrumentation
+                Use graphical reverse engineering tool for android dynamic instrumentation
               </Link>
             </p>
             <p className="text-sm text-muted-foreground">
