@@ -12,7 +12,7 @@ const posts: WritingPost[] = [
     title: "Ship",
     date: "2025-09-03",
     excerpt: "Launching my personal website built with v0.",
-    content: `I Ship this website with v0, this is my first blog to test :)`,
+    content: `I shipped this website with v0, this is my first blog to test :)`,
   },
 ]
 
