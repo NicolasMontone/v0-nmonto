@@ -1,58 +1,51 @@
 import Link from "next/link"
-import { Header } from "@/components/header"
+import { PageLayout } from "@/components/page-layout"
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background text-muted-foreground font-sans">
-      <div className="flex py-12 px-8 md:px-16">
-        {/* Header on the left */}
-        <div className="w-40 flex-shrink-0 pr-8 border-r border-border/50 header-container">
-          <Header />
-        </div>
+    <PageLayout>
+      <div className="space-y-6">
+        <p className="text-lg md:text-xl leading-relaxed text-foreground/90 text-pretty animate-enter">
+          I am a software engineer at{" "}
+          <Link
+            href="https://v0.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-foreground underline decoration-muted-foreground/40 underline-offset-4 hover:decoration-foreground transition-colors"
+          >
+            v0.app
+          </Link>
+          . I live in San Francisco, originally from Buenos Aires.
+        </p>
 
-        {/* Bio content */}
-        <section className="pl-8 max-w-xl content-area">
-          <div className="space-y-1.5 text-sm leading-relaxed">
-            <p>I live in San Francisco, California.</p>
-            <p>Originally from Buenos Aires (I love mate).</p>
-            <p>
-              I work at{" "}
-              <Link
-                href="https://v0.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:text-primary/80 transition-colors"
-              >
-                v0.app
-              </Link>{" "}
-              as a software engineer.
-            </p>
-            <p>I{"'"}m a magician. I do weird things with cards.</p>
-            <p>I{"'"}m a hacker. I love doing reverse engineering.</p>
-            <p>
-              Here is my{" "}
-              <Link
-                href="https://github.com/nicolasmontone"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:text-primary/80 transition-colors"
-              >
-                GitHub
-              </Link>
-              {" "}and{" "}
-              <Link
-                href="https://x.com/montonenico"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:text-primary/80 transition-colors"
-              >
-                X
-              </Link>
-              .
-            </p>
-          </div>
-        </section>
+        <p className="text-base leading-relaxed text-muted-foreground animate-enter-delay-1">
+          I{"'"}m a magician who does weird things with cards, and a hacker who
+          loves reverse engineering. I build things, break things, and
+          occasionally make things disappear.
+        </p>
+
+        <div className="pt-4 flex items-center gap-6 animate-enter-delay-2">
+          <Link
+            href="https://github.com/nicolasmontone"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            GitHub
+          </Link>
+          <span className="text-border" aria-hidden="true">
+            /
+          </span>
+          <Link
+            href="https://x.com/montonenico"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            X
+          </Link>
+        </div>
       </div>
-    </main>
+    </PageLayout>
   )
 }

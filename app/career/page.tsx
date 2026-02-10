@@ -1,41 +1,44 @@
 import Link from "next/link"
-import { Header } from "@/components/header"
+import { PageLayout } from "@/components/page-layout"
+
+const career = [
+  {
+    company: "v0.app",
+    href: "https://v0.app",
+    role: "Software Engineer",
+    period: "Current",
+  },
+  {
+    company: "pluggy.ai",
+    href: "https://pluggy.ai",
+    role: "Software Engineer",
+    period: "Previously",
+  },
+]
 
 export default function CareerPage() {
   return (
-    <main className="min-h-screen bg-background text-muted-foreground font-sans">
-      <div className="flex py-12 px-8 md:px-16">
-        {/* Header on the left */}
-        <div className="w-40 flex-shrink-0 pr-8 border-r border-border/50 header-container">
-          <Header />
-        </div>
-
-        {/* Career */}
-        <section className="pl-8 max-w-xl content-area">
-            <div className="space-y-1.5">
-              <p className="text-sm text-muted-foreground">
-                <Link
-                  href="https://v0.app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-primary transition-colors"
-                >
-                  Currently at v0.app
-                </Link>
-              </p>
-              <p className="text-sm text-muted-foreground">
-                <Link
-                  href="https://pluggy.ai"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-primary transition-colors"
-                >
-                  Former pluggy.ai
-                </Link>
-              </p>
+    <PageLayout>
+      <div className="space-y-6">
+        {career.map((item) => (
+          <div key={item.company} className="group">
+            <div className="flex items-baseline gap-3">
+              <Link
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-base text-foreground/90 hover:text-foreground transition-colors"
+              >
+                {item.company}
+              </Link>
+              <span className="text-xs text-muted-foreground/60">
+                {item.period}
+              </span>
             </div>
-          </section>
+            <p className="text-sm text-muted-foreground mt-1">{item.role}</p>
+          </div>
+        ))}
       </div>
-    </main>
+    </PageLayout>
   )
 }
