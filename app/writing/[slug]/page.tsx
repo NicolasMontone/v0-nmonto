@@ -43,31 +43,31 @@ export default function WritingPostPage({ params }: WritingPostPageProps) {
 
   return (
     <main className="min-h-screen bg-background text-muted-foreground font-sans">
-      <div className="flex py-12 px-8 md:px-16">
+      <div className="flex flex-col md:flex-row py-16 px-6 md:px-16 lg:px-24">
         {/* Header on the left */}
-        <div className="w-40 flex-shrink-0 pr-8 border-r border-border/50 header-container">
+        <div className="md:w-44 flex-shrink-0 md:pr-10 pb-10 md:pb-0 md:border-r border-b md:border-b-0 border-border/40 header-container">
           <Header />
         </div>
 
         {/* Article content */}
-        <div className="pl-8 max-w-xl content-area">
+        <div className="pt-10 md:pt-0 md:pl-14 max-w-2xl content-area">
           {/* Article Header */}
-          <div className="mb-8">
-            <h2 className="text-lg font-medium mb-2 text-foreground leading-tight">{post.title}</h2>
+          <div className="mb-10">
+            <h2 className="text-xl font-medium mb-3 text-foreground leading-tight text-pretty">{post.title}</h2>
 
-            {post.excerpt && <p className="text-sm text-muted-foreground mb-2 leading-relaxed">{post.excerpt}</p>}
+            {post.excerpt && <p className="text-base text-muted-foreground mb-3 leading-relaxed">{post.excerpt}</p>}
 
-            <p className="text-xs text-muted-foreground/70">{post.date}</p>
+            <p className="text-xs text-muted-foreground/60">{post.date}</p>
           </div>
 
           {/* Content */}
-          <div className="border-t border-border/50 mb-8">
-            <div className="prose prose-sm prose-neutral dark:prose-invert max-w-none pt-6">
+          <div className="border-t border-border/40 mb-10">
+            <div className="prose prose-sm prose-neutral dark:prose-invert max-w-none pt-8">
               <MDXRemote source={post.content} />
             </div>
           </div>
 
-          <footer className="border-t border-border/50 pt-6 space-y-4">
+          <footer className="border-t border-border/40 pt-8 space-y-4">
             {otherPosts.length > 0 && (
               <div>
                 <Link
@@ -79,7 +79,7 @@ export default function WritingPostPage({ params }: WritingPostPageProps) {
               </div>
             )}
           </footer>
-          </div>
+        </div>
       </div>
     </main>
   )

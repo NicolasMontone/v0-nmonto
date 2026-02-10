@@ -7,21 +7,21 @@ export default async function WritingPage() {
 
   return (
     <main className="min-h-screen bg-background text-muted-foreground font-sans">
-      <div className="flex py-12 px-8 md:px-16">
+      <div className="flex flex-col md:flex-row py-16 px-6 md:px-16 lg:px-24">
         {/* Header on the left */}
-        <div className="w-40 flex-shrink-0 pr-8 border-r border-border/50 header-container">
+        <div className="md:w-44 flex-shrink-0 md:pr-10 pb-10 md:pb-0 md:border-r border-b md:border-b-0 border-border/40 header-container">
           <Header />
         </div>
 
         {/* Writing */}
-        <section className="pl-8 max-w-xl content-area">
+        <section className="pt-10 md:pt-0 md:pl-14 max-w-2xl content-area">
           {posts.length > 0 ? (
-            <div className="space-y-1.5">
+            <div className="space-y-4">
               {posts.map((post) => (
                 <div key={post.slug}>
                   <Link
                     href={`/writing/${post.slug}`}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    className="text-base text-foreground/90 hover:text-foreground transition-colors"
                   >
                     {post.title}
                   </Link>
@@ -29,9 +29,9 @@ export default async function WritingPage() {
               ))}
             </div>
           ) : (
-            <p className="text-sm text-muted-foreground">No posts yet.</p>
+            <p className="text-base text-muted-foreground">No posts yet.</p>
           )}
-          </section>
+        </section>
       </div>
     </main>
   )
