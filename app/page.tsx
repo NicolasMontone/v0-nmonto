@@ -28,6 +28,18 @@ export default function Home() {
               as a software engineer.
             </p>
             <p>I{"'"}m a magician. I do weird things with cards.</p>
+            <p>
+              I work alongside{" "}
+              <Link
+                href="https://idopesok.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:text-primary/80 transition-colors"
+              >
+                Ido Pesok
+              </Link>
+              .
+            </p>
             <p>I{"'"}m a hacker. I love doing reverse engineering.</p>
             <p>
               Here is my{" "}
