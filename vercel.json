@@ -1,0 +1,26 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "nicolasmontone.com"
+        }
+      ],
+      "destination": "https://nmonto.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.nicolasmontone.com"
+        }
+      ],
+      "destination": "https://nmonto.com/:path*",
+      "permanent": true
+    }
+  ]
+}
