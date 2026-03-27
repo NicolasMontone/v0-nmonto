@@ -15,7 +15,7 @@ export function Header() {
   return (
     <header className="text-left md:text-right">
       <Link href="/" className="hover:opacity-80 transition-opacity">
-        <h1 className="text-xl font-normal mb-3 text-foreground">monto</h1>
+        <h1 className="text-xl font-normal mb-3 text-foreground">monto!</h1>
       </Link>
       <nav className="flex flex-col gap-1">
         {navLinks.map((link) => (

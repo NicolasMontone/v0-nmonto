@@ -23,12 +23,12 @@ export async function generateMetadata({ params }: WritingPostPageProps): Promis
 
   if (!post) {
     return {
-      title: "monto",
+      title: "monto!",
     }
   }
 
   return {
-    title: `monto - ${post.title}`,
+    title: `monto! - ${post.title}`,
   }
 }
 
