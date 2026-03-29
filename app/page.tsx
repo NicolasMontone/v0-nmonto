@@ -29,6 +29,7 @@ export default function Home() {
             </p>
             <p>I{"'"}m a magician. I do weird things with cards.</p>
             <p>I{"'"}m a hacker. I love doing reverse engineering.</p>
+            <p>test</p>
             <p>
               Here is my{" "}
               <Link
