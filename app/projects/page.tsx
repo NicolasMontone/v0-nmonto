@@ -1,91 +1,84 @@
 import Link from "next/link"
-import { Header } from "@/components/header"
+import { ArrowUpRight } from "lucide-react"
+import { PageLayout } from "@/components/page-layout"
+
+const projects = [
+  {
+    title: "AI SDK Agents",
+    description: "Install AI tools for AI SDK using shadcn CLI",
+    href: "https://github.com/NicolasMontone/ai-sdk-agents",
+    tag: "AI",
+  },
+  {
+    title: "Grida",
+    description:
+      "Graphical reverse engineering tool for Android dynamic instrumentation",
+    href: "https://github.com/pluggyai/grida",
+    tag: "Security",
+  },
+  {
+    title: "Chat with your Base",
+    description: "Postgres + LLMs",
+    href: "http://github.com/nicolasmontone/chat-with-your-base",
+    tag: "AI",
+  },
+  {
+    title: "TranslateMenu",
+    description: "Translate your menu to any language",
+    href: "https://translatemenu.com/",
+    tag: "Product",
+  },
+  {
+    title: "CryptosApp Wallet",
+    description: "WhatsApp bot where you can transfer crypto",
+    href: "https://github.com/NicolasMontone/cryptosapp-wallet",
+    tag: "Crypto",
+  },
+  {
+    title: "Kill node_modules",
+    description: "Raycast extension to kill node_modules",
+    href: "https://www.raycast.com/NicolasMontone/kill-node-modules",
+    tag: "Tooling",
+  },
+  {
+    title: "Cookie String Parser",
+    description: "Parse cookies in Raycast",
+    href: "https://www.raycast.com/NicolasMontone/cookie-string-parser",
+    tag: "Tooling",
+  },
+]
 
 export default function ProjectsPage() {
   return (
-    <main className="min-h-screen bg-background text-muted-foreground font-sans">
-      <div className="flex py-12 px-8 md:px-16">
-        {/* Header on the left */}
-        <div className="w-40 flex-shrink-0 pr-8 border-r border-border/50 header-container">
-          <Header />
-        </div>
-
-        {/* Projects */}
-        <section className="pl-8 max-w-xl content-area">
-          <div className="space-y-1.5">
-            <p className="text-sm text-muted-foreground">
-              <Link
-                href="https://github.com/NicolasMontone/ai-sdk-agents"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-primary transition-colors"
-              >
-                Install ai tools for AI SDK using shadcn CLI
-              </Link>
-            </p>
-            <p className="text-sm text-muted-foreground">
-              <Link
-                href="https://github.com/pluggyai/grida"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-primary transition-colors"
-              >
-                User graphical reverse engineering tool for android dynamic instrumentation
-              </Link>
-            </p>
-            <p className="text-sm text-muted-foreground">
-              <Link
-                href="http://github.com/nicolasmontone/chat-with-your-base"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-primary transition-colors"
-              >
-                Postgres + LLMs
-              </Link>
-            </p>
-            <p className="text-sm text-muted-foreground">
-              <Link
-                href="https://translatemenu.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-primary transition-colors"
-              >
-                Translate your menu to any language
-              </Link>
-            </p>
-            <p className="text-sm text-muted-foreground">
-              <Link
-                href="https://github.com/NicolasMontone/cryptosapp-wallet"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-primary transition-colors"
-              >
-                WhatsApp bot where you can transfer crypto
-              </Link>
-            </p>
-            <p className="text-sm text-muted-foreground">
-              <Link
-                href="https://www.raycast.com/NicolasMontone/kill-node-modules"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-primary transition-colors"
-              >
-                Raycast extension to kill node_modules
-              </Link>
-            </p>
-            <p className="text-sm text-muted-foreground">
-              <Link
-                href="https://www.raycast.com/NicolasMontone/cookie-string-parser"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-primary transition-colors"
-              >
-                Parse cookies in Raycast
-              </Link>
-            </p>
-          </div>
-          </section>
+    <PageLayout>
+      <div className="space-y-2">
+        {projects.map((project) => (
+          <Link
+            key={project.title}
+            href={project.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group -mx-3 block rounded-lg px-3 py-3 transition-colors hover:bg-muted/50"
+          >
+            <div className="flex items-center justify-between gap-4">
+              <div className="flex-1 min-w-0">
+                <div className="flex items-baseline gap-2">
+                  <span className="text-base text-foreground/90 group-hover:text-foreground transition-colors">
+                    {project.title}
+                  </span>
+                  <ArrowUpRight className="size-3.5 text-muted-foreground/40 group-hover:text-foreground/60 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </div>
+                <p className="text-sm text-muted-foreground mt-0.5">
+                  {project.description}
+                </p>
+              </div>
+              <span className="hidden sm:inline-flex shrink-0 text-[11px] font-mono text-muted-foreground/50 uppercase tracking-wider">
+                {project.tag}
+              </span>
+            </div>
+          </Link>
+        ))}
       </div>
-    </main>
+    </PageLayout>
   )
 }
