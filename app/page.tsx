@@ -27,7 +27,7 @@ export default function Home() {
               </Link>{" "}
               as a software engineer.
             </p>
-            <p>I{"'"}m a magician. I do weird things with cards.</p>
+            <p>I{"'"}m a magician. I do weird (and cool) things with cards.</p>
             <p>I{"'"}m a hacker. I love doing reverse engineering.</p>
             <p>
               Here is my{" "}
