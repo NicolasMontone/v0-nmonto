@@ -13,6 +13,7 @@ export default function Home() {
         {/* Bio content */}
         <section className="pl-8 max-w-xl content-area">
           <div className="space-y-1.5 text-sm leading-relaxed">
+            <p className="text-primary font-semibold">🧪 Testing mode active</p>
             <p>I live in San Francisco, California.</p>
             <p>Originally from Buenos Aires (I love mate).</p>
             <p>
