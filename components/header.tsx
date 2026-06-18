@@ -9,7 +9,6 @@ export function Header() {
   const navLinks = [
     { href: "/career", label: "Career" },
     { href: "/projects", label: "Projects" },
-    { href: "/writing", label: "Writing" },
   ]
 
   return (
