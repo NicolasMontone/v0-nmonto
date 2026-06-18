@@ -48,6 +48,15 @@ export default function Home() {
               >
                 X
               </Link>
+              {" "}and{" "}
+              <Link
+                href="https://instagram.com/nicolasmontone"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:text-primary/80 transition-colors"
+              >
+                Instagram
+              </Link>
               .
             </p>
           </div>
