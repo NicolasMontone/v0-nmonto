@@ -22,6 +22,10 @@ Continue building your app on:
 
 **[https://v0.app/chat/projects/RXwDMa7W5nQ](https://v0.app/chat/projects/RXwDMa7W5nQ)**
 
+## TODO
+
+- [ ] Have a billion dollar company
+
 ## How It Works
 
 1. Create and modify your project using [v0.app](https://v0.app)
