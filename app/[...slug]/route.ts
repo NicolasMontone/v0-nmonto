@@ -1,4 +1,5 @@
 import { redirect } from "next/navigation"
+import { notFoundMarkdown } from "@/lib/content"
 
 export function GET(req: Request) {
   const url = new URL(req.url)
@@ -15,7 +16,14 @@ export function GET(req: Request) {
     redirect("https://github.com/nicolasmontone")
   }
 
-  return new Response("Not found", {
+  // Real 404 with a short Markdown body so agents can recover: it points at the
+  // main pages, the sitemap, and the agent guide (llms.txt).
+  return new Response(notFoundMarkdown(), {
     status: 404,
+    headers: {
+      "Content-Type": "text/markdown; charset=utf-8",
+      Vary: "Accept, Accept-Encoding",
+      "X-Content-Type-Options": "nosniff",
+    },
   })
 }
