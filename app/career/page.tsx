@@ -1,5 +1,12 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import { Header } from "@/components/header"
+
+export const metadata: Metadata = {
+  title: "Career — Nicolas Montone",
+  description: "Nicolas Montone's career: currently at v0.app, formerly at pluggy.ai.",
+  alternates: { canonical: "/career" },
+}
 
 export default function CareerPage() {
   return (

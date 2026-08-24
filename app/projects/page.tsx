@@ -1,5 +1,13 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import { Header } from "@/components/header"
+
+export const metadata: Metadata = {
+  title: "Projects — Nicolas Montone",
+  description:
+    "Open-source projects and tools built by Nicolas Montone, including AI SDK tooling, reverse-engineering utilities, and Raycast extensions.",
+  alternates: { canonical: "/projects" },
+}
 
 export default function ProjectsPage() {
   return (
