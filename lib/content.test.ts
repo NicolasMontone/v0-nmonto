@@ -45,6 +45,14 @@ describe("trust anchor content length", () => {
       expect(pageMarkdown[slug].length).toBeGreaterThanOrEqual(500)
     }
   })
+
+  // The Is-Agentic audit flagged the homepage specifically for having too
+  // little content, so hold the homepage to the same 500-char floor.
+  it("the homepage has an H1 and at least 500 characters of content", () => {
+    const home = pageMarkdown[""]
+    expect(home.trimStart().startsWith("# ")).toBe(true)
+    expect(home.length).toBeGreaterThanOrEqual(500)
+  })
 })
 
 describe("notFoundMarkdown", () => {

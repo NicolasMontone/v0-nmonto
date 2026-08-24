@@ -15,8 +15,10 @@ export function Header() {
 
   return (
     <header className="text-left md:text-right">
-      <Link href="/" className="hover:opacity-80 transition-opacity">
-        <h1 className="text-xl font-normal mb-3 text-foreground">monto</h1>
+      <Link href="/" className="hover:opacity-80 transition-opacity" aria-label="monto — home">
+        {/* Wordmark, not a page heading: each page owns its own descriptive H1,
+            so the brand renders as a styled span to keep one H1 per document. */}
+        <span className="block text-xl font-normal mb-3 text-foreground">monto</span>
       </Link>
       <nav className="flex flex-col gap-1">
         {navLinks.map((link) => (

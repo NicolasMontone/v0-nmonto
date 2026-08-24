@@ -27,6 +27,7 @@ export default function ContactPage() {
 
         {/* Contact */}
         <section className="pl-8 max-w-xl content-area">
+          <h1 className="sr-only">Contact Nicolas Montone (monto)</h1>
           <h2 className="text-sm text-foreground mb-3">Contact</h2>
           <div className="space-y-3 text-sm leading-relaxed">
             <p>

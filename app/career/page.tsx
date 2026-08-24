@@ -19,6 +19,7 @@ export default function CareerPage() {
 
         {/* Career */}
         <section className="pl-8 max-w-xl content-area">
+            <h1 className="sr-only">Career of Nicolas Montone (monto) — v0.app, formerly pluggy.ai</h1>
             <div className="space-y-1.5">
               <p className="text-sm text-muted-foreground">
                 <Link

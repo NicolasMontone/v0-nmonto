@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { Header } from "@/components/header"
 import { site } from "@/lib/site"
+import { homepageJsonLd } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
   title: "Nicolas Montone — Software Engineer",
@@ -12,6 +13,11 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="min-h-screen bg-background text-muted-foreground font-sans">
+      {/* JSON-LD identity (Person + WebSite) so agents can parse who this is. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: homepageJsonLd() }}
+      />
       <div className="flex py-12 px-8 md:px-16">
         {/* Header on the left */}
         <div className="w-40 flex-shrink-0 pr-8 border-r border-border/50 header-container">
@@ -20,7 +26,11 @@ export default function Home() {
 
         {/* Bio content */}
         <section className="pl-8 max-w-xl content-area">
-          <h2 className="sr-only">About Nicolas Montone</h2>
+          {/* Descriptive, server-rendered H1. Visually hidden to preserve the
+              minimalist design, but present in the raw HTML for crawlers/agents. */}
+          <h1 className="sr-only">
+            Nicolas Montone (monto) — Software Engineer at v0.app in San Francisco
+          </h1>
           <div className="space-y-1.5 text-sm leading-relaxed">
             <p>I live in San Francisco, California.</p>
             <p>Originally from Buenos Aires (I love mate).</p>
