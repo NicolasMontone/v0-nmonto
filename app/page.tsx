@@ -1,6 +1,8 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { Header } from "@/components/header"
+import { JsonLd } from "@/components/json-ld"
+import { homepageJsonLd } from "@/lib/schema"
 import { site } from "@/lib/site"
 
 export const metadata: Metadata = {
@@ -12,6 +14,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="min-h-screen bg-background text-muted-foreground font-sans">
+      <JsonLd data={homepageJsonLd()} />
       <div className="flex py-12 px-8 md:px-16">
         {/* Header on the left */}
         <div className="w-40 flex-shrink-0 pr-8 border-r border-border/50 header-container">
@@ -20,7 +23,7 @@ export default function Home() {
 
         {/* Bio content */}
         <section className="pl-8 max-w-xl content-area">
-          <h2 className="sr-only">About Nicolas Montone</h2>
+          <h1 className="sr-only">Nicolas Montone — Software Engineer at v0.app</h1>
           <div className="space-y-1.5 text-sm leading-relaxed">
             <p>I live in San Francisco, California.</p>
             <p>Originally from Buenos Aires (I love mate).</p>

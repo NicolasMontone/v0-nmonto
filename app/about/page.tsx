@@ -20,7 +20,7 @@ export default function AboutPage() {
 
         {/* About */}
         <section className="pl-8 max-w-xl content-area">
-          <h2 className="text-sm text-foreground mb-3">About</h2>
+          <h1 className="text-sm text-foreground mb-3">About Nicolas Montone</h1>
           <div className="space-y-3 text-sm leading-relaxed">
             <p>
               I{"'"}m Nicolas Montone — most people call me monto. I{"'"}m a software engineer at{" "}
