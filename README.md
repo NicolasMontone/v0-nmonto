@@ -1,6 +1,6 @@
 # nmonto.com
 
-Personal website and portfolio.
+Personal website and portfolio of Nicolas Montone.
 
 *Automatically synced with your [v0.app](https://v0.app) deployments*
 
