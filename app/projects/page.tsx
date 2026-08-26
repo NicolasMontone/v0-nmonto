@@ -20,6 +20,7 @@ export default function ProjectsPage() {
 
         {/* Projects */}
         <section className="pl-8 max-w-xl content-area">
+          <h1 className="sr-only">Projects by Nicolas Montone</h1>
           <div className="space-y-1.5">
             <p className="text-sm text-muted-foreground">
               <Link

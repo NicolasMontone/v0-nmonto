@@ -27,7 +27,7 @@ export default function ContactPage() {
 
         {/* Contact */}
         <section className="pl-8 max-w-xl content-area">
-          <h2 className="text-sm text-foreground mb-3">Contact</h2>
+          <h1 className="text-sm text-foreground mb-3">Contact Nicolas Montone</h1>
           <div className="space-y-3 text-sm leading-relaxed">
             <p>
               The best ways to reach me are below. I read direct messages on X and GitHub, and for anything work-related

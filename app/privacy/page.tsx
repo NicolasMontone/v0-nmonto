@@ -19,7 +19,7 @@ export default function PrivacyPage() {
 
         {/* Privacy */}
         <section className="pl-8 max-w-xl content-area">
-          <h2 className="text-sm text-foreground mb-3">Privacy</h2>
+          <h1 className="text-sm text-foreground mb-3">Privacy</h1>
           <div className="space-y-3 text-sm leading-relaxed">
             <p>
               nmonto.com is the personal website of Nicolas Montone. It is a static informational site, and this policy
