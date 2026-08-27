@@ -23,10 +23,12 @@ export function personSchema() {
       name: "v0.app",
       url: "https://v0.app",
     },
+    // Derived from the single source of truth in site.location so the structured
+    // data can never drift from the human-readable "San Francisco, California".
     address: {
       "@type": "PostalAddress",
-      addressLocality: "San Francisco",
-      addressRegion: "CA",
+      addressLocality: site.location.split(",")[0].trim(),
+      addressRegion: site.location.split(",")[1]?.trim(),
       addressCountry: "US",
     },
     knowsAbout: [
