@@ -9,8 +9,29 @@ Personal website and portfolio of Nicolas Montone, built with Next.js.
 
 ## Overview
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+nmonto.com is the personal website and portfolio of Nicolas Montone. It's built with Next.js and deployed on Vercel.
+
+This repository stays in sync with your deployed chats on [v0.app](https://v0.app).
+Any changes you make to your deployed app are automatically pushed to this repository from [v0.app](https://v0.app).
+
+## Tech Stack
+
+- **Framework:** Next.js (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **Hosting:** Vercel
+- **Built with:** [v0.app](https://v0.app)
+
+## Getting Started
+
+Run the development server locally:
+
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
 ## Deployment
 
