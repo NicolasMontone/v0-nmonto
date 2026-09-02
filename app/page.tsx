@@ -23,27 +23,37 @@ export default function Home() {
 
         {/* Bio content */}
         <section className="pl-8 max-w-xl content-area">
-          <h1 className="sr-only">Nicolas Montone — Software Engineer at v0.app</h1>
-          <div className="space-y-1.5 text-sm leading-relaxed">
-            <p>I live in San Francisco, California.</p>
-            <p>Originally from Buenos Aires (I love mate).</p>
-            <p>
-              I work at{" "}
+          {/* Visible identity: name + role + one-line story so a human eye has an anchor. */}
+          <div className="mb-8">
+            <h1 className="text-2xl md:text-3xl font-medium tracking-tight text-foreground text-balance">
+              Nicolas Montone
+            </h1>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Software engineer at{" "}
               <Link
                 href="https://v0.app"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-primary hover:text-primary/80 transition-colors"
+                className="text-foreground underline decoration-border underline-offset-4 hover:decoration-foreground transition-colors"
               >
                 v0.app
               </Link>{" "}
-              as a software engineer, where I build developer tools and AI-powered applications. I care about fast,
-              well-crafted software and about making complex systems feel approachable.
+              · San Francisco, CA
             </p>
-            <p>I{"'"}m a magician.</p>
+            <p className="mt-4 text-base leading-relaxed text-foreground/90 text-pretty">
+              I build developer tools and AI-powered software — and away from the keyboard, I do card magic and
+              reverse-engineer things for fun.
+            </p>
+          </div>
+
+          <div className="space-y-3 text-sm leading-relaxed">
             <p>
-              I{"'"}m a hacker. I love doing reverse engineering — taking systems apart to understand exactly how they
-              work. That same curiosity is what drives the software I build.
+              Originally from Buenos Aires (I love mate), now in San Francisco. I care about fast, well-crafted
+              software and about making complex systems feel approachable.
+            </p>
+            <p>
+              The magic and the hacking come from the same place: I love taking things apart to understand exactly
+              how they work. That same curiosity is what drives everything I ship.
             </p>
             <p>
               You can read more{" "}
