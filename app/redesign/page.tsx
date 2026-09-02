@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { Header } from "@/components/header"
 import { InspirationFeed } from "@/components/redesign/inspiration-feed"
-import { collectPalette, inspirations, inspirationsUpdatedAt } from "@/lib/inspirations"
+import { inspirations, inspirationsUpdatedAt } from "@/lib/inspirations"
 import { getPageByPath } from "@/lib/site"
 
 const page = getPageByPath("/redesign")!
@@ -13,8 +13,6 @@ export const metadata: Metadata = {
 }
 
 export default function RedesignPage() {
-  const palette = collectPalette(inspirations)
-
   return (
     <main className="min-h-screen bg-background text-muted-foreground font-sans">
       <div className="flex py-12 px-8 md:px-16">
@@ -33,30 +31,10 @@ export default function RedesignPage() {
               of the pile.
             </p>
             <p>
-              Everything here is stored as-is and logged by day. The generative piece that ends up on the homepage
-              will be built from these colors and textures, and I{"'"}ll document that here too.
+              Everything here is stored as-is. The generative piece that ends up on the homepage will be built
+              from these colors and textures, and I{"'"}ll document that here too.
             </p>
           </div>
-
-          {palette.length > 0 ? (
-            <div className="mt-6 flex items-center gap-3">
-              <span className="font-mono text-[11px] uppercase tracking-wide text-muted-foreground/70">
-                Palette so far
-              </span>
-              <ul className="flex flex-wrap gap-1" aria-label="All dominant colors collected so far">
-                {palette.map((c) => (
-                  <li
-                    key={c}
-                    className="h-3 w-3 rounded-[2px] ring-1 ring-inset ring-white/10"
-                    style={{ backgroundColor: c }}
-                    title={c}
-                  >
-                    <span className="sr-only">{c}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ) : null}
 
           <div className="mt-10">
             <InspirationFeed items={inspirations} />
