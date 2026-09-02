@@ -347,6 +347,41 @@
         "width": 1280,
         "height": 2710
       }
+    },
+    {
+      "id": "cats-eye-marbles",
+      "kind": "photo",
+      "title": "Cat's-eye marbles",
+      "by": "Unknown",
+      "note": "Four cat's-eye marbles on a pale gray surface. Clear glass with a twisted ribbon of color suspended inside: green and yellow, red and yellow, yellow and blue, a darker orange one. A single square highlight on each, soft shadows. The color is captured inside something transparent, not painted on top. Childhood object, same era as the cards and the anime, but quiet, physical, and on a light ground like the wash renders.",
+      "tags": [
+        "marbles",
+        "glass",
+        "cats-eye",
+        "object",
+        "childhood",
+        "nostalgia",
+        "transparency",
+        "refraction",
+        "twist",
+        "primary-colors",
+        "light-ground"
+      ],
+      "palette": [
+        "#5c1401",
+        "#4c533c",
+        "#8a948b",
+        "#a3b3a5",
+        "#c9cac9"
+      ],
+      "addedAt": "2026-09-02",
+      "media": {
+        "url": "https://eyva1j4yempnbwda.public.blob.vercel-storage.com/inspirations/photo/cats-eye-marbles.png",
+        "contentType": "image/png",
+        "size": 677475,
+        "width": 1200,
+        "height": 1200
+      }
     }
   ]
 }
