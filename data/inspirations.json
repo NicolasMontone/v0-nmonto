@@ -382,6 +382,46 @@
         "width": 1200,
         "height": 1200
       }
+    },
+    {
+      "id": "adidas-jabulani",
+      "kind": "photo",
+      "title": "Jabulani",
+      "by": "adidas — 2010 FIFA World Cup, South Africa",
+      "year": 2010,
+      "note": "The 2010 World Cup ball on the grass. White sphere, eight bonded panels, curved black-green textured bands with orange and yellow trim, a zigzag triangle motif running along them, adidas mark and the South Africa 2010 emblem. Shot low, shallow focus. A famous, slightly hated object: too round, too smooth, flew wrong. Curved bands wrapping a white body, same idea as the marbles' ribbons but on the outside.",
+      "tags": [
+        "football",
+        "jabulani",
+        "world-cup",
+        "2010",
+        "south-africa",
+        "object",
+        "nostalgia",
+        "curves",
+        "bands",
+        "zigzag",
+        "pattern",
+        "white",
+        "orange",
+        "green",
+        "grass"
+      ],
+      "palette": [
+        "#0d0e0c",
+        "#2c3a1c",
+        "#4c533b",
+        "#bbc3c4",
+        "#d4dfe1"
+      ],
+      "addedAt": "2026-09-02",
+      "media": {
+        "url": "https://eyva1j4yempnbwda.public.blob.vercel-storage.com/inspirations/photo/adidas-jabulani.png",
+        "contentType": "image/png",
+        "size": 313612,
+        "width": 399,
+        "height": 501
+      }
     }
   ]
 }
