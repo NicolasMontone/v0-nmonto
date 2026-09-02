@@ -18,7 +18,7 @@ function Palette({ colors }: { colors: string[] }) {
       {colors.map((c) => (
         <li
           key={c}
-          className="h-3 w-3 rounded-[2px] ring-1 ring-inset ring-white/10"
+          className="h-2.5 w-2.5 rounded-[2px] ring-1 ring-inset ring-white/10"
           style={{ backgroundColor: c }}
           title={c}
         >
@@ -37,12 +37,9 @@ function Media({ item }: { item: Inspiration }) {
   const alt = item.by ? `${item.title} by ${item.by}` : item.title
 
   return (
-    // self-start keeps the frame from stretching to the text column's height;
-    // the frame itself carries the image's own aspect ratio from the manifest.
-    <figure
-      className="self-start overflow-hidden rounded-sm bg-muted/40"
-      style={{ aspectRatio: ratio }}
-    >
+    // The frame carries the image's own aspect ratio from the manifest, so the
+    // masonry columns can be laid out before any image has loaded.
+    <div className="overflow-hidden rounded-sm bg-muted/40" style={{ aspectRatio: ratio }}>
       {/* Blob URLs are remote; a plain <img> avoids next/image domain config while
           the pile is still growing. Dimensions come from the manifest. */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -55,40 +52,39 @@ function Media({ item }: { item: Inspiration }) {
         decoding="async"
         className="h-full w-full object-cover"
       />
-    </figure>
+    </div>
   )
 }
 
-function Entry({ item }: { item: Inspiration }) {
+function Tile({ item }: { item: Inspiration }) {
   const heading = item.by ? `${item.title} — ${item.by}` : item.title
   return (
-    <article className="grid gap-3 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:gap-6">
+    // break-inside-avoid keeps a tile from being split across two columns.
+    <figure className="mb-4 break-inside-avoid">
       <Media item={item} />
-      <div className="flex flex-col gap-2 text-sm">
-        <h3 className="text-sm text-foreground">
+      <figcaption className="mt-2 flex flex-col gap-1.5">
+        <p className="text-xs leading-snug text-muted-foreground">
           {item.source ? (
             <Link
               href={item.source}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-primary/80 transition-colors"
+              className="hover:text-foreground transition-colors"
             >
               {heading}
             </Link>
           ) : (
             heading
           )}
-        </h3>
+        </p>
         {item.audio ? (
-          <audio controls preload="none" src={item.audio.url} className="mt-1 h-8 w-full max-w-xs">
+          <audio controls preload="none" src={item.audio.url} className="h-8 w-full">
             <track kind="captions" />
           </audio>
         ) : null}
-        <div className="mt-auto pt-1">
-          <Palette colors={item.palette} />
-        </div>
-      </div>
-    </article>
+        <Palette colors={item.palette} />
+      </figcaption>
+    </figure>
   )
 }
 
@@ -104,13 +100,16 @@ export function InspirationFeed({ items }: { items: Inspiration[] }) {
   return (
     <div className="space-y-10">
       {groupByDay(items).map(({ day, items: dayItems }) => (
-        <section key={day} aria-labelledby={`day-${day}`} className="space-y-6">
+        <section key={day} aria-labelledby={`day-${day}`} className="space-y-4">
           <h2 id={`day-${day}`} className="font-mono text-xs text-muted-foreground/70">
             <time dateTime={day}>{formatDay(day)}</time>
           </h2>
-          <div className="space-y-8">
+          {/* CSS multi-column masonry: no client JS, and no layout shift because
+              every tile already knows its aspect ratio. Items flow down each
+              column in turn, which is fine for a same-day pile. */}
+          <div className="columns-2 gap-4 md:columns-3">
             {dayItems.map((item) => (
-              <Entry key={item.id} item={item} />
+              <Tile key={item.id} item={item} />
             ))}
           </div>
         </section>

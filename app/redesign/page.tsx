@@ -22,9 +22,11 @@ export default function RedesignPage() {
           <Header />
         </div>
 
-        <section className="pl-8 max-w-2xl flex-1 content-area">
+        {/* Wider than the other pages so the masonry gets three real columns;
+            the prose stays at the site's usual measure. */}
+        <section className="pl-8 max-w-4xl flex-1 content-area">
           <h1 className="text-sm text-foreground">Redesign log</h1>
-          <div className="mt-1.5 space-y-1.5 text-sm leading-relaxed">
+          <div className="mt-1.5 max-w-2xl space-y-1.5 text-sm leading-relaxed">
             <p>
               I{"'"}m redesigning this site. Instead of starting from a blank page, I{"'"}m collecting what I keep
               coming back to — photographs, records, other people{"'"}s sites — and letting the new design grow out
