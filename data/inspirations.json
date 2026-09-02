@@ -240,6 +240,42 @@
         "width": 1000,
         "height": 552
       }
+    },
+    {
+      "id": "rabbit-mark",
+      "kind": "photo",
+      "title": "rabbit mark",
+      "by": "rabbit inc. (r1)",
+      "year": 2023,
+      "note": "A rabbit head as one white silhouette on black: two ears, a rounded face, and a single tiny black V for the mouth. Nothing else. It reads at 16px and on the side of a building, and the one small notch is what turns a blob into a face. Same family as the card back and the Jolly Roger: a fixed, repeated mark.",
+      "tags": [
+        "logo",
+        "seal",
+        "mark",
+        "silhouette",
+        "two-color",
+        "black",
+        "white",
+        "minimal",
+        "negative-space",
+        "animal"
+      ],
+      "source": "https://www.rabbit.tech",
+      "palette": [
+        "#000000",
+        "#2b2b2b",
+        "#acacac",
+        "#d3d3d3",
+        "#fefefe"
+      ],
+      "addedAt": "2026-09-02",
+      "media": {
+        "url": "https://eyva1j4yempnbwda.public.blob.vercel-storage.com/inspirations/photo/rabbit-mark.png",
+        "contentType": "image/png",
+        "size": 19830,
+        "width": 400,
+        "height": 400
+      }
     }
   ]
 }
