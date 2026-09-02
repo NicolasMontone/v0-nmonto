@@ -1,6 +1,170 @@
 {
   "$schema": "../lib/inspirations.ts",
   "version": 1,
-  "updatedAt": "2026-09-01",
-  "items": []
+  "updatedAt": "2026-09-02",
+  "items": [
+    {
+      "id": "wash-koi-koi",
+      "kind": "photo",
+      "title": "Wash: koi / koi, seed 4172",
+      "by": "Nicolas Montone — Watercolor design canvas (v0)",
+      "year": 2026,
+      "note": "The reference render. Soft-edged washes with feathered borders on a blue-gray banded paper; thin white ripple rings; sage lily pads drawn with hairline radial veins. Three koi built from a light body plus a few saturated patches.",
+      "tags": [
+        "own-work",
+        "generative",
+        "wash",
+        "watercolor",
+        "koi",
+        "ripples",
+        "paper"
+      ],
+      "source": "https://v0.app/nmonto/chat/watercolor-design-canvas-kirf5rpgD9u",
+      "palette": [
+        "#c3733c",
+        "#9aa5ac",
+        "#dbad7e",
+        "#b5bdc2",
+        "#d1d6d4"
+      ],
+      "addedAt": "2026-09-01",
+      "media": {
+        "url": "https://eyva1j4yempnbwda.public.blob.vercel-storage.com/inspirations/photo/wash-koi-koi.jpeg",
+        "contentType": "image/jpeg",
+        "size": 669143,
+        "width": 2400,
+        "height": 1600
+      }
+    },
+    {
+      "id": "wash-wildflower-cosmos",
+      "kind": "photo",
+      "title": "Wash: wildflower / cosmos, seed 4172",
+      "by": "Nicolas Montone — Watercolor design canvas (v0)",
+      "year": 2026,
+      "note": "Cream paper with a single brown horizon wash. Cosmos flowers as feathered five-petal blobs with a dark center dot, stems drawn as dotted lines, and short horizontal hairline dashes scattered like wind or grass.",
+      "tags": [
+        "own-work",
+        "generative",
+        "wash",
+        "watercolor",
+        "botanical",
+        "paper",
+        "hairline"
+      ],
+      "source": "https://v0.app/nmonto/chat/watercolor-design-canvas-kirf5rpgD9u",
+      "palette": [
+        "#d68b7d",
+        "#e2ac92",
+        "#dbcdaa",
+        "#ebe2cc"
+      ],
+      "addedAt": "2026-09-01",
+      "media": {
+        "url": "https://eyva1j4yempnbwda.public.blob.vercel-storage.com/inspirations/photo/wash-wildflower-cosmos.jpeg",
+        "contentType": "image/jpeg",
+        "size": 511830,
+        "width": 2400,
+        "height": 1600
+      }
+    },
+    {
+      "id": "wash-koi-cosmos",
+      "kind": "photo",
+      "title": "Wash: koi / cosmos, seed 4172",
+      "by": "Nicolas Montone — Watercolor design canvas (v0)",
+      "year": 2026,
+      "note": "Same koi system on warm sand paper in pinks and corals. Tail fins as fanned hairlines, olive lily pads top-right, white dots as petals or bubbles. Shows the palette swap changing the mood without changing the drawing.",
+      "tags": [
+        "own-work",
+        "generative",
+        "wash",
+        "watercolor",
+        "koi",
+        "warm",
+        "paper"
+      ],
+      "source": "https://v0.app/nmonto/chat/watercolor-design-canvas-kirf5rpgD9u",
+      "palette": [
+        "#db5243",
+        "#dd725d",
+        "#dd9474",
+        "#b3ab83",
+        "#ddccab"
+      ],
+      "addedAt": "2026-09-01",
+      "media": {
+        "url": "https://eyva1j4yempnbwda.public.blob.vercel-storage.com/inspirations/photo/wash-koi-cosmos.jpeg",
+        "contentType": "image/jpeg",
+        "size": 513144,
+        "width": 2400,
+        "height": 1600
+      }
+    },
+    {
+      "id": "wash-fern-sage",
+      "kind": "photo",
+      "title": "Wash: fern / sage, seed 4172",
+      "by": "Nicolas Montone — Watercolor design canvas (v0)",
+      "year": 2026,
+      "note": "Herbarium plate feel. A fern frond of stacked feathered leaflets on a hairline stem, sprigs with round leaf blobs, stray ochre spots, and tiny dash clusters at each stem base that read like handwritten captions.",
+      "tags": [
+        "own-work",
+        "generative",
+        "wash",
+        "watercolor",
+        "botanical",
+        "herbarium",
+        "hairline"
+      ],
+      "source": "https://v0.app/nmonto/chat/watercolor-design-canvas-kirf5rpgD9u",
+      "palette": [
+        "#91957b",
+        "#acac94",
+        "#cccab4",
+        "#eae4d3"
+      ],
+      "addedAt": "2026-09-01",
+      "media": {
+        "url": "https://eyva1j4yempnbwda.public.blob.vercel-storage.com/inspirations/photo/wash-fern-sage.jpeg",
+        "contentType": "image/jpeg",
+        "size": 640440,
+        "width": 2400,
+        "height": 1600
+      }
+    },
+    {
+      "id": "wash-koi-sumi",
+      "kind": "photo",
+      "title": "Wash: koi / sumi, seed 4172",
+      "by": "Nicolas Montone — Watercolor design canvas (v0)",
+      "year": 2026,
+      "note": "Identical composition to koi/koi (same seed) rendered in ink grays. Proof the system separates form from palette; the monochrome version is the one closest to the current site.",
+      "tags": [
+        "own-work",
+        "generative",
+        "wash",
+        "sumi-e",
+        "monochrome",
+        "koi",
+        "paper"
+      ],
+      "source": "https://v0.app/nmonto/chat/watercolor-design-canvas-kirf5rpgD9u",
+      "palette": [
+        "#3d3c3b",
+        "#7d7d7a",
+        "#9b9995",
+        "#b4b2ac",
+        "#cdcac2"
+      ],
+      "addedAt": "2026-09-01",
+      "media": {
+        "url": "https://eyva1j4yempnbwda.public.blob.vercel-storage.com/inspirations/photo/wash-koi-sumi.jpeg",
+        "contentType": "image/jpeg",
+        "size": 630843,
+        "width": 2400,
+        "height": 1600
+      }
+    }
+  ]
 }
