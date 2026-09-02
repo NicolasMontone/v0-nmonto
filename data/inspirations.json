@@ -203,6 +203,43 @@
         "width": 694,
         "height": 1013
       }
+    },
+    {
+      "id": "one-piece-jolly-roger",
+      "kind": "photo",
+      "title": "Straw Hat Jolly Roger",
+      "by": "Eiichiro Oda — One Piece",
+      "year": 1997,
+      "note": "One Piece marked how I want to live: pick a dream and build a crew of people who dream like you. The flag is the whole idea in one mark — a skull everyone recognizes, made yours by one small change (the hat). Black and white plus a single accent, readable at any size, flown from a wooden ship under a flat blue sky. A seal for a crew, the same job as the card back.",
+      "tags": [
+        "one-piece",
+        "crew",
+        "ethos",
+        "flag",
+        "jolly-roger",
+        "seal",
+        "mark",
+        "two-color",
+        "black",
+        "sky-blue",
+        "straw-hat",
+        "nostalgia"
+      ],
+      "palette": [
+        "#010101",
+        "#1c84dc",
+        "#42a4e2",
+        "#65baed",
+        "#93cdfb"
+      ],
+      "addedAt": "2026-09-02",
+      "media": {
+        "url": "https://eyva1j4yempnbwda.public.blob.vercel-storage.com/inspirations/photo/one-piece-jolly-roger.png",
+        "contentType": "image/png",
+        "size": 491741,
+        "width": 1000,
+        "height": 552
+      }
     }
   ]
 }
