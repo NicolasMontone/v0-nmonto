@@ -422,6 +422,45 @@
         "width": 399,
         "height": 501
       }
+    },
+    {
+      "id": "naruto-cursed-seal",
+      "kind": "photo",
+      "title": "Cursed Seal of Heaven",
+      "by": "Masashi Kishimoto — Naruto",
+      "year": 2002,
+      "note": "Sasuke's Cursed Seal of Heaven. Three black tomoe rotating around a center, ringed by jagged flame-like fragments that look like the mark is cracking and spreading outward. Pure black on white. A literal seal, and the fourth mark in the pile after the card back, the Jolly Roger and Evil Rabbit. Also the rotation-around-a-center form again, this time as a symbol rather than a physical object.",
+      "tags": [
+        "naruto",
+        "sasuke",
+        "cursed-seal",
+        "seal",
+        "mark",
+        "tomoe",
+        "triskelion",
+        "rotation",
+        "black",
+        "white",
+        "two-color",
+        "jagged",
+        "spread",
+        "nostalgia"
+      ],
+      "palette": [
+        "#010101",
+        "#1c1c1c",
+        "#6a6a6a",
+        "#dcdcdc",
+        "#ffffff"
+      ],
+      "addedAt": "2026-09-02",
+      "media": {
+        "url": "https://eyva1j4yempnbwda.public.blob.vercel-storage.com/inspirations/photo/naruto-cursed-seal.png",
+        "contentType": "image/png",
+        "size": 87495,
+        "width": 553,
+        "height": 575
+      }
     }
   ]
 }
