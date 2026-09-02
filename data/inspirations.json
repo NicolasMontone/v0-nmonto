@@ -242,13 +242,14 @@
       }
     },
     {
-      "id": "rabbit-mark",
+      "id": "evil-rabbit-mark",
       "kind": "photo",
-      "title": "rabbit mark",
-      "by": "rabbit inc. (r1)",
-      "year": 2023,
-      "note": "A rabbit head as one white silhouette on black: two ears, a rounded face, and a single tiny black V for the mouth. Nothing else. It reads at 16px and on the side of a building, and the one small notch is what turns a blob into a face. Same family as the card back and the Jolly Roger: a fixed, repeated mark.",
+      "title": "Evil Rabbit",
+      "by": "Evil Rabbit — design mentor",
+      "note": "Evil Rabbit's mark. He is a design mentor to me. A rabbit head as one white silhouette on black: two ears, a rounded face, and a single tiny black V for the mouth. Nothing else. It reads at 16px and on the side of a building, and the one small notch is what turns a blob into a face. Same family as the card back and the Jolly Roger: a fixed, repeated mark, but this one belongs to a person.",
       "tags": [
+        "evil-rabbit",
+        "mentor",
         "logo",
         "seal",
         "mark",
@@ -257,10 +258,9 @@
         "black",
         "white",
         "minimal",
-        "negative-space",
-        "animal"
+        "negative-space"
       ],
-      "source": "https://www.rabbit.tech",
+      "source": "https://evilrabb.it",
       "palette": [
         "#000000",
         "#2b2b2b",
@@ -270,7 +270,7 @@
       ],
       "addedAt": "2026-09-02",
       "media": {
-        "url": "https://eyva1j4yempnbwda.public.blob.vercel-storage.com/inspirations/photo/rabbit-mark.png",
+        "url": "https://eyva1j4yempnbwda.public.blob.vercel-storage.com/inspirations/photo/evil-rabbit-mark.png",
         "contentType": "image/png",
         "size": 19830,
         "width": 400,
