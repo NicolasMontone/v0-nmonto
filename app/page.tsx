@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { Header } from "@/components/header"
 import { JsonLd } from "@/components/json-ld"
+import { ScrambleText } from "@/components/scramble-text"
 import { homepageJsonLd } from "@/lib/schema"
 import { site } from "@/lib/site"
 
@@ -26,7 +27,10 @@ export default function Home() {
           {/* Visible identity: name + role + one-line story so a human eye has an anchor. */}
           <div className="mb-8">
             <h1 className="text-2xl md:text-3xl font-medium tracking-tight text-foreground text-balance">
-              Nicolas Montone
+              <ScrambleText
+                text="Nicolas Montone"
+                className="inline-block cursor-default rounded-sm outline-none focus-visible:ring-1 focus-visible:ring-ring"
+              />
             </h1>
             <p className="mt-2 text-sm text-muted-foreground">
               Software engineer at{" "}
