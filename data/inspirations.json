@@ -276,6 +276,40 @@
         "width": 400,
         "height": 400
       }
+    },
+    {
+      "id": "naruto-team-7",
+      "kind": "photo",
+      "title": "Team 7",
+      "by": "Masashi Kishimoto — Naruto",
+      "year": 2002,
+      "note": "The Team 7 photo: Kakashi behind with a hand on Sasuke's and Naruto's heads, both scowling, Sakura in front beaming. A crew that does not get along yet, held together by a mentor who is barely in the frame. Same thread as the Jolly Roger (a crew that dreams together) and Evil Rabbit (a mentor), now in one image.",
+      "tags": [
+        "naruto",
+        "team-7",
+        "crew",
+        "mentor",
+        "kakashi",
+        "ethos",
+        "nostalgia",
+        "anime",
+        "saturated"
+      ],
+      "palette": [
+        "#0b1d39",
+        "#2c3532",
+        "#13396c",
+        "#7b8375",
+        "#f6e2d4"
+      ],
+      "addedAt": "2026-09-02",
+      "media": {
+        "url": "https://eyva1j4yempnbwda.public.blob.vercel-storage.com/inspirations/photo/naruto-team-7.png",
+        "contentType": "image/png",
+        "size": 118177,
+        "width": 284,
+        "height": 233
+      }
     }
   ]
 }
