@@ -310,6 +310,43 @@
         "width": 284,
         "height": 233
       }
+    },
+    {
+      "id": "goku-super-saiyan",
+      "kind": "photo",
+      "title": "Goku, first Super Saiyan",
+      "by": "Akira Toriyama — Dragon Ball Z",
+      "year": 1991,
+      "note": "Goku going Super Saiyan on Namek for the first time. A tall frame where the golden aura swallows the whole background; torn blue and orange gi, scratches, clenched teeth, eyes down. The light is the subject. Loudest image in the pile so far, and the first vertical one.",
+      "tags": [
+        "dragon-ball",
+        "goku",
+        "super-saiyan",
+        "transformation",
+        "aura",
+        "glow",
+        "gold",
+        "orange",
+        "saturated",
+        "portrait",
+        "nostalgia",
+        "anime"
+      ],
+      "palette": [
+        "#020001",
+        "#c47b02",
+        "#dca301",
+        "#e3ecbd",
+        "#ecfae3"
+      ],
+      "addedAt": "2026-09-02",
+      "media": {
+        "url": "https://eyva1j4yempnbwda.public.blob.vercel-storage.com/inspirations/photo/goku-super-saiyan.png",
+        "contentType": "image/png",
+        "size": 3548720,
+        "width": 1280,
+        "height": 2710
+      }
     }
   ]
 }
