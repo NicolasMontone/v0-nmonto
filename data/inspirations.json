@@ -165,6 +165,42 @@
         "width": 2400,
         "height": 1600
       }
+    },
+    {
+      "id": "one-piece-minimalism-sucks",
+      "kind": "site",
+      "title": "One Piece (via minimalism.sucks)",
+      "by": "Eiichiro Oda — screenshot of minimalism.sucks",
+      "year": 1997,
+      "note": "Not a visual reference first: One Piece marked how I want to live — pick a dream and build a crew of people who dream like you. The screenshot is minimalism.sucks landing on Oda: full-bleed early Straw Hats over a wall of wanted posters, a highlighted ODA ONE*PIECE label, ghosted names of other references layered across the image, and a REFRESH LIST button that deals a new one. Loud, saturated, type-heavy; the opposite register from the wash renders.",
+      "tags": [
+        "one-piece",
+        "crew",
+        "values",
+        "ethos",
+        "layered-type",
+        "wanted-posters",
+        "refresh",
+        "random-list",
+        "saturated",
+        "bold"
+      ],
+      "source": "https://minimalism.sucks",
+      "palette": [
+        "#0b1415",
+        "#2d1b2b",
+        "#7b745b",
+        "#a47b53",
+        "#8c897c"
+      ],
+      "addedAt": "2026-09-01",
+      "media": {
+        "url": "https://eyva1j4yempnbwda.public.blob.vercel-storage.com/inspirations/site/one-piece-minimalism-sucks.jpeg",
+        "contentType": "image/jpeg",
+        "size": 806043,
+        "width": 3456,
+        "height": 2234
+      }
     }
   ]
 }
