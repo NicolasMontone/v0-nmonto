@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { groupByDay, kindLabel, type Inspiration } from "@/lib/inspirations"
+import { groupByDay, type Inspiration } from "@/lib/inspirations"
 
 function formatDay(iso: string): string {
   const [y, m, d] = iso.split("-").map(Number)
@@ -65,10 +65,6 @@ function Entry({ item }: { item: Inspiration }) {
     <article className="grid gap-3 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:gap-6">
       <Media item={item} />
       <div className="flex flex-col gap-2 text-sm">
-        <p className="font-mono text-[11px] uppercase tracking-wide text-muted-foreground/70">
-          {kindLabel[item.kind]}
-          {item.year ? ` · ${item.year}` : ""}
-        </p>
         <h3 className="text-sm text-foreground">
           {item.source ? (
             <Link
@@ -83,7 +79,6 @@ function Entry({ item }: { item: Inspiration }) {
             heading
           )}
         </h3>
-        {item.note ? <p className="leading-relaxed text-muted-foreground">{item.note}</p> : null}
         {item.audio ? (
           <audio controls preload="none" src={item.audio.url} className="mt-1 h-8 w-full max-w-xs">
             <track kind="captions" />
