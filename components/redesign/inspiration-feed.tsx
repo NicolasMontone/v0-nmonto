@@ -37,7 +37,12 @@ function Media({ item }: { item: Inspiration }) {
   const alt = item.by ? `${item.title} by ${item.by}` : item.title
 
   return (
-    <figure className="overflow-hidden rounded-sm bg-muted/40">
+    // self-start keeps the frame from stretching to the text column's height;
+    // the frame itself carries the image's own aspect ratio from the manifest.
+    <figure
+      className="self-start overflow-hidden rounded-sm bg-muted/40"
+      style={{ aspectRatio: ratio }}
+    >
       {/* Blob URLs are remote; a plain <img> avoids next/image domain config while
           the pile is still growing. Dimensions come from the manifest. */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -48,8 +53,7 @@ function Media({ item }: { item: Inspiration }) {
         height={height}
         loading="lazy"
         decoding="async"
-        className={isSquare ? "aspect-square w-full object-cover" : "w-full object-cover"}
-        style={isSquare ? undefined : { aspectRatio: ratio }}
+        className="h-full w-full object-cover"
       />
     </figure>
   )
