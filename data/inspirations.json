@@ -201,6 +201,44 @@
         "width": 3456,
         "height": 2234
       }
+    },
+    {
+      "id": "yugioh-card-back",
+      "kind": "photo",
+      "title": "Yu-Gi-Oh! card back",
+      "by": "Konami / Kazuki Takahashi",
+      "year": 1999,
+      "note": "\"wow, this is design, remarkable.\" The one image every player saw thousands of times: a black oval pulled into a whirlpool of molten orange and gold flow lines, marbled and slightly moire, inside a grainy burnt-orange border. It is the same on every card, so it works as a seal, not an illustration. Shares the concentric-ring language of the wash ripples, but dark, hot and high-contrast.",
+      "tags": [
+        "card-back",
+        "vortex",
+        "spiral",
+        "concentric",
+        "flow-lines",
+        "moire",
+        "dark",
+        "molten",
+        "orange",
+        "gold",
+        "border",
+        "identity",
+        "nostalgia"
+      ],
+      "palette": [
+        "#331b1a",
+        "#543424",
+        "#934c24",
+        "#dc934c",
+        "#e3ad73"
+      ],
+      "addedAt": "2026-09-01",
+      "media": {
+        "url": "https://eyva1j4yempnbwda.public.blob.vercel-storage.com/inspirations/photo/yugioh-card-back.png",
+        "contentType": "image/png",
+        "size": 1225960,
+        "width": 694,
+        "height": 1013
+      }
     }
   ]
 }
