@@ -1,32 +1,39 @@
 # nmonto.com
 
-Personal website and portfolio of Nicolas Montone, built with Next.js.
-
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+Personal website and portfolio of **Nicolas Montone** — software engineer at [v0.app](https://v0.app), based in San Francisco. Buenos Aires native, card magician, and reverse-engineering enthusiast.
 
 [![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/nicolasmontones-projects/v0-nmonto)
 [![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/projects/RXwDMa7W5nQ)
 
 ## Overview
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+A deliberately minimal, monochrome portfolio built for both humans and machines. The design stays quiet so a single signature moment stands out: the name headline **decrypts itself from random glyphs** on load and re-scrambles on hover — a nod to the magician-meets-hacker identity.
 
-## Deployment
+## Highlights
 
-Your project is live at:
+- **Agent-ready by design.** Every page ships real server-rendered content with a visible `<h1>` — no JavaScript required to read it.
+- **Content negotiation.** Send `Accept: text/markdown` to any content route to get a clean markdown version, with a correct `Vary` header.
+- **Machine-friendly 404s.** Unknown paths return a real `404` with a markdown body that links back to the sitemap and `llms.txt`.
+- **Structured data.** Homepage emits a `schema.org` `@graph` (`Person` + `WebSite`) for rich results.
+- **Discovery files.** `/llms.txt`, `/sitemap.xml`, and `/robots.txt` are all served correctly.
 
-**[https://vercel.com/nicolasmontones-projects/v0-nmonto](https://vercel.com/nicolasmontones-projects/v0-nmonto)**
+## Tech Stack
+
+- [Next.js](https://nextjs.org) (App Router)
+- TypeScript
+- Tailwind CSS
+- Vitest for unit tests
+- Deployed on [Vercel](https://vercel.com)
+
+## Development
+
+```bash
+npm install
+npm run dev      # start the dev server
+npm test         # run the test suite
+npm run build    # production build
+```
 
 ## Build your app
 
-Continue building your app on:
-
-**[https://v0.app/chat/projects/RXwDMa7W5nQ](https://v0.app/chat/projects/RXwDMa7W5nQ)**
-
-## How It Works
-
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+Continue building on [v0.app](https://v0.app/chat/projects/RXwDMa7W5nQ). Changes deployed from v0 are automatically pushed to this repository, and Vercel deploys the latest version.
