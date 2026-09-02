@@ -94,7 +94,7 @@ function Entry({ item }: { item: Inspiration }) {
           {item.tags.length ? (
             <ul className="flex flex-wrap gap-x-2 font-mono text-[11px] text-muted-foreground/70">
               {item.tags.map((t) => (
-                <li key={t}>#{t}</li>
+                <li key={t}>{t}</li>
               ))}
             </ul>
           ) : null}
