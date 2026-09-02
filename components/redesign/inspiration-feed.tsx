@@ -89,15 +89,8 @@ function Entry({ item }: { item: Inspiration }) {
             <track kind="captions" />
           </audio>
         ) : null}
-        <div className="mt-auto flex flex-wrap items-center gap-3 pt-1">
+        <div className="mt-auto pt-1">
           <Palette colors={item.palette} />
-          {item.tags.length ? (
-            <ul className="flex flex-wrap gap-x-2 font-mono text-[11px] text-muted-foreground/70">
-              {item.tags.map((t) => (
-                <li key={t}>{t}</li>
-              ))}
-            </ul>
-          ) : null}
         </div>
       </div>
     </article>
