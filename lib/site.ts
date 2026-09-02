@@ -18,7 +18,7 @@ export const site = {
   },
 } as const
 
-export type PageSlug = "" | "career" | "projects" | "about" | "contact" | "privacy"
+export type PageSlug = "" | "career" | "projects" | "about" | "contact" | "privacy" | "redesign"
 
 export interface PageMeta {
   /** Route path, e.g. "/" or "/about". */
@@ -36,7 +36,7 @@ export interface PageMeta {
 }
 
 // Bump when page copy changes so agents/crawlers see an accurate lastmod.
-export const CONTENT_UPDATED_AT = "2026-08-24"
+export const CONTENT_UPDATED_AT = "2026-09-01"
 
 export const pages: PageMeta[] = [
   {
@@ -80,6 +80,15 @@ export const pages: PageMeta[] = [
     description: "How to reach Nicolas Montone: X, GitHub, Instagram, or book a call.",
     lastmod: CONTENT_UPDATED_AT,
     priority: 0.6,
+  },
+  {
+    path: "/redesign",
+    slug: "redesign",
+    title: "Redesign log — Nicolas Montone",
+    description:
+      "A running log of the photos, records and sites feeding the nmonto.com redesign, and the generative design that comes out of them.",
+    lastmod: CONTENT_UPDATED_AT,
+    priority: 0.5,
   },
   {
     path: "/privacy",

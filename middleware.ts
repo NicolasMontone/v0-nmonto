@@ -4,7 +4,7 @@ import { getMarkdownForPath, prefersMarkdown } from "@/lib/content"
 // Applies to the human-facing content pages only. Static assets, _next,
 // sitemap.xml, robots.txt, llms.txt and the catch-all 404 route are excluded.
 export const config = {
-  matcher: ["/", "/about", "/career", "/projects", "/contact", "/privacy"],
+  matcher: ["/", "/about", "/career", "/projects", "/contact", "/privacy", "/redesign"],
 }
 
 const VARY = "Accept, Accept-Encoding"

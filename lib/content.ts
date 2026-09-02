@@ -2,7 +2,43 @@
 // negotiation helpers used by middleware. Keeping the markdown here (next to
 // lib/site.ts) means the agent-facing text and the rendered HTML share one source.
 
+import { groupByDay, inspirations, inspirationsUpdatedAt, kindLabel, type Inspiration } from "./inspirations"
 import { pages, site, type PageSlug } from "./site"
+
+function inspirationMarkdown(item: Inspiration): string {
+  const head = [item.by ? `**${item.title}** — ${item.by}` : `**${item.title}**`, item.year ? `(${item.year})` : ""]
+    .filter(Boolean)
+    .join(" ")
+  const lines = [`- ${kindLabel[item.kind]}: ${head}`]
+  if (item.note) lines.push(`  ${item.note}`)
+  if (item.media) lines.push(`  Image: ${item.media.url}`)
+  if (item.audio) lines.push(`  Audio: ${item.audio.url}`)
+  if (item.source) lines.push(`  Source: ${item.source}`)
+  if (item.palette.length) lines.push(`  Palette: ${item.palette.join(" ")}`)
+  if (item.tags.length) lines.push(`  Tags: ${item.tags.join(", ")}`)
+  return lines.join("\n")
+}
+
+function redesignMarkdown(): string {
+  const intro = `# Redesign log
+
+A running log of what is feeding the redesign of ${site.url}: photographs,
+records, sites, and notes. Files are stored in Vercel Blob; the manifest lives
+in the repository at data/inspirations.json. The generative design that comes
+out of this pile will be documented here as it takes shape.
+
+Last updated: ${inspirationsUpdatedAt}.
+`
+  if (inspirations.length === 0) {
+    return `${intro}
+Nothing collected yet.
+`
+  }
+  const days = groupByDay(inspirations)
+    .map(({ day, items }) => `## ${day}\n\n${items.map(inspirationMarkdown).join("\n")}`)
+    .join("\n\n")
+  return `${intro}\n${days}\n`
+}
 
 export const pageMarkdown: Record<PageSlug, string> = {
   "": `# ${site.person} (monto)
@@ -85,6 +121,8 @@ two. If it helps to know more before reaching out, the about page covers my
 background, and the projects page shows the kind of work I do.
 `,
 
+  redesign: redesignMarkdown(),
+
   privacy: `# Privacy
 
 nmonto.com is the personal website of ${site.person}. It is a static
@@ -137,6 +175,7 @@ Try one of these instead:
 - Career: ${site.url}/career
 - Projects: ${site.url}/projects
 - Contact: ${site.url}/contact
+- Redesign log: ${site.url}/redesign
 - Sitemap: ${site.url}/sitemap.xml
 - Agent guide: ${site.url}/llms.txt
 `
