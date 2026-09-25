@@ -18,6 +18,7 @@ function seeded(text: string, index: number) {
 
 export function Dust({ children, delay = 0, spread = 500 }: DustProps) {
   const words = children.split(" ")
+  const total = Math.max(1, children.replace(/ /g, "").length - 1)
   let charIndex = 0
 
   return (
@@ -32,12 +33,11 @@ export function Dust({ children, delay = 0, spread = 500 }: DustProps) {
                 const r1 = seeded(children, i * 3)
                 const r2 = seeded(children, i * 3 + 1)
                 const r3 = seeded(children, i * 3 + 2)
-                const angle = r1 * Math.PI * 2
-                const distance = 6 + r2 * 18
                 const style = {
-                  "--dx": `${(Math.cos(angle) * distance).toFixed(1)}px`,
-                  "--dy": `${(Math.sin(angle) * distance - 6).toFixed(1)}px`,
-                  "--d": `${Math.round(delay + r3 * spread)}ms`,
+                  "--dx": `${(-40 - r1 * 90).toFixed(1)}px`,
+                  "--dy": `${((r2 - 0.5) * 14).toFixed(1)}px`,
+                  "--rot": `${((r3 - 0.5) * 50).toFixed(1)}deg`,
+                  "--d": `${Math.round(delay + (i / total) * spread + r3 * 220)}ms`,
                 } as React.CSSProperties
                 return (
                   <span key={i} className="dust-char" style={style}>
