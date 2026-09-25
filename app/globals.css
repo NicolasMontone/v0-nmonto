@@ -154,22 +154,6 @@
   }
 }
 
-/* Header - stays persistent with subtle morph */
-.header-container {
-  view-transition-name: header;
-}
-
-::view-transition-group(header) {
-  animation-duration: 350ms;
-  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-::view-transition-old(header),
-::view-transition-new(header) {
-  animation: none;
-  mix-blend-mode: normal;
-}
-
 /* Main content area - slide and fade */
 .content-area {
   view-transition-name: content;

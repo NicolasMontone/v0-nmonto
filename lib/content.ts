@@ -2,49 +2,13 @@
 // negotiation helpers used by middleware. Keeping the markdown here (next to
 // lib/site.ts) means the agent-facing text and the rendered HTML share one source.
 
-import { groupByDay, inspirations, inspirationsUpdatedAt, kindLabel, type Inspiration } from "./inspirations"
 import { pages, site, type PageSlug } from "./site"
-import { bio, elsewhere, lately, projects, work, type HomeEntry } from "./home"
+import { bio, elsewhere, projects, work, type HomeEntry } from "./home"
 
 function homeList(entries: HomeEntry[]): string {
   return entries
     .map((e) => `- [${e.title}](${e.href})${e.meta ? ` (${e.meta})` : ""} — ${e.description}`)
     .join("\n")
-}
-
-function inspirationMarkdown(item: Inspiration): string {
-  const head = [item.by ? `**${item.title}** — ${item.by}` : `**${item.title}**`, item.year ? `(${item.year})` : ""]
-    .filter(Boolean)
-    .join(" ")
-  const lines = [`- ${kindLabel[item.kind]}: ${head}`]
-  if (item.note) lines.push(`  ${item.note}`)
-  if (item.media) lines.push(`  Image: ${item.media.url}`)
-  if (item.audio) lines.push(`  Audio: ${item.audio.url}`)
-  if (item.source) lines.push(`  Source: ${item.source}`)
-  if (item.palette.length) lines.push(`  Palette: ${item.palette.join(" ")}`)
-  if (item.tags.length) lines.push(`  Tags: ${item.tags.join(", ")}`)
-  return lines.join("\n")
-}
-
-function redesignMarkdown(): string {
-  const intro = `# Redesign log
-
-A running log of what is feeding the redesign of ${site.url}: photographs,
-records, sites, and notes. Files are stored in Vercel Blob; the manifest lives
-in the repository at data/inspirations.json. The generative design that comes
-out of this pile will be documented here as it takes shape.
-
-Last updated: ${inspirationsUpdatedAt}.
-`
-  if (inspirations.length === 0) {
-    return `${intro}
-Nothing collected yet.
-`
-  }
-  const days = groupByDay(inspirations)
-    .map(({ day, items }) => `## ${day}\n\n${items.map(inspirationMarkdown).join("\n")}`)
-    .join("\n\n")
-  return `${intro}\n${days}\n`
 }
 
 export const pageMarkdown: Record<PageSlug, string> = {
@@ -60,77 +24,13 @@ ${homeList(work)}
 
 ${homeList(projects)}
 
-## Lately
-
-${homeList(lately.map((e) => ({ ...e, href: e.href.startsWith("/") ? `${site.url}${e.href}` : e.href })))}
-
 ## Elsewhere
+
+There is no public email address; direct messages and the booking link are the
+intended channels.
 
 ${homeList(elsewhere)}
 `,
-
-  about: `# About ${site.person}
-
-I'm Nicolas Montone — most people call me monto. I'm a software engineer at
-[v0.app](https://v0.app), living in ${site.location} and originally from
-Buenos Aires, Argentina.
-
-My work centers on developer tools and AI applications: I like building things
-that make other engineers faster and that turn complicated workflows into
-something simple. I've shipped open-source libraries, command-line tools, and
-web apps used by developers around the world.
-
-Two things sit alongside the engineering. I'm a magician — sleight of hand and
-close-up magic — and I'm a hacker with a deep interest in reverse engineering
-and dynamic instrumentation. That curiosity about how systems really work
-underneath the surface is the same instinct that drives my software.
-
-If you want to work together or just talk shop, the contact page lists every
-way to reach me.
-`,
-
-  career: `# Career
-
-- **Currently at [v0.app](https://v0.app)** — Software Engineer building AI
-  developer tools.
-- **Formerly at [pluggy.ai](https://pluggy.ai)** — engineering on open finance
-  and data-connectivity infrastructure.
-
-Across these roles I've focused on developer experience, AI application
-tooling, and reverse-engineering the systems I integrate with.
-`,
-
-  projects: `# Projects
-
-- [Install AI tools for the AI SDK using the shadcn CLI](https://github.com/NicolasMontone/ai-sdk-agents)
-- [Grida — graphical reverse engineering tool for Android dynamic instrumentation](https://github.com/pluggyai/grida)
-- [Chat with your base — Postgres + LLMs](http://github.com/nicolasmontone/chat-with-your-base)
-- [Translate your menu to any language](https://translatemenu.com/)
-- [CryptosApp — a WhatsApp bot for transferring crypto](https://github.com/NicolasMontone/cryptosapp-wallet)
-- [Kill node_modules — a Raycast extension](https://www.raycast.com/NicolasMontone/kill-node-modules)
-- [Cookie string parser for Raycast](https://www.raycast.com/NicolasMontone/cookie-string-parser)
-`,
-
-  contact: `# Contact
-
-The best ways to reach me are listed below. There is no public email address;
-direct messages and the booking link are the intended channels.
-
-- **X / Twitter:** ${site.links.x}
-- **GitHub:** ${site.links.github}
-- **Instagram:** ${site.links.instagram}
-- **Book a 30-minute call:** ${site.links.cal}
-
-I read DMs on X and GitHub. For anything work-related — collaborations,
-freelance engineering, open-source questions, or reverse-engineering help —
-booking a call is the fastest path and usually the most useful for both of us.
-
-I'm based in San Francisco, California and generally respond within a day or
-two. If it helps to know more before reaching out, the about page covers my
-background, and the projects page shows the kind of work I do.
-`,
-
-  redesign: redesignMarkdown(),
 
   privacy: `# Privacy
 
@@ -145,9 +45,9 @@ informational site.
 - **External links.** Pages link out to services like GitHub, X, Instagram, and
   cal.com, which have their own privacy policies.
 
-Questions about privacy can be sent through any of the channels on the contact
-page. This policy may be updated; the latest version always lives at
-${site.url}/privacy.
+Questions about privacy can be sent through any of the channels listed under
+Elsewhere on the home page. This policy may be updated; the latest version
+always lives at ${site.url}/privacy.
 `,
 }
 
@@ -180,11 +80,7 @@ That page doesn't exist on ${site.url}.
 Try one of these instead:
 
 - Home: ${site.url}/
-- About: ${site.url}/about
-- Career: ${site.url}/career
-- Projects: ${site.url}/projects
-- Contact: ${site.url}/contact
-- Redesign log: ${site.url}/redesign
+- Privacy: ${site.url}/privacy
 - Sitemap: ${site.url}/sitemap.xml
 - Agent guide: ${site.url}/llms.txt
 `

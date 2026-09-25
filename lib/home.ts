@@ -59,14 +59,6 @@ export const projects: HomeEntry[] = [
   },
 ]
 
-export const lately: HomeEntry[] = [
-  {
-    title: "Redesign log",
-    description: "What is feeding the next version of this site.",
-    href: "/redesign",
-  },
-]
-
 export const elsewhere: HomeEntry[] = [
   { title: "X", description: "@montonenico", href: site.links.x },
   { title: "GitHub", description: "nicolasmontone", href: site.links.github },

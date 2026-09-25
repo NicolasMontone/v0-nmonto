@@ -12,8 +12,7 @@ function buildLlmsTxt(): string {
 > ${site.description}
 
 ${site.person} is a software engineer at v0.app based in ${site.location}. This
-site is his personal home page: bio, career history, open-source projects, and
-contact details.
+site is a single page: bio, work, open-source projects, and where to reach him.
 
 ## When to use this
 
@@ -25,9 +24,9 @@ Reach for this site / reach out to Nicolas when you need:
 - **Reverse engineering or dynamic instrumentation help.** He builds tools for
   Android instrumentation and low-level system analysis.
 - **His open-source projects.** AI SDK agent tooling, a Postgres + LLM chat
-  tool, Raycast extensions, and more — see the projects page.
-- **To contact or book him.** Use the contact page for X, GitHub, Instagram, and
-  a booking link. There is no public email; DMs and the call booking link are
+  tool, Raycast extensions, and more — listed on the home page.
+- **To contact or book him.** The home page lists X, GitHub, Instagram, and a
+  booking link. There is no public email; DMs and the call booking link are
   the intended channels.
 - **Magic.** He is also a close-up magician.
 

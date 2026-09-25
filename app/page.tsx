@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import { Entry, Section } from "@/components/home/section"
 import { JsonLd } from "@/components/json-ld"
-import { bio, elsewhere, lately, projects, work } from "@/lib/home"
+import { bio, elsewhere, projects, work } from "@/lib/home"
 import { homepageJsonLd } from "@/lib/schema"
 import { site } from "@/lib/site"
 
@@ -46,13 +46,7 @@ export default function Home() {
           ))}
         </Section>
 
-        <Section title="Lately">
-          {lately.map((item) => (
-            <Entry key={item.href} {...item} />
-          ))}
-        </Section>
-
-        <footer className="flex flex-col gap-6">
+        <footer id="elsewhere" className="flex flex-col gap-6">
           <h2 className="text-sm text-muted-foreground">Elsewhere</h2>
           <ul className="flex flex-wrap gap-x-6 gap-y-2">
             {elsewhere.map((item) => (

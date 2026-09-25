@@ -40,8 +40,8 @@ describe("getMarkdownForPath", () => {
 })
 
 describe("trust anchor content length", () => {
-  it("about, contact, and privacy each have at least 500 characters", () => {
-    for (const slug of ["about", "contact", "privacy"] as const) {
+  it("home and privacy each have at least 500 characters", () => {
+    for (const slug of ["", "privacy"] as const) {
       expect(pageMarkdown[slug].length).toBeGreaterThanOrEqual(500)
     }
   })
@@ -58,8 +58,8 @@ describe("notFoundMarkdown", () => {
 
 describe("getPageByPath", () => {
   it("matches known paths and ignores trailing slashes", () => {
-    expect(getPageByPath("/about")?.slug).toBe("about")
-    expect(getPageByPath("/about/")?.slug).toBe("about")
+    expect(getPageByPath("/privacy")?.slug).toBe("privacy")
+    expect(getPageByPath("/privacy/")?.slug).toBe("privacy")
     expect(getPageByPath("/")?.slug).toBe("")
     expect(getPageByPath("/nope")).toBeUndefined()
   })
