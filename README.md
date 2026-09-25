@@ -1,5 +1,7 @@
 # nmonto.com
 
+monto was here!
+
 Personal website and portfolio of Nicolas Montone, built with Next.js.
 
 *Automatically synced with your [v0.app](https://v0.app) deployments*
