@@ -4,6 +4,13 @@
 
 import { groupByDay, inspirations, inspirationsUpdatedAt, kindLabel, type Inspiration } from "./inspirations"
 import { pages, site, type PageSlug } from "./site"
+import { bio, elsewhere, lately, projects, work, type HomeEntry } from "./home"
+
+function homeList(entries: HomeEntry[]): string {
+  return entries
+    .map((e) => `- [${e.title}](${e.href})${e.meta ? ` (${e.meta})` : ""} — ${e.description}`)
+    .join("\n")
+}
 
 function inspirationMarkdown(item: Inspiration): string {
   const head = [item.by ? `**${item.title}** — ${item.by}` : `**${item.title}**`, item.year ? `(${item.year})` : ""]
@@ -43,21 +50,23 @@ Nothing collected yet.
 export const pageMarkdown: Record<PageSlug, string> = {
   "": `# ${site.person} (monto)
 
-I live in ${site.location}. Originally from Buenos Aires — I love mate.
+${bio}
 
-I work at [v0.app](https://v0.app) as a software engineer, where I build
-developer tools and AI-powered applications. I care about fast, well-crafted
-software and about making complex systems approachable.
+## Work
 
-Outside of engineering I'm a magician, and I'm a hacker who loves reverse
-engineering — taking things apart to understand exactly how they work.
+${homeList(work)}
 
-## Find me
+## Projects
 
-- GitHub: ${site.links.github}
-- X: ${site.links.x}
-- Instagram: ${site.links.instagram}
-- Book a call: ${site.links.cal}
+${homeList(projects)}
+
+## Lately
+
+${homeList(lately.map((e) => ({ ...e, href: e.href.startsWith("/") ? `${site.url}${e.href}` : e.href })))}
+
+## Elsewhere
+
+${homeList(elsewhere)}
 `,
 
   about: `# About ${site.person}
