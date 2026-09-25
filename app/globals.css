@@ -194,30 +194,27 @@
   }
 }
 
-/* Text carried in by a sandstorm; transform/opacity only so it stays on the compositor */
-.dust-char {
-  display: inline-block;
-  animation: dust-in 1400ms cubic-bezier(0.16, 1, 0.3, 1) both;
-  animation-delay: var(--d, 0ms);
+/* Letters stay hidden until the sandstorm canvas lands their grains; the delayed animation is a failsafe if JS never runs */
+.sand-char {
+  opacity: 0;
+  transition: opacity 320ms ease-out;
+  animation: sand-failsafe 0s 6s forwards;
 }
 
-@keyframes dust-in {
-  0% {
-    opacity: 0;
-    transform: translate(var(--dx, 0), var(--dy, 0)) rotate(var(--rot, 0)) scale(0.3);
-  }
-  40% {
-    opacity: 0.35;
-  }
-  100% {
+.sand-char[data-shown] {
+  opacity: 1;
+}
+
+@keyframes sand-failsafe {
+  to {
     opacity: 1;
-    transform: none;
   }
 }
 
 /* Reduce motion preference */
 @media (prefers-reduced-motion: reduce) {
-  .dust-char {
+  .sand-char {
+    opacity: 1;
     animation: none !important;
   }
 

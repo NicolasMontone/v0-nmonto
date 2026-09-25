@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-background font-sans text-muted-foreground">
       <JsonLd data={homepageJsonLd()} />
-      <Sandstorm duration={3800} />
+      <Sandstorm />
       <div className="mx-auto flex max-w-2xl flex-col gap-20 px-6 py-16 md:py-24">
         <header className="flex flex-col gap-6">
           <Image
