@@ -34,10 +34,10 @@ export function Dust({ children, delay = 0, spread = 500 }: DustProps) {
                 const r2 = seeded(children, i * 3 + 1)
                 const r3 = seeded(children, i * 3 + 2)
                 const style = {
-                  "--dx": `${(-40 - r1 * 90).toFixed(1)}px`,
-                  "--dy": `${((r2 - 0.5) * 14).toFixed(1)}px`,
-                  "--rot": `${((r3 - 0.5) * 50).toFixed(1)}deg`,
-                  "--d": `${Math.round(delay + (i / total) * spread + r3 * 220)}ms`,
+                  "--dx": `${(-160 - r1 * 280).toFixed(1)}px`,
+                  "--dy": `${((r2 - 0.5) * 60).toFixed(1)}px`,
+                  "--rot": `${((r3 - 0.5) * 120).toFixed(1)}deg`,
+                  "--d": `${Math.round(delay + (i / total) * spread + r3 * 300)}ms`,
                 } as React.CSSProperties
                 return (
                   <span key={i} className="dust-char" style={style}>

@@ -194,51 +194,24 @@
   }
 }
 
-/* Text blown in like desert sand */
+/* Text carried in by a sandstorm; transform/opacity only so it stays on the compositor */
 .dust-char {
-  --sand: oklch(0.78 0.07 75);
   display: inline-block;
-  animation: dust-in 1800ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: dust-in 1400ms cubic-bezier(0.16, 1, 0.3, 1) both;
   animation-delay: var(--d, 0ms);
 }
 
 @keyframes dust-in {
   0% {
     opacity: 0;
-    color: var(--sand);
-    filter: blur(3px);
-    transform: translate(var(--dx, 0), var(--dy, 0)) rotate(var(--rot, 0)) scale(0.6);
-    text-shadow:
-      -14px 2px 1px var(--sand),
-      -26px -3px 1.5px color-mix(in oklch, var(--sand) 70%, transparent),
-      -38px 4px 2px color-mix(in oklch, var(--sand) 45%, transparent),
-      -8px -6px 1px color-mix(in oklch, var(--sand) 60%, transparent),
-      -20px 7px 1px color-mix(in oklch, var(--sand) 35%, transparent);
+    transform: translate(var(--dx, 0), var(--dy, 0)) rotate(var(--rot, 0)) scale(0.3);
   }
-  35% {
-    opacity: 0.7;
-    color: var(--sand);
-    filter: blur(1.2px);
-  }
-  70% {
-    text-shadow:
-      -4px 1px 1px color-mix(in oklch, var(--sand) 40%, transparent),
-      -8px -1px 1px color-mix(in oklch, var(--sand) 20%, transparent),
-      -12px 1px 1px transparent,
-      -3px -2px 1px transparent,
-      -6px 2px 1px transparent;
+  40% {
+    opacity: 0.35;
   }
   100% {
     opacity: 1;
-    color: inherit;
-    filter: blur(0);
     transform: none;
-    text-shadow:
-      0 0 0 transparent,
-      0 0 0 transparent,
-      0 0 0 transparent,
-      0 0 0 transparent,
-      0 0 0 transparent;
   }
 }
 
