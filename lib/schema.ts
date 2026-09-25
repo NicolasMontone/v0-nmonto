@@ -39,7 +39,7 @@ export function personSchema() {
     ],
     // sameAs anchors the brand to its canonical off-site profiles, which helps
     // search + agents connect "monto" to this domain.
-    sameAs: [site.links.github, site.links.x, site.links.instagram],
+    sameAs: [site.links.github, site.links.x, site.links.instagram, site.links.linkedin],
   }
 }
 

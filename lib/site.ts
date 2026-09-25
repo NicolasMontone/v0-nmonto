@@ -14,6 +14,7 @@ export const site = {
     github: "https://github.com/nicolasmontone",
     x: "https://x.com/montonenico",
     instagram: "https://instagram.com/nicolasmontone",
+    linkedin: "https://www.linkedin.com/in/nicolas-montone",
     cal: "https://cal.com/montone/30min",
   },
 } as const

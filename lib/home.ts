@@ -63,5 +63,6 @@ export const elsewhere: HomeEntry[] = [
   { title: "X", description: "@montonenico", href: site.links.x },
   { title: "GitHub", description: "nicolasmontone", href: site.links.github },
   { title: "Instagram", description: "nicolasmontone", href: site.links.instagram },
+  { title: "LinkedIn", description: "nicolas-montone", href: site.links.linkedin },
   { title: "Book a call", description: "30 minutes on cal.com", href: site.links.cal },
 ]

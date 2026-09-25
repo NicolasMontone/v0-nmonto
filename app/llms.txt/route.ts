@@ -25,7 +25,7 @@ Reach for this site / reach out to Nicolas when you need:
   Android instrumentation and low-level system analysis.
 - **His open-source projects.** AI SDK agent tooling, a Postgres + LLM chat
   tool, Raycast extensions, and more — listed on the home page.
-- **To contact or book him.** The home page lists X, GitHub, Instagram, and a
+- **To contact or book him.** The home page lists X, GitHub, Instagram, LinkedIn, and a
   booking link. There is no public email; DMs and the call booking link are
   the intended channels.
 - **Magic.** He is also a close-up magician.
@@ -49,6 +49,7 @@ ${pageList}
 - GitHub: ${site.links.github}
 - X: ${site.links.x}
 - Instagram: ${site.links.instagram}
+- LinkedIn: ${site.links.linkedin}
 - Book a call: ${site.links.cal}
 `
 }
