@@ -5,16 +5,17 @@ type WordsProps = {
   start?: number
   step?: number
   className?: string
+  accent?: (word: string, delay: number) => React.ReactNode
 }
 
-export function Words({ text, start = 0, step = 90, className }: WordsProps) {
+export function Words({ text, start = 0, step = 90, className, accent }: WordsProps) {
   const words = text.split(" ")
   return (
     <span className={className}>
       {words.map((word, i) => (
         <span key={i}>
           <span className="word" style={{ "--d": `${start + i * step}ms` } as React.CSSProperties}>
-            {word}
+            {accent?.(word, start + i * step) ?? word}
           </span>
           {i < words.length - 1 ? " " : null}
         </span>

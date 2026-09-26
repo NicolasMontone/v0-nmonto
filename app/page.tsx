@@ -1,6 +1,8 @@
 import type { Metadata } from "next"
 import Image from "next/image"
 import { ConnectionGlyph, LoveGlyph, SurpriseGlyph } from "@/components/glyphs"
+import { Hacker } from "@/components/hacker"
+import { Magician } from "@/components/magician"
 import { Entry, Section } from "@/components/home/section"
 import { JsonLd } from "@/components/json-ld"
 import { Fade, Words, wordsEnd } from "@/components/words"
@@ -17,10 +19,22 @@ export const metadata: Metadata = {
 const NAME_STEP = 160
 const BIO_START = wordsEnd("Nicolas Montone (monto)", 200, NAME_STEP) + 150
 const BIO_STEP = 90
-const WORK_START = wordsEnd(bio, BIO_START, BIO_STEP) + 200
+const BIO_END = wordsEnd(bio, BIO_START, BIO_STEP)
+const WORK_START = BIO_END + 200
 const ENTRY_STEP = 160
 const PROJECTS_START = WORK_START + 500 + work.length * ENTRY_STEP + 200
 const ELSEWHERE_START = PROJECTS_START + 500 + projects.length * ENTRY_STEP + 200
+
+const ACCENT_AFTER = 1000
+
+function bioAccent(word: string) {
+  const [, core, suffix] = word.match(/^(.*?)([.,!?]*)$/) ?? [word, word, ""]
+  const at = BIO_END + ACCENT_AFTER
+  const key = core.toLowerCase()
+  if (key === "magician") return <Magician text={core} suffix={suffix} delay={at} />
+  if (key === "hacker") return <Hacker text={core} suffix={suffix} delay={at + 700} />
+  return null
+}
 
 export default function Home() {
   return (
@@ -44,7 +58,7 @@ export default function Home() {
               <Words text="(monto)" start={200 + 2 * NAME_STEP} className="text-muted-foreground" />
             </h1>
             <p className="text-base leading-relaxed text-muted-foreground text-pretty">
-              <Words text={bio} start={BIO_START} step={BIO_STEP} />
+              <Words text={bio} start={BIO_START} step={BIO_STEP} accent={bioAccent} />
             </p>
           </div>
         </header>
