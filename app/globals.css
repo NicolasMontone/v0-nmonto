@@ -194,67 +194,100 @@
   }
 }
 
-/* Pencil and rubber: a line draws out, the text is written along it, then the line is erased */
-.pencil {
-  position: relative;
-  display: inline-block;
-  max-width: 100%;
+/* "Designed by Apple – Intention": each word arrives dim, holds, then brightens */
+.word {
+  opacity: 0;
+  animation: word-in 1100ms ease-out var(--d, 0ms) forwards;
 }
 
-.pencil-ink {
-  display: inline-block;
-  animation: pencil-write 1000ms cubic-bezier(0.65, 0, 0.35, 1) calc(var(--d, 0ms) + 250ms) both;
-}
-
-.pencil-lined::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -0.2em;
-  height: 1px;
-  background: currentColor;
-  opacity: 0.7;
-  pointer-events: none;
-  animation: pencil-line 1700ms cubic-bezier(0.65, 0, 0.35, 1) var(--d, 0ms) both;
-}
-
-@keyframes pencil-write {
-  from {
-    clip-path: inset(-0.3em 100% -0.5em 0);
-  }
-  to {
-    clip-path: inset(-0.3em 0 -0.5em 0);
-  }
-}
-
-@keyframes pencil-line {
+@keyframes word-in {
   0% {
-    transform: scaleX(0);
-    transform-origin: left;
+    opacity: 0;
   }
-  45% {
-    transform: scaleX(1);
-    transform-origin: left;
-  }
+  30%,
   55% {
-    transform: scaleX(1);
-    transform-origin: right;
+    opacity: 0.35;
   }
   100% {
-    transform: scaleX(0);
-    transform-origin: right;
+    opacity: 1;
+  }
+}
+
+/* Glyphs: dots, a line, and circles that build themselves above each heading */
+.glyph-dot,
+.glyph-pop,
+.glyph-slide-left,
+.glyph-slide-right {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.glyph-dot {
+  animation: glyph-dot 700ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--d, 0ms) both;
+}
+
+.glyph-pop {
+  animation: glyph-dot 520ms cubic-bezier(0.34, 1.8, 0.64, 1) var(--d, 0ms) both;
+}
+
+.glyph-line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: glyph-line 650ms cubic-bezier(0.65, 0, 0.35, 1) var(--d, 0ms) forwards;
+}
+
+.glyph-slide-left {
+  animation: glyph-slide-left 1100ms cubic-bezier(0.65, 0, 0.35, 1) var(--d, 0ms) both;
+}
+
+.glyph-slide-right {
+  animation: glyph-slide-right 1100ms cubic-bezier(0.65, 0, 0.35, 1) var(--d, 0ms) both;
+}
+
+@keyframes glyph-dot {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes glyph-line {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes glyph-slide-left {
+  from {
+    transform: translateX(-7px);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes glyph-slide-right {
+  from {
+    transform: translateX(7px);
+  }
+  to {
+    transform: none;
   }
 }
 
 /* Reduce motion preference */
 @media (prefers-reduced-motion: reduce) {
-  .pencil-ink,
-  .pencil-lined::after {
+  .word,
+  .glyph-dot,
+  .glyph-pop,
+  .glyph-line,
+  .glyph-slide-left,
+  .glyph-slide-right {
     animation: none !important;
-  }
-  .pencil-lined::after {
-    display: none;
+    opacity: 1;
+    stroke-dashoffset: 0;
   }
 
   ::view-transition-group(*),
