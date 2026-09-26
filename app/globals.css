@@ -194,28 +194,67 @@
   }
 }
 
-/* Letters stay hidden until the sandstorm canvas lands their grains; the delayed animation is a failsafe if JS never runs */
-.sand-char {
-  opacity: 0;
-  transition: opacity 320ms ease-out;
-  animation: sand-failsafe 0s 6s forwards;
+/* Pencil and rubber: a line draws out, the text is written along it, then the line is erased */
+.pencil {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
 }
 
-.sand-char[data-shown] {
-  opacity: 1;
+.pencil-ink {
+  display: inline-block;
+  animation: pencil-write 1000ms cubic-bezier(0.65, 0, 0.35, 1) calc(var(--d, 0ms) + 250ms) both;
 }
 
-@keyframes sand-failsafe {
+.pencil-lined::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.2em;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.7;
+  pointer-events: none;
+  animation: pencil-line 1700ms cubic-bezier(0.65, 0, 0.35, 1) var(--d, 0ms) both;
+}
+
+@keyframes pencil-write {
+  from {
+    clip-path: inset(-0.3em 100% -0.5em 0);
+  }
   to {
-    opacity: 1;
+    clip-path: inset(-0.3em 0 -0.5em 0);
+  }
+}
+
+@keyframes pencil-line {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  45% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  55% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  100% {
+    transform: scaleX(0);
+    transform-origin: right;
   }
 }
 
 /* Reduce motion preference */
 @media (prefers-reduced-motion: reduce) {
-  .sand-char {
-    opacity: 1;
+  .pencil-ink,
+  .pencil-lined::after {
     animation: none !important;
+  }
+  .pencil-lined::after {
+    display: none;
   }
 
   ::view-transition-group(*),

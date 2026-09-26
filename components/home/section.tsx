@@ -1,6 +1,6 @@
 import type React from "react"
 import Link from "next/link"
-import { Dust } from "@/components/dust"
+import { Pencil } from "@/components/pencil"
 
 type SectionProps = {
   title: string
@@ -15,7 +15,7 @@ export function Section({ title, more, delay = 0, children }: SectionProps) {
     <section aria-labelledby={id} className="flex flex-col gap-6">
       <div className="flex items-baseline justify-between">
         <h2 id={id} className="text-sm text-muted-foreground">
-          <Dust delay={delay}>{title}</Dust>
+          <Pencil delay={delay}>{title}</Pencil>
         </h2>
         {more ? (
           <Link
@@ -23,7 +23,7 @@ export function Section({ title, more, delay = 0, children }: SectionProps) {
             {...(more.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
             className="text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
-            <Dust delay={delay}>{more.label}</Dust>
+            <Pencil delay={delay + 150}>{more.label}</Pencil>
           </Link>
         ) : null}
       </div>
@@ -51,18 +51,20 @@ export function Entry({ href, title, description, meta, delay = 0 }: EntryProps)
       >
         <span className="flex items-baseline justify-between gap-4">
           <span className="text-base text-foreground underline-offset-4 decoration-muted-foreground/50 group-hover:underline">
-            <Dust delay={delay}>{title}</Dust>
+            <Pencil delay={delay}>{title}</Pencil>
           </span>
           {meta ? (
             <span className="shrink-0 font-mono text-xs text-muted-foreground">
-              <Dust delay={delay + 100}>{meta}</Dust>
+              <Pencil delay={delay + 150} line={false}>
+                {meta}
+              </Pencil>
             </span>
           ) : null}
         </span>
         <span className="text-sm leading-relaxed text-muted-foreground">
-          <Dust delay={delay + 150} spread={700}>
+          <Pencil delay={delay + 200} line={false}>
             {description}
-          </Dust>
+          </Pencil>
         </span>
       </Link>
     </li>
