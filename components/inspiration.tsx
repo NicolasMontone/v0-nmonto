@@ -18,7 +18,7 @@ export type InspirationImage = {
 type Phase = "idle" | "drop" | "flood" | "open" | "closing"
 
 const DROP_MS = 520
-const FLOOD_MS = 1100
+const FLOOD_MS = 1700
 const CLOSE_MS = 900
 
 type InspirationProps = {
@@ -163,9 +163,10 @@ export function Inspiration({ text, suffix, images }: InspirationProps) {
             </div>
             {(phase === "flood" || phase === "open") && (
               <span className="rain-rings" aria-hidden="true">
-                <span className="rain-ring" />
-                <span className="rain-ring" />
-                <span className="rain-ring" />
+                  <span className="rain-bloom" />
+                  <span className="rain-ring" />
+                  <span className="rain-ring" />
+                  <span className="rain-ring" />
               </span>
             )}
           </div>,
