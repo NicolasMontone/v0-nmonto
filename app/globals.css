@@ -285,7 +285,10 @@
 
 .magic-text {
   display: inline-block;
-  animation: magic-vanish 1100ms cubic-bezier(0.65, 0, 0.35, 1) var(--m, 0ms) both;
+}
+
+.magic-play .magic-text {
+  animation: magic-vanish 1100ms cubic-bezier(0.65, 0, 0.35, 1) both;
 }
 
 .magic-sparks {
@@ -300,6 +303,10 @@
 .magic-spark {
   transform-box: fill-box;
   transform-origin: center;
+  opacity: 0;
+}
+
+.magic-play .magic-spark {
   animation: magic-spark 900ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--s, 0ms) both;
 }
 
@@ -342,7 +349,7 @@
   vertical-align: -0.18em;
   background: currentColor;
   opacity: 0;
-  animation: hacker-cursor 1000ms steps(1, end) var(--c, 0ms) 3;
+  animation: hacker-cursor 1000ms steps(1, end) 3;
 }
 
 @keyframes hacker-cursor {

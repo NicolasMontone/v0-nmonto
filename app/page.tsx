@@ -25,14 +25,12 @@ const ENTRY_STEP = 160
 const PROJECTS_START = WORK_START + 500 + work.length * ENTRY_STEP + 200
 const ELSEWHERE_START = PROJECTS_START + 500 + projects.length * ENTRY_STEP + 200
 
-const ACCENT_AFTER = 1000
 
 function bioAccent(word: string) {
   const [, core, suffix] = word.match(/^(.*?)([.,!?]*)$/) ?? [word, word, ""]
-  const at = BIO_END + ACCENT_AFTER
   const key = core.toLowerCase()
-  if (key === "magician") return <Magician text={core} suffix={suffix} delay={at} />
-  if (key === "hacker") return <Hacker text={core} suffix={suffix} delay={at + 700} />
+  if (key === "magician") return <Magician text={core} suffix={suffix} />
+  if (key === "hacker") return <Hacker text={core} suffix={suffix} />
   return null
 }
 
