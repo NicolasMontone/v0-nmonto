@@ -26,7 +26,7 @@ const CARDS = [
   { rank: "7", suit: "\u2660\uFE0E", r: 30, x: "1.5em", y: "0.25em", d: 200 },
 ]
 
-const TRICK_MS = 3000
+const TRICK_MS = 4600
 
 type MagicianProps = {
   text: string

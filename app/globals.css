@@ -288,7 +288,7 @@
 }
 
 .magic-play .magic-text {
-  animation: magic-vanish 3000ms cubic-bezier(0.65, 0, 0.35, 1) both;
+  animation: magic-vanish 4600ms cubic-bezier(0.65, 0, 0.35, 1) both;
 }
 
 .magic-origin {
@@ -324,11 +324,11 @@
 }
 
 .magic-play .magic-dot {
-  animation: magic-dot 3000ms cubic-bezier(0.65, 0, 0.35, 1) var(--s, 0ms) both;
+  animation: magic-dot 4600ms cubic-bezier(0.65, 0, 0.35, 1) var(--s, 0ms) both;
 }
 
 .magic-play .magic-core {
-  animation: magic-core 3000ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  animation: magic-core 4600ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
 
 @keyframes magic-vanish {
@@ -336,11 +336,13 @@
     opacity: 1;
     transform: none;
   }
-  10%,
-  90% {
+  6.5%,
+  80% {
     opacity: 0;
     transform: scale(0.92);
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
   }
+  96%,
   100% {
     opacity: 1;
     transform: none;
@@ -352,16 +354,16 @@
     opacity: 0;
     transform: translate(var(--x), var(--y)) scale(0);
   }
-  12%,
-  30% {
+  7.8%,
+  19.6% {
     opacity: 1;
     transform: translate(var(--x), var(--y)) scale(1);
   }
-  48% {
+  31.3% {
     opacity: 1;
     transform: translate(0, 0) scale(0.7);
   }
-  52%,
+  33.9%,
   100% {
     opacity: 0;
     transform: translate(0, 0) scale(0.3);
@@ -370,19 +372,19 @@
 
 @keyframes magic-core {
   0%,
-  44% {
+  28.7% {
     opacity: 0;
     transform: scale(0);
   }
-  52% {
+  33.9% {
     opacity: 1;
     transform: scale(1);
   }
-  58% {
+  37.8% {
     opacity: 1;
     transform: scale(1.3);
   }
-  64%,
+  41.7%,
   100% {
     opacity: 0;
     transform: scale(0);
@@ -423,24 +425,30 @@
 }
 
 .magic-play .magic-card {
-  animation: magic-card 2800ms cubic-bezier(0.34, 1.4, 0.64, 1) var(--s, 0ms) both;
+  animation: magic-card 4400ms cubic-bezier(0.34, 1.4, 0.64, 1) var(--s, 0ms) both;
 }
 
 @keyframes magic-card {
   0%,
-  56% {
+  35.6% {
     opacity: 0;
     transform: translateX(-50%) translateY(50%) rotate(0deg) scale(0.2);
   }
-  72%,
-  86% {
+  45.8% {
     opacity: 1;
     transform: translateX(calc(-50% + var(--x))) translateY(var(--y)) rotate(var(--r)) scale(1);
   }
-  94% {
+  65.9% {
+    opacity: 1;
+    transform: translateX(calc(-50% + var(--x))) translateY(var(--y)) rotate(var(--r)) scale(1);
+    animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  79.5% {
     opacity: 1;
     transform: translateX(-50%) translateY(0) rotate(0deg) scale(0.7);
+    animation-timing-function: cubic-bezier(0.55, 0, 0.45, 1);
   }
+  88.6%,
   100% {
     opacity: 0;
     transform: translateX(-50%) translateY(50%) rotate(0deg) scale(0.2);
