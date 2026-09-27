@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 }
 
 const NAME_STEP = 160
-const BIO_START = wordsEnd("Nicolas Montone (monto)", 200, NAME_STEP) + 150
+const BIO_START = wordsEnd("monto", 200, NAME_STEP) + 150
 const BIO_STEP = 90
 const BIO_END = wordsEnd(bio, BIO_START, BIO_STEP)
 const WORK_START = BIO_END + 200
@@ -38,7 +38,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-background font-sans text-muted-foreground">
       <JsonLd data={homepageJsonLd()} />
-      <div className="mx-auto flex max-w-2xl flex-col gap-20 px-6 py-16 md:py-24">
+      <div className="mx-auto flex max-w-2xl flex-col gap-12 px-6 py-16 md:py-24">
         <header className="flex flex-col gap-6">
           <Fade delay={0}>
             <Image
@@ -52,8 +52,10 @@ export default function Home() {
           </Fade>
           <div className="flex flex-col gap-2">
             <h1 className="text-xl text-foreground text-balance">
-              <Words text="Nicolas Montone" start={200} step={NAME_STEP} />{" "}
-              <Words text="(monto)" start={200 + 2 * NAME_STEP} className="text-muted-foreground" />
+              <span className="sr-only">Nicolas Montone (monto)</span>
+              <span aria-hidden="true">
+                <Words text="monto" start={200} step={NAME_STEP} />
+              </span>
             </h1>
             <p className="text-base leading-relaxed text-muted-foreground text-pretty">
               <Words text={bio} start={BIO_START} step={BIO_STEP} accent={bioAccent} />
@@ -78,8 +80,8 @@ export default function Home() {
           ))}
         </Section>
 
-        <footer id="elsewhere" aria-labelledby="elsewhere-title" className="flex flex-col gap-6">
-          <div className="flex flex-col gap-3">
+        <footer id="elsewhere" aria-labelledby="elsewhere-title" className="flex flex-col gap-4">
+          <div className="flex flex-col gap-2">
             <LoveGlyph delay={ELSEWHERE_START} />
             <h2 id="elsewhere-title" className="text-sm text-muted-foreground">
               <Words text="Elsewhere" start={ELSEWHERE_START + 250} />

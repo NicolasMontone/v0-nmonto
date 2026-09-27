@@ -13,9 +13,9 @@ type SectionProps = {
 export function Section({ title, glyph, more, delay = 0, children }: SectionProps) {
   const id = title.toLowerCase()
   return (
-    <section aria-labelledby={id} className="flex flex-col gap-6">
+    <section aria-labelledby={id} className="flex flex-col gap-4">
       <div className="flex items-end justify-between">
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-2">
           {glyph}
           <h2 id={id} className="text-sm text-muted-foreground">
             <Words text={title} start={delay + 250} />
@@ -31,7 +31,7 @@ export function Section({ title, glyph, more, delay = 0, children }: SectionProp
           </Link>
         ) : null}
       </div>
-      <ul className="flex flex-col gap-6">{children}</ul>
+      <ul className="flex flex-col gap-4">{children}</ul>
     </section>
   )
 }
@@ -51,7 +51,7 @@ export function Entry({ href, title, description, meta, delay = 0 }: EntryProps)
       <Link
         href={href}
         {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-        className="group flex flex-col gap-1"
+        className="group flex flex-col gap-0.5"
       >
         <span className="flex items-baseline justify-between gap-4">
           <span className="text-base text-foreground underline-offset-4 decoration-muted-foreground/50 group-hover:underline">
