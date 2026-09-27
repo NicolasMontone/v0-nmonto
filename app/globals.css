@@ -277,6 +277,19 @@
   }
 }
 
+/* Bio accent: hovering either word of "Buenos Aires" lights up both, Aires in Argentine celeste */
+.ba {
+  transition: color 300ms ease;
+}
+
+p:has(.ba:hover) .ba-buenos {
+  color: var(--foreground);
+}
+
+p:has(.ba:hover) .ba-aires {
+  color: #74acdf;
+}
+
 /* Bio accents: "Magician" bursts into dots, the dots merge into one, and a hand of cards fans out of it; "hacker" gets a terminal cursor */
 .magic {
   position: relative;

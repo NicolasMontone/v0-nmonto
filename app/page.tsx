@@ -5,6 +5,7 @@ import { Hacker } from "@/components/hacker"
 import { Magician } from "@/components/magician"
 import { Entry, Section } from "@/components/home/section"
 import { JsonLd } from "@/components/json-ld"
+import { RevealFastForward } from "@/components/reveal-fast-forward"
 import { Fade, Words, wordsEnd } from "@/components/words"
 import { bio, elsewhere, projects, work } from "@/lib/home"
 import { homepageJsonLd } from "@/lib/schema"
@@ -31,12 +32,20 @@ function bioAccent(word: string) {
   const key = core.toLowerCase()
   if (key === "magician") return <Magician text={core} suffix={suffix} />
   if (key === "hacker") return <Hacker text={core} suffix={suffix} />
+  if (key === "buenos" || key === "aires")
+    return (
+      <>
+        <span className={`ba ba-${key}`}>{core}</span>
+        {suffix}
+      </>
+    )
   return null
 }
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-background font-sans text-muted-foreground">
+      <RevealFastForward />
       <JsonLd data={homepageJsonLd()} />
       <div className="mx-auto flex max-w-2xl flex-col gap-12 px-6 py-16 md:py-24">
         <header className="flex flex-col gap-6">
