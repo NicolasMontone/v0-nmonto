@@ -19,6 +19,31 @@ type Phase = "idle" | "drop" | "flood" | "open" | "closing"
 
 const DROP_MS = 520
 const FLOOD_MS = 1700
+
+// Hand-tuned placements on a 12-column grid (desktop) and width/alignment (mobile),
+// cycled so every item lands at a different size and position.
+const SCATTER = [
+  { start: 1, span: 5, w: "82%", align: "flex-start" },
+  { start: 7, span: 6, w: "92%", align: "flex-end" },
+  { start: 3, span: 4, w: "64%", align: "center" },
+  { start: 9, span: 4, w: "70%", align: "flex-end" },
+  { start: 1, span: 7, w: "100%", align: "flex-start" },
+  { start: 6, span: 3, w: "58%", align: "flex-end" },
+  { start: 2, span: 5, w: "76%", align: "flex-start" },
+  { start: 8, span: 5, w: "86%", align: "flex-end" },
+  { start: 4, span: 6, w: "94%", align: "center" },
+]
+
+function scatter(i: number) {
+  const s = SCATTER[i % SCATTER.length]
+  return {
+    "--start": s.start,
+    "--span": s.span,
+    "--w": s.w,
+    "--align": s.align,
+    "--push": s.align === "flex-end" ? "auto" : "0",
+  }
+}
 const CLOSE_MS = 900
 
 type InspirationProps = {
@@ -117,7 +142,7 @@ export function Inspiration({ text, suffix, images }: InspirationProps) {
               aria-labelledby="inspiration-title"
               className="rain-flood fixed inset-0 z-50 overflow-y-auto bg-background text-muted-foreground"
             >
-              <div className="mx-auto flex max-w-5xl flex-col gap-8 px-6 py-12 md:py-16">
+              <div className="mx-auto flex max-w-7xl flex-col gap-24 px-6 py-12 md:gap-40 md:px-10 md:py-16">
                 <header className="rain-item flex items-center justify-between gap-4" style={{ "--i": 0 } as React.CSSProperties}>
                   <div className="flex flex-col gap-1">
                     <h2 id="inspiration-title" className="text-xl text-foreground">
@@ -135,20 +160,20 @@ export function Inspiration({ text, suffix, images }: InspirationProps) {
                     <span className="sr-only">Close inspiration</span>
                   </button>
                 </header>
-                <ul className="columns-2 gap-4 md:columns-3">
+                <ul className="rain-gallery">
                   {images.map((image, i) => (
                     <li
                       key={image.id}
-                      className="rain-item mb-4 break-inside-avoid"
-                      style={{ "--i": i + 1 } as React.CSSProperties}
+                      className="rain-item"
+                      style={{ "--i": i + 1, ...scatter(i), "--ar": image.width / image.height } as React.CSSProperties}
                     >
-                      <figure className="flex flex-col gap-2">
+                      <figure className="flex flex-col gap-3">
                         <Image
                           src={image.url}
                           alt={image.title}
                           width={image.width}
                           height={image.height}
-                          sizes="(min-width: 768px) 33vw, 50vw"
+                          sizes="(min-width: 768px) 55vw, 90vw"
                           className="h-auto w-full rounded-md bg-muted text-transparent"
                         />
                         <figcaption className="text-xs leading-relaxed">

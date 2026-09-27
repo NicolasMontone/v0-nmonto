@@ -343,6 +343,39 @@
   }
 }
 
+.rain-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 7rem;
+  padding-bottom: 10rem;
+}
+
+.rain-gallery > li {
+  width: var(--w, 100%);
+  align-self: var(--align, flex-start);
+}
+
+/* Cap tall images so portraits never exceed ~80% of the viewport height. */
+.rain-gallery figure {
+  width: min(100%, calc(80svh * var(--ar, 1)));
+  margin-left: var(--push, 0);
+}
+
+@media (min-width: 768px) {
+  .rain-gallery {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: 2rem;
+    row-gap: 10rem;
+    padding-bottom: 16rem;
+  }
+
+  .rain-gallery > li {
+    width: auto;
+    grid-column: var(--start) / span var(--span);
+  }
+}
+
 .rain-item {
   opacity: 0;
   transform: translateY(12px);
