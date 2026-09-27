@@ -1,4 +1,7 @@
+"use client"
+
 import type React from "react"
+import { useRef, useState } from "react"
 
 const SPARKS = [
   { cx: 4, cy: 10, r: 1.6, d: 0 },
@@ -14,6 +17,8 @@ const SPARKS = [
   { cx: 56, cy: 24, r: 1.4, d: 30 },
 ]
 
+const TRICK_MS = 1100
+
 type MagicianProps = {
   text: string
   suffix?: string
@@ -21,8 +26,23 @@ type MagicianProps = {
 }
 
 export function Magician({ text, suffix = "", delay }: MagicianProps) {
+  const [run, setRun] = useState({ id: 0, delay })
+  const busyUntil = useRef(0)
+
+  const replay = () => {
+    const now = performance.now()
+    if (now < busyUntil.current || now < delay + TRICK_MS) return
+    busyUntil.current = now + TRICK_MS
+    setRun((prev) => ({ id: prev.id + 1, delay: 0 }))
+  }
+
   return (
-    <span className="magic" style={{ "--m": `${delay}ms` } as React.CSSProperties}>
+    <span
+      key={run.id}
+      className="magic"
+      style={{ "--m": `${run.delay}ms` } as React.CSSProperties}
+      onPointerEnter={replay}
+    >
       <span className="magic-text">{text}</span>
       {suffix}
       <svg aria-hidden="true" viewBox="0 0 62 26" preserveAspectRatio="none" className="magic-sparks">
@@ -34,7 +54,7 @@ export function Magician({ text, suffix = "", delay }: MagicianProps) {
             r={s.r}
             fill="currentColor"
             className="magic-spark"
-            style={{ "--s": `${delay + 180 + s.d}ms` } as React.CSSProperties}
+            style={{ "--s": `${run.delay + 180 + s.d}ms` } as React.CSSProperties}
           />
         ))}
       </svg>
