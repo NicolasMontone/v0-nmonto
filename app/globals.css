@@ -256,38 +256,19 @@
   }
 }
 
-/* Registered so the feathered reveal radius can transition smoothly. */
-@property --reveal {
-  syntax: "<length>";
-  inherits: false;
-  initial-value: -24vmax;
-}
-
+/* clip-path + opacity only: both stay off the per-frame repaint path. */
 .rain-flood {
-  --reveal: -24vmax;
-  --feather: 24vmax;
-  -webkit-mask-image: radial-gradient(
-    circle at var(--x) var(--y),
-    #000 var(--reveal),
-    transparent calc(var(--reveal) + var(--feather))
-  );
-  mask-image: radial-gradient(
-    circle at var(--x) var(--y),
-    #000 var(--reveal),
-    transparent calc(var(--reveal) + var(--feather))
-  );
-  transition: --reveal var(--flood) cubic-bezier(0.32, 0, 0.12, 1);
+  clip-path: circle(0px at var(--x) var(--y));
+  opacity: 0;
+  transition:
+    clip-path var(--flood) cubic-bezier(0.32, 0, 0.12, 1),
+    opacity calc(var(--flood) * 0.6) ease-out;
 }
 
 .rain[data-phase="flood"] .rain-flood,
 .rain[data-phase="open"] .rain-flood {
-  --reveal: 150vmax;
-}
-
-/* Drop the mask once settled so scrolling the gallery stays cheap. */
-.rain[data-phase="open"] .rain-flood {
-  -webkit-mask-image: none;
-  mask-image: none;
+  clip-path: circle(150vmax at var(--x) var(--y));
+  opacity: 1;
 }
 
 .rain[data-phase="closing"] .rain-flood {
@@ -338,44 +319,33 @@
   position: absolute;
   top: var(--y);
   left: var(--x);
-  width: 0;
-  height: 0;
-  border: 1px solid color-mix(in oklab, var(--foreground) 45%, transparent);
+  width: 60vmax;
+  height: 60vmax;
+  border: 1.5px solid color-mix(in oklab, var(--foreground) 40%, transparent);
   border-radius: 9999px;
-  box-shadow: 0 0 14px color-mix(in oklab, var(--foreground) 10%, transparent);
   opacity: 0;
-  transform: translate(-50%, -50%);
-  animation: rain-ring 2800ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.rain-ring:nth-child(3) {
-  animation-delay: 420ms;
-}
-
-.rain-ring:nth-child(4) {
-  animation-delay: 840ms;
+  transform: translate(-50%, -50%) scale(0.01);
+  will-change: transform, opacity;
+  animation: rain-ring 2200ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes rain-ring {
   0% {
-    width: 6px;
-    height: 6px;
     opacity: 0;
+    transform: translate(-50%, -50%) scale(0.01);
   }
-  10% {
-    opacity: 0.7;
+  12% {
+    opacity: 0.6;
   }
   100% {
-    width: 90vmax;
-    height: 90vmax;
     opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
   }
 }
 
 .rain-item {
   opacity: 0;
   transform: translateY(12px);
-  filter: blur(6px);
 }
 
 .rain[data-phase="open"] .rain-item {
@@ -386,7 +356,6 @@
   to {
     opacity: 1;
     transform: none;
-    filter: none;
   }
 }
 
@@ -397,9 +366,7 @@
     animation: none !important;
     opacity: 1;
     transform: none;
-    filter: none;
-    -webkit-mask-image: none;
-    mask-image: none;
+    clip-path: none;
   }
 }
 

@@ -165,8 +165,6 @@ export function Inspiration({ text, suffix, images }: InspirationProps) {
               <span className="rain-rings" aria-hidden="true">
                   <span className="rain-bloom" />
                   <span className="rain-ring" />
-                  <span className="rain-ring" />
-                  <span className="rain-ring" />
               </span>
             )}
           </div>,
