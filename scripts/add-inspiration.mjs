@@ -1,10 +1,10 @@
 #!/usr/bin/env node
-// Adds one inspiration to data/inspirations.json, uploading any files to
-// Vercel Blob (public store) first.
+// Adds one inspiration to data/inspirations.json, saving any files into
+// public/inspirations/ so they ship with the site.
 //
-// Usage (needs BLOB_READ_WRITE_TOKEN in the environment):
+// Usage:
 //
-//   node --env-file-if-exists=.env.local scripts/add-inspiration.mjs \
+//   node scripts/add-inspiration.mjs \
 //     --kind photo|album|track|site|note \
 //     --title "Mezzanine" \
 //     [--by "Massive Attack"] [--year 1998] \
@@ -14,12 +14,11 @@
 //     [--audio ./track.mp3 | https://...]  # optional audio for tracks
 //     [--id custom-slug] [--date 2026-09-01]
 //
-// Re-running with the same --id overwrites the entry and the Blob files, so
+// Re-running with the same --id overwrites the entry and its files, so
 // fixing a typo is just running the command again.
 
-import { readFile, writeFile } from "node:fs/promises"
+import { mkdir, readFile, writeFile } from "node:fs/promises"
 import { extname, resolve } from "node:path"
-import { put } from "@vercel/blob"
 import sharp from "sharp"
 
 const MANIFEST = resolve(process.cwd(), "data/inspirations.json")
@@ -162,14 +161,24 @@ async function describeImage(buffer) {
   return { width: meta.width, height: meta.height, palette }
 }
 
-async function upload(pathname, buffer, contentType) {
-  const blob = await put(pathname, buffer, {
-    access: "public",
-    contentType,
-    addRandomSuffix: false,
-    allowOverwrite: true,
-  })
-  return blob.url
+// 1200px covers the widest gallery column at 2x; WebP q80 keeps files tiny.
+const MAX_WIDTH = 1200
+
+function optimizeImage(buffer) {
+  return sharp(buffer)
+    .rotate()
+    .resize({ width: MAX_WIDTH, withoutEnlargement: true })
+    .webp({ quality: 80, effort: 6 })
+    .toBuffer()
+}
+
+const PUBLIC_DIR = resolve(process.cwd(), "public")
+
+async function save(filename, buffer) {
+  const dir = resolve(PUBLIC_DIR, "inspirations")
+  await mkdir(dir, { recursive: true })
+  await writeFile(resolve(dir, filename), buffer)
+  return `/inspirations/${filename}`
 }
 
 // ---------------------------------------------------------------------------
@@ -178,7 +187,6 @@ async function upload(pathname, buffer, contentType) {
 async function main() {
   const args = parseArgs(process.argv.slice(2))
 
-  if (!process.env.BLOB_READ_WRITE_TOKEN) fail("BLOB_READ_WRITE_TOKEN is not set")
   if (!args.kind || !KINDS.has(args.kind)) fail(`--kind must be one of ${[...KINDS].join(", ")}`)
   if (!args.title || args.title === true) fail("--title is required")
 
@@ -209,19 +217,22 @@ async function main() {
   if (args.file && args.file !== true) {
     const { buffer, contentType, ext } = await loadInput(String(args.file))
     if (!contentType.startsWith("image/")) fail(`--file must be an image, got ${contentType}`)
-    process.stdout.write(`  uploading media (${(buffer.length / 1024).toFixed(0)} kB)… `)
-    const url = await upload(`inspirations/${kind}/${id}${ext}`, buffer, contentType)
+    const optimized = await optimizeImage(buffer)
+    process.stdout.write(
+      `  saving media (${(buffer.length / 1024).toFixed(0)} kB -> ${(optimized.length / 1024).toFixed(0)} kB webp)… `,
+    )
+    const url = await save(`${id}.webp`, optimized)
     console.log("ok")
-    const { width, height, palette } = await describeImage(buffer)
-    entry.media = { url, contentType, size: buffer.length, width, height }
+    const { width, height, palette } = await describeImage(optimized)
+    entry.media = { url, contentType: "image/webp", size: optimized.length, width, height }
     entry.palette = palette
   }
 
   if (args.audio && args.audio !== true) {
     const { buffer, contentType, ext } = await loadInput(String(args.audio))
     if (!contentType.startsWith("audio/")) fail(`--audio must be audio, got ${contentType}`)
-    process.stdout.write(`  uploading audio (${(buffer.length / 1024).toFixed(0)} kB)… `)
-    const url = await upload(`inspirations/${kind}/${id}-audio${ext}`, buffer, contentType)
+    process.stdout.write(`  saving audio (${(buffer.length / 1024).toFixed(0)} kB)… `)
+    const url = await save(`${id}-audio${ext}`, buffer)
     console.log("ok")
     entry.audio = { url, contentType, size: buffer.length }
   }

@@ -144,7 +144,7 @@ export function Inspiration({ text, suffix, images }: InspirationProps) {
                     >
                       <figure className="flex flex-col gap-2">
                         <Image
-                          src={image.url || "/placeholder.svg"}
+                          src={image.url}
                           alt={image.title}
                           width={image.width}
                           height={image.height}
