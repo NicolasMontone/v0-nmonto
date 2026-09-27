@@ -7,7 +7,7 @@ import { Entry, Section } from "@/components/home/section"
 import { JsonLd } from "@/components/json-ld"
 import { RevealFastForward } from "@/components/reveal-fast-forward"
 import { Fade, Words, wordsEnd } from "@/components/words"
-import { bio, elsewhere, projects, work } from "@/lib/home"
+import { bio, elsewhere, projects, welcome, work } from "@/lib/home"
 import { homepageJsonLd } from "@/lib/schema"
 import { site } from "@/lib/site"
 
@@ -21,7 +21,9 @@ const NAME_STEP = 160
 const BIO_START = wordsEnd("monto", 200, NAME_STEP) + 150
 const BIO_STEP = 90
 const BIO_END = wordsEnd(bio, BIO_START, BIO_STEP)
-const WORK_START = BIO_END + 200
+const WELCOME_START = BIO_END + 150
+const WELCOME_STEP = 60
+const WORK_START = wordsEnd(welcome, WELCOME_START, WELCOME_STEP) + 200
 const ENTRY_STEP = 160
 const PROJECTS_START = WORK_START + 500 + work.length * ENTRY_STEP + 200
 const ELSEWHERE_START = PROJECTS_START + 500 + projects.length * ENTRY_STEP + 200
@@ -68,6 +70,9 @@ export default function Home() {
             </h1>
             <p className="text-base leading-relaxed text-muted-foreground text-pretty">
               <Words text={bio} start={BIO_START} step={BIO_STEP} accent={bioAccent} />
+            </p>
+            <p className="text-base leading-relaxed text-muted-foreground text-pretty">
+              <Words text={welcome} start={WELCOME_START} step={WELCOME_STEP} />
             </p>
           </div>
         </header>
