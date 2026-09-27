@@ -3,7 +3,7 @@
 // lib/site.ts) means the agent-facing text and the rendered HTML share one source.
 
 import { pages, site, type PageSlug } from "./site"
-import { bio, elsewhere, projects, work, type HomeEntry } from "./home"
+import { bio, elsewhere, projects, welcome, work, type HomeEntry } from "./home"
 
 function homeList(entries: HomeEntry[]): string {
   return entries
@@ -15,6 +15,8 @@ export const pageMarkdown: Record<PageSlug, string> = {
   "": `# ${site.person} (monto)
 
 ${bio}
+
+${welcome}
 
 ## Work
 

@@ -6,6 +6,9 @@ export type HomeEntry = { title: string; description: string; href: string; meta
 
 export const bio = "Software engineer at v0.app. From Buenos Aires, living in San Francisco. Magician and hacker."
 
+export const welcome =
+  "Thank you for stopping by my small corner of the internet. I hope you leave with a little inspiration."
+
 export const work: HomeEntry[] = [
   {
     title: "v0.app",
