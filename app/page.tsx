@@ -31,6 +31,13 @@ function bioAccent(word: string) {
   const key = core.toLowerCase()
   if (key === "magician") return <Magician text={core} suffix={suffix} />
   if (key === "hacker") return <Hacker text={core} suffix={suffix} />
+  if (key === "buenos" || key === "aires")
+    return (
+      <>
+        <span className={`ba ba-${key}`}>{core}</span>
+        {suffix}
+      </>
+    )
   return null
 }
 
