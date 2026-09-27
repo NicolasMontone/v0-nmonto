@@ -2,7 +2,9 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import { ConnectionGlyph, LoveGlyph, SurpriseGlyph } from "@/components/glyphs"
 import { Hacker } from "@/components/hacker"
+import { Inspiration, type InspirationImage } from "@/components/inspiration"
 import { Magician } from "@/components/magician"
+import inspirations from "@/data/inspirations.json"
 import { Entry, Section } from "@/components/home/section"
 import { JsonLd } from "@/components/json-ld"
 import { RevealFastForward } from "@/components/reveal-fast-forward"
@@ -44,6 +46,23 @@ function bioAccent(word: string) {
   return null
 }
 
+const inspirationImages: InspirationImage[] = inspirations.items
+  .filter((item) => item.media?.contentType?.startsWith("image/"))
+  .map((item) => ({
+    id: item.id,
+    title: item.title,
+    by: item.by,
+    url: item.media.url,
+    width: item.media.width ?? 1200,
+    height: item.media.height ?? 800,
+  }))
+
+function welcomeAccent(word: string) {
+  const [, core, suffix] = word.match(/^(.*?)([.,!?]*)$/) ?? [word, word, ""]
+  if (core.toLowerCase() !== "inspiration") return null
+  return <Inspiration text={core} suffix={suffix} images={inspirationImages} />
+}
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-background font-sans text-muted-foreground">
@@ -72,7 +91,7 @@ export default function Home() {
               <Words text={bio} start={BIO_START} step={BIO_STEP} accent={bioAccent} />
             </p>
             <p className="text-base leading-relaxed text-muted-foreground text-pretty">
-              <Words text={welcome} start={WELCOME_START} step={WELCOME_STEP} />
+              <Words text={welcome} start={WELCOME_START} step={WELCOME_STEP} accent={welcomeAccent} />
             </p>
           </div>
         </header>
