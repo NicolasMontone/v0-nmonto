@@ -1,0 +1,466 @@
+{
+  "$schema": "../lib/inspirations.ts",
+  "version": 1,
+  "updatedAt": "2026-09-02",
+  "items": [
+    {
+      "id": "wash-koi-koi",
+      "kind": "photo",
+      "title": "Wash: koi / koi, seed 4172",
+      "by": "Nicolas Montone — Watercolor design canvas (v0)",
+      "year": 2026,
+      "note": "The reference render. Soft-edged washes with feathered borders on a blue-gray banded paper; thin white ripple rings; sage lily pads drawn with hairline radial veins. Three koi built from a light body plus a few saturated patches.",
+      "tags": [
+        "own-work",
+        "generative",
+        "wash",
+        "watercolor",
+        "koi",
+        "ripples",
+        "paper"
+      ],
+      "source": "https://v0.app/nmonto/chat/watercolor-design-canvas-kirf5rpgD9u",
+      "palette": [
+        "#c3733c",
+        "#9aa5ac",
+        "#dbad7e",
+        "#b5bdc2",
+        "#d1d6d4"
+      ],
+      "addedAt": "2026-09-01",
+      "media": {
+        "url": "https://eyva1j4yempnbwda.public.blob.vercel-storage.com/inspirations/photo/wash-koi-koi.jpeg",
+        "contentType": "image/jpeg",
+        "size": 669143,
+        "width": 2400,
+        "height": 1600
+      }
+    },
+    {
+      "id": "wash-wildflower-cosmos",
+      "kind": "photo",
+      "title": "Wash: wildflower / cosmos, seed 4172",
+      "by": "Nicolas Montone — Watercolor design canvas (v0)",
+      "year": 2026,
+      "note": "Cream paper with a single brown horizon wash. Cosmos flowers as feathered five-petal blobs with a dark center dot, stems drawn as dotted lines, and short horizontal hairline dashes scattered like wind or grass.",
+      "tags": [
+        "own-work",
+        "generative",
+        "wash",
+        "watercolor",
+        "botanical",
+        "paper",
+        "hairline"
+      ],
+      "source": "https://v0.app/nmonto/chat/watercolor-design-canvas-kirf5rpgD9u",
+      "palette": [
+        "#d68b7d",
+        "#e2ac92",
+        "#dbcdaa",
+        "#ebe2cc"
+      ],
+      "addedAt": "2026-09-01",
+      "media": {
+        "url": "https://eyva1j4yempnbwda.public.blob.vercel-storage.com/inspirations/photo/wash-wildflower-cosmos.jpeg",
+        "contentType": "image/jpeg",
+        "size": 511830,
+        "width": 2400,
+        "height": 1600
+      }
+    },
+    {
+      "id": "wash-koi-cosmos",
+      "kind": "photo",
+      "title": "Wash: koi / cosmos, seed 4172",
+      "by": "Nicolas Montone — Watercolor design canvas (v0)",
+      "year": 2026,
+      "note": "Same koi system on warm sand paper in pinks and corals. Tail fins as fanned hairlines, olive lily pads top-right, white dots as petals or bubbles. Shows the palette swap changing the mood without changing the drawing.",
+      "tags": [
+        "own-work",
+        "generative",
+        "wash",
+        "watercolor",
+        "koi",
+        "warm",
+        "paper"
+      ],
+      "source": "https://v0.app/nmonto/chat/watercolor-design-canvas-kirf5rpgD9u",
+      "palette": [
+        "#db5243",
+        "#dd725d",
+        "#dd9474",
+        "#b3ab83",
+        "#ddccab"
+      ],
+      "addedAt": "2026-09-01",
+      "media": {
+        "url": "https://eyva1j4yempnbwda.public.blob.vercel-storage.com/inspirations/photo/wash-koi-cosmos.jpeg",
+        "contentType": "image/jpeg",
+        "size": 513144,
+        "width": 2400,
+        "height": 1600
+      }
+    },
+    {
+      "id": "wash-fern-sage",
+      "kind": "photo",
+      "title": "Wash: fern / sage, seed 4172",
+      "by": "Nicolas Montone — Watercolor design canvas (v0)",
+      "year": 2026,
+      "note": "Herbarium plate feel. A fern frond of stacked feathered leaflets on a hairline stem, sprigs with round leaf blobs, stray ochre spots, and tiny dash clusters at each stem base that read like handwritten captions.",
+      "tags": [
+        "own-work",
+        "generative",
+        "wash",
+        "watercolor",
+        "botanical",
+        "herbarium",
+        "hairline"
+      ],
+      "source": "https://v0.app/nmonto/chat/watercolor-design-canvas-kirf5rpgD9u",
+      "palette": [
+        "#91957b",
+        "#acac94",
+        "#cccab4",
+        "#eae4d3"
+      ],
+      "addedAt": "2026-09-01",
+      "media": {
+        "url": "https://eyva1j4yempnbwda.public.blob.vercel-storage.com/inspirations/photo/wash-fern-sage.jpeg",
+        "contentType": "image/jpeg",
+        "size": 640440,
+        "width": 2400,
+        "height": 1600
+      }
+    },
+    {
+      "id": "wash-koi-sumi",
+      "kind": "photo",
+      "title": "Wash: koi / sumi, seed 4172",
+      "by": "Nicolas Montone — Watercolor design canvas (v0)",
+      "year": 2026,
+      "note": "Identical composition to koi/koi (same seed) rendered in ink grays. Proof the system separates form from palette; the monochrome version is the one closest to the current site.",
+      "tags": [
+        "own-work",
+        "generative",
+        "wash",
+        "sumi-e",
+        "monochrome",
+        "koi",
+        "paper"
+      ],
+      "source": "https://v0.app/nmonto/chat/watercolor-design-canvas-kirf5rpgD9u",
+      "palette": [
+        "#3d3c3b",
+        "#7d7d7a",
+        "#9b9995",
+        "#b4b2ac",
+        "#cdcac2"
+      ],
+      "addedAt": "2026-09-01",
+      "media": {
+        "url": "https://eyva1j4yempnbwda.public.blob.vercel-storage.com/inspirations/photo/wash-koi-sumi.jpeg",
+        "contentType": "image/jpeg",
+        "size": 630843,
+        "width": 2400,
+        "height": 1600
+      }
+    },
+    {
+      "id": "yugioh-card-back",
+      "kind": "photo",
+      "title": "Yu-Gi-Oh! card back",
+      "by": "Konami / Kazuki Takahashi",
+      "year": 1999,
+      "note": "\"wow, this is design, remarkable.\" The one image every player saw thousands of times: a black oval pulled into a whirlpool of molten orange and gold flow lines, marbled and slightly moire, inside a grainy burnt-orange border. It is the same on every card, so it works as a seal, not an illustration. Shares the concentric-ring language of the wash ripples, but dark, hot and high-contrast.",
+      "tags": [
+        "card-back",
+        "vortex",
+        "spiral",
+        "concentric",
+        "flow-lines",
+        "moire",
+        "dark",
+        "molten",
+        "orange",
+        "gold",
+        "border",
+        "identity",
+        "nostalgia"
+      ],
+      "palette": [
+        "#331b1a",
+        "#543424",
+        "#934c24",
+        "#dc934c",
+        "#e3ad73"
+      ],
+      "addedAt": "2026-09-01",
+      "media": {
+        "url": "https://eyva1j4yempnbwda.public.blob.vercel-storage.com/inspirations/photo/yugioh-card-back.png",
+        "contentType": "image/png",
+        "size": 1225960,
+        "width": 694,
+        "height": 1013
+      }
+    },
+    {
+      "id": "one-piece-jolly-roger",
+      "kind": "photo",
+      "title": "Straw Hat Jolly Roger",
+      "by": "Eiichiro Oda — One Piece",
+      "year": 1997,
+      "note": "One Piece marked how I want to live: pick a dream and build a crew of people who dream like you. The flag is the whole idea in one mark — a skull everyone recognizes, made yours by one small change (the hat). Black and white plus a single accent, readable at any size, flown from a wooden ship under a flat blue sky. A seal for a crew, the same job as the card back.",
+      "tags": [
+        "one-piece",
+        "crew",
+        "ethos",
+        "flag",
+        "jolly-roger",
+        "seal",
+        "mark",
+        "two-color",
+        "black",
+        "sky-blue",
+        "straw-hat",
+        "nostalgia"
+      ],
+      "palette": [
+        "#010101",
+        "#1c84dc",
+        "#42a4e2",
+        "#65baed",
+        "#93cdfb"
+      ],
+      "addedAt": "2026-09-02",
+      "media": {
+        "url": "https://eyva1j4yempnbwda.public.blob.vercel-storage.com/inspirations/photo/one-piece-jolly-roger.png",
+        "contentType": "image/png",
+        "size": 491741,
+        "width": 1000,
+        "height": 552
+      }
+    },
+    {
+      "id": "evil-rabbit-mark",
+      "kind": "photo",
+      "title": "Rabbit mark",
+      "by": "Evil Rabbit",
+      "note": "Evil Rabbit's mark. He is a design mentor to me. A rabbit head as one white silhouette on black: two ears, a rounded face, and a single tiny black V for the mouth. Nothing else. It reads at 16px and on the side of a building, and the one small notch is what turns a blob into a face. Same family as the card back and the Jolly Roger: a fixed, repeated mark, but this one belongs to a person.",
+      "tags": [
+        "evil-rabbit",
+        "mentor",
+        "logo",
+        "seal",
+        "mark",
+        "silhouette",
+        "two-color",
+        "black",
+        "white",
+        "minimal",
+        "negative-space"
+      ],
+      "source": "https://evilrabb.it",
+      "palette": [
+        "#000000",
+        "#2b2b2b",
+        "#acacac",
+        "#d3d3d3",
+        "#fefefe"
+      ],
+      "addedAt": "2026-09-02",
+      "media": {
+        "url": "https://eyva1j4yempnbwda.public.blob.vercel-storage.com/inspirations/photo/evil-rabbit-mark.png",
+        "contentType": "image/png",
+        "size": 19830,
+        "width": 400,
+        "height": 400
+      }
+    },
+    {
+      "id": "naruto-team-7",
+      "kind": "photo",
+      "title": "Team 7",
+      "by": "Masashi Kishimoto — Naruto",
+      "year": 2002,
+      "note": "The Team 7 photo: Kakashi behind with a hand on Sasuke's and Naruto's heads, both scowling, Sakura in front beaming. A crew that does not get along yet, held together by a mentor who is barely in the frame. Same thread as the Jolly Roger (a crew that dreams together) and Evil Rabbit (a mentor), now in one image.",
+      "tags": [
+        "naruto",
+        "team-7",
+        "crew",
+        "mentor",
+        "kakashi",
+        "ethos",
+        "nostalgia",
+        "anime",
+        "saturated"
+      ],
+      "palette": [
+        "#0b1d39",
+        "#2c3532",
+        "#13396c",
+        "#7b8375",
+        "#f6e2d4"
+      ],
+      "addedAt": "2026-09-02",
+      "media": {
+        "url": "https://eyva1j4yempnbwda.public.blob.vercel-storage.com/inspirations/photo/naruto-team-7.png",
+        "contentType": "image/png",
+        "size": 118177,
+        "width": 284,
+        "height": 233
+      }
+    },
+    {
+      "id": "goku-super-saiyan",
+      "kind": "photo",
+      "title": "Goku, first Super Saiyan",
+      "by": "Akira Toriyama — Dragon Ball Z",
+      "year": 1991,
+      "note": "Goku going Super Saiyan on Namek for the first time. A tall frame where the golden aura swallows the whole background; torn blue and orange gi, scratches, clenched teeth, eyes down. The light is the subject. Loudest image in the pile so far, and the first vertical one.",
+      "tags": [
+        "dragon-ball",
+        "goku",
+        "super-saiyan",
+        "transformation",
+        "aura",
+        "glow",
+        "gold",
+        "orange",
+        "saturated",
+        "portrait",
+        "nostalgia",
+        "anime"
+      ],
+      "palette": [
+        "#020001",
+        "#c47b02",
+        "#dca301",
+        "#e3ecbd",
+        "#ecfae3"
+      ],
+      "addedAt": "2026-09-02",
+      "media": {
+        "url": "https://eyva1j4yempnbwda.public.blob.vercel-storage.com/inspirations/photo/goku-super-saiyan.png",
+        "contentType": "image/png",
+        "size": 3548720,
+        "width": 1280,
+        "height": 2710
+      }
+    },
+    {
+      "id": "cats-eye-marbles",
+      "kind": "photo",
+      "title": "Cat's-eye marbles",
+      "by": "Unknown",
+      "note": "Four cat's-eye marbles on a pale gray surface. Clear glass with a twisted ribbon of color suspended inside: green and yellow, red and yellow, yellow and blue, a darker orange one. A single square highlight on each, soft shadows. The color is captured inside something transparent, not painted on top. Childhood object, same era as the cards and the anime, but quiet, physical, and on a light ground like the wash renders.",
+      "tags": [
+        "marbles",
+        "glass",
+        "cats-eye",
+        "object",
+        "childhood",
+        "nostalgia",
+        "transparency",
+        "refraction",
+        "twist",
+        "primary-colors",
+        "light-ground"
+      ],
+      "palette": [
+        "#5c1401",
+        "#4c533c",
+        "#8a948b",
+        "#a3b3a5",
+        "#c9cac9"
+      ],
+      "addedAt": "2026-09-02",
+      "media": {
+        "url": "https://eyva1j4yempnbwda.public.blob.vercel-storage.com/inspirations/photo/cats-eye-marbles.png",
+        "contentType": "image/png",
+        "size": 677475,
+        "width": 1200,
+        "height": 1200
+      }
+    },
+    {
+      "id": "adidas-jabulani",
+      "kind": "photo",
+      "title": "Jabulani",
+      "by": "adidas — 2010 FIFA World Cup, South Africa",
+      "year": 2010,
+      "note": "The 2010 World Cup ball on the grass. White sphere, eight bonded panels, curved black-green textured bands with orange and yellow trim, a zigzag triangle motif running along them, adidas mark and the South Africa 2010 emblem. Shot low, shallow focus. A famous, slightly hated object: too round, too smooth, flew wrong. Curved bands wrapping a white body, same idea as the marbles' ribbons but on the outside.",
+      "tags": [
+        "football",
+        "jabulani",
+        "world-cup",
+        "2010",
+        "south-africa",
+        "object",
+        "nostalgia",
+        "curves",
+        "bands",
+        "zigzag",
+        "pattern",
+        "white",
+        "orange",
+        "green",
+        "grass"
+      ],
+      "palette": [
+        "#0d0e0c",
+        "#2c3a1c",
+        "#4c533b",
+        "#bbc3c4",
+        "#d4dfe1"
+      ],
+      "addedAt": "2026-09-02",
+      "media": {
+        "url": "https://eyva1j4yempnbwda.public.blob.vercel-storage.com/inspirations/photo/adidas-jabulani.png",
+        "contentType": "image/png",
+        "size": 313612,
+        "width": 399,
+        "height": 501
+      }
+    },
+    {
+      "id": "naruto-cursed-seal",
+      "kind": "photo",
+      "title": "Cursed Seal of Heaven",
+      "by": "Masashi Kishimoto — Naruto",
+      "year": 2002,
+      "note": "Sasuke's Cursed Seal of Heaven. Three black tomoe rotating around a center, ringed by jagged flame-like fragments that look like the mark is cracking and spreading outward. Pure black on white. A literal seal, and the fourth mark in the pile after the card back, the Jolly Roger and Evil Rabbit. Also the rotation-around-a-center form again, this time as a symbol rather than a physical object.",
+      "tags": [
+        "naruto",
+        "sasuke",
+        "cursed-seal",
+        "seal",
+        "mark",
+        "tomoe",
+        "triskelion",
+        "rotation",
+        "black",
+        "white",
+        "two-color",
+        "jagged",
+        "spread",
+        "nostalgia"
+      ],
+      "palette": [
+        "#010101",
+        "#1c1c1c",
+        "#6a6a6a",
+        "#dcdcdc",
+        "#ffffff"
+      ],
+      "addedAt": "2026-09-02",
+      "media": {
+        "url": "https://eyva1j4yempnbwda.public.blob.vercel-storage.com/inspirations/photo/naruto-cursed-seal.png",
+        "contentType": "image/png",
+        "size": 87495,
+        "width": 553,
+        "height": 575
+      }
+    }
+  ]
+}

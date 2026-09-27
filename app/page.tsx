@@ -1,7 +1,12 @@
 import type { Metadata } from "next"
-import Link from "next/link"
-import { Header } from "@/components/header"
+import Image from "next/image"
+import { ConnectionGlyph, LoveGlyph, SurpriseGlyph } from "@/components/glyphs"
+import { Hacker } from "@/components/hacker"
+import { Magician } from "@/components/magician"
+import { Entry, Section } from "@/components/home/section"
 import { JsonLd } from "@/components/json-ld"
+import { Fade, Words, wordsEnd } from "@/components/words"
+import { bio, elsewhere, projects, work } from "@/lib/home"
 import { homepageJsonLd } from "@/lib/schema"
 import { site } from "@/lib/site"
 
@@ -11,91 +16,93 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 }
 
+const NAME_STEP = 160
+const BIO_START = wordsEnd("monto", 200, NAME_STEP) + 150
+const BIO_STEP = 90
+const BIO_END = wordsEnd(bio, BIO_START, BIO_STEP)
+const WORK_START = BIO_END + 200
+const ENTRY_STEP = 160
+const PROJECTS_START = WORK_START + 500 + work.length * ENTRY_STEP + 200
+const ELSEWHERE_START = PROJECTS_START + 500 + projects.length * ENTRY_STEP + 200
+
+
+function bioAccent(word: string) {
+  const [, core, suffix] = word.match(/^(.*?)([.,!?]*)$/) ?? [word, word, ""]
+  const key = core.toLowerCase()
+  if (key === "magician") return <Magician text={core} suffix={suffix} />
+  if (key === "hacker") return <Hacker text={core} suffix={suffix} />
+  return null
+}
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background text-muted-foreground font-sans">
+    <main className="min-h-screen bg-background font-sans text-muted-foreground">
       <JsonLd data={homepageJsonLd()} />
-      <div className="flex py-12 px-8 md:px-16">
-        {/* Header on the left */}
-        <div className="w-40 flex-shrink-0 pr-8 border-r border-border/50 header-container">
-          <Header />
-        </div>
-
-        {/* Bio content */}
-        <section className="pl-8 max-w-xl content-area">
-          <h1 className="sr-only">Nicolas Montone — Software Engineer at v0.app</h1>
-          <div className="space-y-1.5 text-sm leading-relaxed">
-            <p>I live in San Francisco, California.</p>
-            <p>Originally from Buenos Aires (I love mate).</p>
-            <p>
-              I work at{" "}
-              <Link
-                href="https://v0.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:text-primary/80 transition-colors"
-              >
-                v0.app
-              </Link>{" "}
-              as a software engineer, where I build developer tools and AI-powered applications. I care about fast,
-              well-crafted software and about making complex systems feel approachable.
-            </p>
-            <p>I{"'"}m a magician.</p>
-            <p>
-              I{"'"}m a hacker. I love doing reverse engineering — taking systems apart to understand exactly how they
-              work. That same curiosity is what drives the software I build.
-            </p>
-            <p>
-              You can read more{" "}
-              <Link href="/about" className="text-primary hover:text-primary/80 transition-colors">
-                about me
-              </Link>
-              , see my{" "}
-              <Link href="/career" className="text-primary hover:text-primary/80 transition-colors">
-                career
-              </Link>{" "}
-              and{" "}
-              <Link href="/projects" className="text-primary hover:text-primary/80 transition-colors">
-                projects
-              </Link>
-              , or{" "}
-              <Link href="/contact" className="text-primary hover:text-primary/80 transition-colors">
-                get in touch
-              </Link>
-              .
-            </p>
-            <p>
-              Here is my{" "}
-              <Link
-                href="https://github.com/nicolasmontone"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:text-primary/80 transition-colors"
-              >
-                GitHub
-              </Link>
-              {" "}and{" "}
-              <Link
-                href="https://x.com/montonenico"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:text-primary/80 transition-colors"
-              >
-                X
-              </Link>
-              {" "}and{" "}
-              <Link
-                href="https://instagram.com/nicolasmontone"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:text-primary/80 transition-colors"
-              >
-                Instagram
-              </Link>
-              .
+      <div className="mx-auto flex max-w-2xl flex-col gap-12 px-6 py-16 md:py-24">
+        <header className="flex flex-col gap-6">
+          <Fade delay={0}>
+            <Image
+              src="/profile.jpg"
+              alt="Nicolas Montone"
+              width={64}
+              height={64}
+              priority
+              className="size-16 rounded-full object-cover grayscale"
+            />
+          </Fade>
+          <div className="flex flex-col gap-2">
+            <h1 className="text-xl text-foreground text-balance">
+              <span className="sr-only">Nicolas Montone (monto)</span>
+              <span aria-hidden="true">
+                <Words text="monto" start={200} step={NAME_STEP} />
+              </span>
+            </h1>
+            <p className="text-base leading-relaxed text-muted-foreground text-pretty">
+              <Words text={bio} start={BIO_START} step={BIO_STEP} accent={bioAccent} />
             </p>
           </div>
-        </section>
+        </header>
+
+        <Section title="Work" glyph={<ConnectionGlyph delay={WORK_START} />} delay={WORK_START}>
+          {work.map((item, i) => (
+            <Entry key={item.href} {...item} delay={WORK_START + 500 + i * ENTRY_STEP} />
+          ))}
+        </Section>
+
+        <Section
+          title="Projects"
+          glyph={<SurpriseGlyph delay={PROJECTS_START} />}
+          more={{ href: site.links.github, label: "GitHub" }}
+          delay={PROJECTS_START}
+        >
+          {projects.map((item, i) => (
+            <Entry key={item.href} {...item} delay={PROJECTS_START + 500 + i * ENTRY_STEP} />
+          ))}
+        </Section>
+
+        <footer id="elsewhere" aria-labelledby="elsewhere-title" className="flex flex-col gap-4">
+          <div className="flex flex-col gap-2">
+            <LoveGlyph delay={ELSEWHERE_START} />
+            <h2 id="elsewhere-title" className="text-sm text-muted-foreground">
+              <Words text="Elsewhere" start={ELSEWHERE_START + 250} />
+            </h2>
+          </div>
+          <ul className="flex flex-wrap gap-x-6 gap-y-2">
+            {elsewhere.map((item, i) => (
+              <li key={item.href}>
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={item.description}
+                  className="text-base text-foreground underline-offset-4 decoration-muted-foreground/50 hover:underline"
+                >
+                  <Fade delay={ELSEWHERE_START + 450 + i * 90}>{item.title}</Fade>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </footer>
       </div>
     </main>
   )

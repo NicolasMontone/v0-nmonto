@@ -18,6 +18,7 @@ describe("personSchema", () => {
     expect(person.sameAs).toContain(site.links.github)
     expect(person.sameAs).toContain(site.links.x)
     expect(person.sameAs).toContain(site.links.instagram)
+    expect(person.sameAs).toContain(site.links.linkedin)
   })
 })
 
