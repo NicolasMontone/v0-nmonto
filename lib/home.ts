@@ -9,7 +9,7 @@ export const bio = "Software engineer at v0.app. From Buenos Aires, living in Sa
 export const work: HomeEntry[] = [
   {
     title: "v0.app",
-    description: "Building developer tools and AI-powered applications.",
+    description: "Building the agent and the infrastructure.",
     href: "https://v0.app",
     meta: "Now",
   },
