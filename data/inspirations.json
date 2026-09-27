@@ -1,7 +1,7 @@
 {
   "$schema": "../lib/inspirations.ts",
   "version": 1,
-  "updatedAt": "2026-09-02",
+  "updatedAt": "2026-09-27",
   "items": [
     {
       "id": "yugioh-card-back",
@@ -297,6 +297,35 @@
         "size": 9820,
         "width": 553,
         "height": 575
+      }
+    },
+    {
+      "id": "juan-tamariz-signature",
+      "kind": "photo",
+      "title": "Signature",
+      "by": "Juan Tamariz",
+      "note": "Juan Tamariz’s handwritten signature in black ink on a book page, with long flourishes and a small hand-like drawing at the base of the J.",
+      "tags": [
+        "magic",
+        "signature",
+        "handwriting",
+        "ink",
+        "paper"
+      ],
+      "palette": [
+        "#3b3c37",
+        "#65645c",
+        "#848275",
+        "#a2a395",
+        "#babbad"
+      ],
+      "addedAt": "2026-09-27",
+      "media": {
+        "url": "/inspirations/juan-tamariz-signature.webp",
+        "contentType": "image/webp",
+        "size": 95940,
+        "width": 1200,
+        "height": 900
       }
     }
   ]
