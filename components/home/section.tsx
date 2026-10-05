@@ -18,7 +18,7 @@ export function Section({ title, glyph, more, delay = 0, children }: SectionProp
         <div className="flex flex-col gap-2">
           {glyph}
           <h2 id={id} className="text-sm text-muted-foreground">
-            <Words text={title} start={delay + 250} />
+            <Words text={title} start={delay} step={0} />
           </h2>
         </div>
         {more ? (
@@ -27,7 +27,7 @@ export function Section({ title, glyph, more, delay = 0, children }: SectionProp
             {...(more.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
             className="text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
-            <Fade delay={delay + 400}>{more.label}</Fade>
+            <Fade delay={delay}>{more.label}</Fade>
           </Link>
         ) : null}
       </div>
@@ -55,15 +55,15 @@ export function Entry({ href, title, description, meta, delay = 0 }: EntryProps)
       >
         <span className="flex items-baseline justify-between gap-4">
           <span className="text-base text-foreground underline-offset-4 decoration-muted-foreground/50 group-hover:underline">
-            <Words text={title} start={delay} step={110} />
+            <Words text={title} start={delay} step={0} />
           </span>
           {meta ? (
-            <Fade delay={delay + 200} className="shrink-0 font-mono text-xs text-muted-foreground">
+            <Fade delay={delay} className="shrink-0 font-mono text-xs text-muted-foreground">
               {meta}
             </Fade>
           ) : null}
         </span>
-        <Fade delay={delay + 300} className="text-sm leading-relaxed text-muted-foreground">
+        <Fade delay={delay} className="text-sm leading-relaxed text-muted-foreground">
           {description}
         </Fade>
       </Link>

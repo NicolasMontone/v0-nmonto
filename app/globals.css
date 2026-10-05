@@ -196,13 +196,13 @@
 
 /* Global speed for the intro reveal: every staggered --d delay is multiplied by this */
 :root {
-  --reveal-scale: 0.5;
+  --reveal-scale: 1;
 }
 
-/* "Designed by Apple – Intention": each word arrives dim, holds, then brightens */
+/* Each page block (header, Work, Projects, Elsewhere) fades in as a unit */
 .word {
   opacity: 0;
-  animation: word-in 700ms ease-out calc(var(--d, 0ms) * var(--reveal-scale)) forwards;
+  animation: word-in 450ms ease-out calc(var(--d, 0ms) * var(--reveal-scale)) forwards;
 }
 
 .inspiration-trigger {
@@ -409,15 +409,11 @@
 }
 
 @keyframes word-in {
-  0% {
-    opacity: 0;
+  from {
+  opacity: 0;
   }
-  30%,
-  55% {
-    opacity: 0.35;
-  }
-  100% {
-    opacity: 1;
+  to {
+  opacity: 1;
   }
 }
 
