@@ -36,7 +36,7 @@ export default function PrivacyPage() {
             </li>
             <li>
               <span className="text-foreground">External links.</span> Pages link out to services like GitHub, X,
-              Instagram, and cal.com, which each have their own privacy policies.
+              Instagram, and LinkedIn, which each have their own privacy policies.
             </li>
           </ul>
           <p>

@@ -4,10 +4,6 @@ import { notFoundMarkdown } from "@/lib/content"
 export function GET(req: Request) {
   const url = new URL(req.url)
 
-  if (url.pathname === "/cal") {
-    redirect("https://cal.com/montone/30min")
-  }
-
   if (url.pathname === "/x") {
     redirect("https://x.com/montonenico")
   }

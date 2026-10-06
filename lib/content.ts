@@ -28,8 +28,7 @@ ${homeList(projects)}
 
 ## Elsewhere
 
-There is no public email address; direct messages and the booking link are the
-intended channels.
+There is no public email address; direct messages are the intended channel.
 
 ${homeList(elsewhere)}
 `,
@@ -45,7 +44,7 @@ informational site.
   overall traffic. This data is not sold or shared.
 - **No third-party ad networks.** The site does not run advertising trackers.
 - **External links.** Pages link out to services like GitHub, X, Instagram, and
-  cal.com, which have their own privacy policies.
+  LinkedIn, which have their own privacy policies.
 
 Questions about privacy can be sent through any of the channels listed under
 Elsewhere on the home page. This policy may be updated; the latest version
