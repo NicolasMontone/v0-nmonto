@@ -13,7 +13,7 @@ const COMPRESSION = 0.12
 const MAX_REMAINING_MS = 500
 const TRIGGERS = ["wheel", "touchmove", "scroll", "keydown"] as const
 
-// The intro reveals words one by one over ~6s. If the visitor scrolls before it finishes,
+// The intro reveals the page block by block over ~2s. If the visitor scrolls before it finishes,
 // compress the pending reveals so content below the fold never sits blank.
 function fastForward() {
   const now = document.timeline.currentTime

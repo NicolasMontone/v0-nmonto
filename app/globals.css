@@ -194,10 +194,15 @@
   }
 }
 
-/* "Designed by Apple – Intention": each word arrives dim, holds, then brightens */
+/* Global speed for the intro reveal: every staggered --d delay is multiplied by this */
+:root {
+  --reveal-scale: 1;
+}
+
+/* Each page block (header, Work, Projects, Elsewhere) fades in as a unit */
 .word {
   opacity: 0;
-  animation: word-in 1100ms ease-out var(--d, 0ms) forwards;
+  animation: word-in 800ms ease-out calc(var(--d, 0ms) * var(--reveal-scale)) forwards;
 }
 
 .inspiration-trigger {
@@ -404,15 +409,11 @@
 }
 
 @keyframes word-in {
-  0% {
-    opacity: 0;
+  from {
+  opacity: 0;
   }
-  30%,
-  55% {
-    opacity: 0.35;
-  }
-  100% {
-    opacity: 1;
+  to {
+  opacity: 1;
   }
 }
 
@@ -426,25 +427,25 @@
 }
 
 .glyph-dot {
-  animation: glyph-dot 700ms cubic-bezier(0.34, 1.56, 0.64, 1) var(--d, 0ms) both;
+  animation: glyph-dot 500ms cubic-bezier(0.34, 1.56, 0.64, 1) calc(var(--d, 0ms) * var(--reveal-scale)) both;
 }
 
 .glyph-pop {
-  animation: glyph-dot 520ms cubic-bezier(0.34, 1.8, 0.64, 1) var(--d, 0ms) both;
+  animation: glyph-dot 380ms cubic-bezier(0.34, 1.8, 0.64, 1) calc(var(--d, 0ms) * var(--reveal-scale)) both;
 }
 
 .glyph-line {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  animation: glyph-line 650ms cubic-bezier(0.65, 0, 0.35, 1) var(--d, 0ms) forwards;
+  animation: glyph-line 450ms cubic-bezier(0.65, 0, 0.35, 1) calc(var(--d, 0ms) * var(--reveal-scale)) forwards;
 }
 
 .glyph-slide-left {
-  animation: glyph-slide-left 1100ms cubic-bezier(0.65, 0, 0.35, 1) var(--d, 0ms) both;
+  animation: glyph-slide-left 750ms cubic-bezier(0.65, 0, 0.35, 1) calc(var(--d, 0ms) * var(--reveal-scale)) both;
 }
 
 .glyph-slide-right {
-  animation: glyph-slide-right 1100ms cubic-bezier(0.65, 0, 0.35, 1) var(--d, 0ms) both;
+  animation: glyph-slide-right 750ms cubic-bezier(0.65, 0, 0.35, 1) calc(var(--d, 0ms) * var(--reveal-scale)) both;
 }
 
 @keyframes glyph-dot {

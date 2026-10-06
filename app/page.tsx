@@ -8,7 +8,7 @@ import inspirations from "@/data/inspirations.json"
 import { Entry, Section } from "@/components/home/section"
 import { JsonLd } from "@/components/json-ld"
 import { RevealFastForward } from "@/components/reveal-fast-forward"
-import { Fade, Words, wordsEnd } from "@/components/words"
+import { Fade, Words } from "@/components/words"
 import { bio, elsewhere, projects, welcome, work } from "@/lib/home"
 import { homepageJsonLd } from "@/lib/schema"
 import { site } from "@/lib/site"
@@ -19,16 +19,11 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 }
 
-const NAME_STEP = 160
-const BIO_START = wordsEnd("monto", 200, NAME_STEP) + 150
-const BIO_STEP = 90
-const BIO_END = wordsEnd(bio, BIO_START, BIO_STEP)
-const WELCOME_START = BIO_END + 150
-const WELCOME_STEP = 60
-const WORK_START = wordsEnd(welcome, WELCOME_START, WELCOME_STEP) + 200
-const ENTRY_STEP = 160
-const PROJECTS_START = WORK_START + 500 + work.length * ENTRY_STEP + 200
-const ELSEWHERE_START = PROJECTS_START + 500 + projects.length * ENTRY_STEP + 200
+const BLOCK_STEP = 350
+const HEADER_START = 0
+const WORK_START = HEADER_START + BLOCK_STEP
+const PROJECTS_START = WORK_START + BLOCK_STEP
+const ELSEWHERE_START = PROJECTS_START + BLOCK_STEP
 
 
 function bioAccent(word: string) {
@@ -70,7 +65,7 @@ export default function Home() {
       <JsonLd data={homepageJsonLd()} />
       <div className="mx-auto flex max-w-2xl flex-col gap-12 px-6 py-16 md:py-24">
         <header className="flex flex-col gap-6">
-          <Fade delay={0}>
+          <Fade delay={HEADER_START}>
             <Image
               src="/profile.jpg"
               alt="Nicolas Montone"
@@ -84,21 +79,21 @@ export default function Home() {
             <h1 className="text-xl text-foreground text-balance">
               <span className="sr-only">Nicolas Montone (monto)</span>
               <span aria-hidden="true">
-                <Words text="monto" start={200} step={NAME_STEP} />
+                <Words text="monto" start={HEADER_START} step={0} />
               </span>
             </h1>
             <p className="text-base leading-relaxed text-muted-foreground text-pretty">
-              <Words text={bio} start={BIO_START} step={BIO_STEP} accent={bioAccent} />
+              <Words text={bio} start={HEADER_START} step={0} accent={bioAccent} />
             </p>
             <p className="text-base leading-relaxed text-muted-foreground text-pretty">
-              <Words text={welcome} start={WELCOME_START} step={WELCOME_STEP} accent={welcomeAccent} />
+              <Words text={welcome} start={HEADER_START} step={0} accent={welcomeAccent} />
             </p>
           </div>
         </header>
 
         <Section title="Work" glyph={<ConnectionGlyph delay={WORK_START} />} delay={WORK_START}>
-          {work.map((item, i) => (
-            <Entry key={item.href} {...item} delay={WORK_START + 500 + i * ENTRY_STEP} />
+          {work.map((item) => (
+            <Entry key={item.href} {...item} delay={WORK_START} />
           ))}
         </Section>
 
@@ -108,8 +103,8 @@ export default function Home() {
           more={{ href: site.links.github, label: "GitHub" }}
           delay={PROJECTS_START}
         >
-          {projects.map((item, i) => (
-            <Entry key={item.href} {...item} delay={PROJECTS_START + 500 + i * ENTRY_STEP} />
+          {projects.map((item) => (
+            <Entry key={item.href} {...item} delay={PROJECTS_START} />
           ))}
         </Section>
 
@@ -117,11 +112,11 @@ export default function Home() {
           <div className="flex flex-col gap-2">
             <LoveGlyph delay={ELSEWHERE_START} />
             <h2 id="elsewhere-title" className="text-sm text-muted-foreground">
-              <Words text="Elsewhere" start={ELSEWHERE_START + 250} />
+              <Words text="Elsewhere" start={ELSEWHERE_START} />
             </h2>
           </div>
           <ul className="flex flex-wrap gap-x-6 gap-y-2">
-            {elsewhere.map((item, i) => (
+            {elsewhere.map((item) => (
               <li key={item.href}>
                 <a
                   href={item.href}
@@ -130,7 +125,7 @@ export default function Home() {
                   title={item.description}
                   className="text-base text-foreground underline-offset-4 decoration-muted-foreground/50 hover:underline"
                 >
-                  <Fade delay={ELSEWHERE_START + 450 + i * 90}>{item.title}</Fade>
+                  <Fade delay={ELSEWHERE_START}>{item.title}</Fade>
                 </a>
               </li>
             ))}
