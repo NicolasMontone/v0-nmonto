@@ -15,7 +15,6 @@ export const site = {
     x: "https://x.com/montonenico",
     instagram: "https://instagram.com/nicolasmontone",
     linkedin: "https://www.linkedin.com/in/nicolas-montone",
-    cal: "https://cal.com/montone/30min",
   },
 } as const
 
