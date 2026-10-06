@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 }
 
-const BLOCK_STEP = 150
+const BLOCK_STEP = 350
 const HEADER_START = 0
 const WORK_START = HEADER_START + BLOCK_STEP
 const PROJECTS_START = WORK_START + BLOCK_STEP

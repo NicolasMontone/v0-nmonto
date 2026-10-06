@@ -202,7 +202,7 @@
 /* Each page block (header, Work, Projects, Elsewhere) fades in as a unit */
 .word {
   opacity: 0;
-  animation: word-in 450ms ease-out calc(var(--d, 0ms) * var(--reveal-scale)) forwards;
+  animation: word-in 800ms ease-out calc(var(--d, 0ms) * var(--reveal-scale)) forwards;
 }
 
 .inspiration-trigger {
