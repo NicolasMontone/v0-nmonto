@@ -54,7 +54,7 @@ export function Entry({ href, title, description, meta, delay = 0 }: EntryProps)
         className="group flex flex-col gap-0.5"
       >
         <span className="flex items-baseline justify-between gap-4">
-          <span className="text-base text-foreground underline-offset-4 decoration-muted-foreground/50 group-hover:underline">
+          <span className="text-base text-foreground underline-offset-4 decoration-muted-foreground/50 decoration-dotted group-hover:underline">
             <Words text={title} start={delay} step={0} />
           </span>
           {meta ? (
