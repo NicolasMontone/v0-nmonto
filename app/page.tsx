@@ -123,7 +123,7 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   title={item.description}
-                  className="text-base text-foreground underline-offset-4 decoration-muted-foreground/50 hover:underline"
+                  className="text-base text-foreground underline-offset-4 decoration-muted-foreground/50 decoration-dotted hover:underline"
                 >
                   <Fade delay={ELSEWHERE_START}>{item.title}</Fade>
                 </a>
