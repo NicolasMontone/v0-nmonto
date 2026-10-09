@@ -211,16 +211,15 @@
   padding: 0.125rem 0.375rem;
   border-radius: 0.375rem;
   color: var(--foreground);
-  text-decoration: underline dotted;
-  text-decoration-color: color-mix(in oklab, var(--muted-foreground) 60%, transparent);
-  text-underline-offset: 4px;
+  --dot-color: color-mix(in oklab, var(--muted-foreground) 60%, transparent);
+  --dot-inset-x: 0.375rem;
+  --dot-offset: calc(1px - 0.125rem);
   cursor: pointer;
   box-shadow: inset 0 0 0 1px transparent;
   transition:
     background-color 200ms ease,
     color 200ms ease,
-    box-shadow 200ms ease,
-    text-decoration-color 200ms ease;
+    box-shadow 200ms ease;
 }
 
 .inspiration-trigger:hover,
@@ -228,8 +227,81 @@
   outline: none;
   background: var(--foreground);
   color: var(--background);
-  text-decoration-color: transparent;
   box-shadow: inset 0 0 0 1px var(--foreground);
+}
+
+.inspiration-trigger:hover::before,
+.inspiration-trigger:hover::after,
+.inspiration-trigger:focus-visible::before,
+.inspiration-trigger:focus-visible::after {
+  opacity: 0;
+}
+
+/* Dotted underline drawn with pseudo-elements so dots near the cursor can grow.
+   ::before is the resting row; ::after is a row of slightly larger dots revealed
+   by a radial mask centred on the cursor (--mx/--my set by DotUnderlineTracker). */
+.dot-underline {
+  --dot: max(1.5px, 0.07em);
+  --dot-grown: calc(var(--dot) * 1.6);
+  --dot-pitch: calc(var(--dot) * 2);
+  --dot-color: color-mix(in oklab, var(--muted-foreground) 50%, transparent);
+  --dot-radius: 2.75em;
+  position: relative;
+}
+
+.dot-underline::before,
+.dot-underline::after {
+  content: "";
+  position: absolute;
+  left: var(--dot-inset-x, 0);
+  right: var(--dot-inset-x, 0);
+  top: calc(100% + var(--dot-offset, 1px));
+  height: var(--dot);
+  pointer-events: none;
+  background-image: linear-gradient(
+    to right,
+    transparent 0 calc(50% - var(--g) / 2),
+    var(--dot-color) 0 calc(50% + var(--g) / 2),
+    transparent 0
+  );
+  background-size: var(--dot-pitch) 100%;
+  transition: opacity 150ms ease;
+}
+
+.dot-underline::before {
+  --g: var(--dot);
+}
+
+.dot-underline::after {
+  --g: var(--dot-grown);
+  top: calc(100% + var(--dot-offset, 1px) - (var(--dot-grown) - var(--dot)) / 2);
+  height: var(--dot-grown);
+  -webkit-mask-image: radial-gradient(
+    circle var(--dot-radius) at var(--mx, -9999px) var(--my, -9999px),
+    #000 0,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    circle var(--dot-radius) at var(--mx, -9999px) var(--my, -9999px),
+    #000 0,
+    transparent 100%
+  );
+}
+
+.dot-underline.on-hover::before,
+.dot-underline.on-hover::after {
+  opacity: 0;
+}
+
+.dot-underline.on-hover:hover::before,
+.dot-underline.on-hover:hover::after,
+.group:hover .dot-underline.on-hover::before,
+.group:hover .dot-underline.on-hover::after,
+.group:focus-visible .dot-underline.on-hover::before,
+.group:focus-visible .dot-underline.on-hover::after,
+.dot-underline.on-hover:focus-visible::before,
+.dot-underline.on-hover:focus-visible::after {
+  opacity: 1;
 }
 
 .inspiration-trigger:active {

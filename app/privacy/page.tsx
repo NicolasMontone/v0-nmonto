@@ -41,7 +41,7 @@ export default function PrivacyPage() {
           </ul>
           <p>
             Questions about privacy can be sent through any of the channels under{" "}
-            <Link href="/#elsewhere" className="text-foreground underline underline-offset-4 decoration-muted-foreground/50 decoration-dotted">
+            <Link href="/#elsewhere" className="dot-underline text-foreground">
               Elsewhere
             </Link>{" "}
             on the home page. This policy may be updated; the latest version always lives at this URL.

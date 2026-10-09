@@ -5,6 +5,7 @@ import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { site } from "@/lib/site"
+import { DotUnderlineTracker } from "@/components/dot-underline-tracker"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -67,6 +68,7 @@ export default function RootLayout({
     <html lang="en" className={`dark ${GeistSans.variable} ${GeistMono.variable}`}>
       <body className={GeistSans.className}>
         {children}
+        <DotUnderlineTracker />
         <Analytics />
         <SpeedInsights />
       </body>
