@@ -3,11 +3,24 @@
 // lib/site.ts) means the agent-facing text and the rendered HTML share one source.
 
 import { pages, site, type PageSlug } from "./site"
-import { bio, elsewhere, projects, welcome, work, type HomeEntry } from "./home"
+import { bio, elsewhere, projects, welcome, work, type HomeEntry, type WorkEntry } from "./home"
 
 function homeList(entries: HomeEntry[]): string {
   return entries
     .map((e) => `- [${e.title}](${e.href})${e.meta ? ` (${e.meta})` : ""} — ${e.description}`)
+    .join("\n")
+}
+
+function workList(entries: WorkEntry[]): string {
+  return entries
+    .flatMap((e) => [
+      `- [${e.title}](${e.href})${e.meta ? ` (${e.meta})` : ""}${e.description ? ` — ${e.description}` : ""}`,
+      ...e.items.flatMap((item) => [
+        `  - ${item.href ? `[${item.title}](${item.href})` : item.title}`,
+        ...item.points.map((point) => `    - ${point}`),
+        ...(item.links ?? []).map((link) => `    - [${link.title}](${link.href})`),
+      ]),
+    ])
     .join("\n")
 }
 
@@ -20,7 +33,7 @@ ${welcome}
 
 ## Work
 
-${homeList(work)}
+${workList(work)}
 
 ## Projects
 

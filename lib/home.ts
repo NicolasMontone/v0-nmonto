@@ -9,18 +9,56 @@ export const bio = "Software engineer at v0.app. From Buenos Aires, living in Sa
 export const welcome =
   "Thank you for stopping by my small corner of the internet. I hope you leave with a little inspiration."
 
-export const work: HomeEntry[] = [
+export type WorkLink = { title: string; href: string }
+
+export type WorkItem = { title: string; href?: string; points: string[]; links?: WorkLink[] }
+
+export type WorkEntry = { title: string; href: string; meta?: string; description?: string; items: WorkItem[] }
+
+export const work: WorkEntry[] = [
   {
-    title: "v0.app",
-    description: "Building the agent and the infrastructure.",
-    href: "https://v0.app",
+    title: "Vercel",
+    href: "https://vercel.com",
     meta: "Now",
+    items: [
+      {
+        title: "v0",
+        href: "https://v0.app",
+        points: ["Led the v0 agent."],
+        links: [
+          {
+            title: "Shopify storefronts",
+            href: "https://vercel.com/changelog/build-and-deploy-shopify-storefronts-on-vercel",
+          },
+          {
+            title: "Snowflake data apps",
+            href: "https://vercel.com/blog/build-and-deploy-data-applications-on-snowflake-with-v0",
+          },
+          { title: "Platform API", href: "https://vercel.com/changelog/v0-platform-api-now-in-beta" },
+        ],
+      },
+      {
+        title: "Chat SDK",
+        href: "https://chat-sdk.dev",
+        points: [],
+        links: [{ title: "Changelog", href: "https://vercel.com/changelog/chat-sdk" }],
+      },
+    ],
   },
   {
     title: "pluggy.ai",
     description: "Open finance APIs for Latin America.",
     href: "https://pluggy.ai",
     meta: "Before",
+    items: [
+      {
+        title: "Head of Payments, Product Engineer",
+        points: [
+          "Created a payments solution on top of PIX.",
+          "Helped create and maintain Pluggy Connect (similar to Stripe Link).",
+        ],
+      },
+    ],
   },
 ]
 

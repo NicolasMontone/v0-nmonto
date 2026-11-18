@@ -36,7 +36,7 @@ export interface PageMeta {
 }
 
 // Bump when page copy changes so agents/crawlers see an accurate lastmod.
-export const CONTENT_UPDATED_AT = "2026-09-01"
+export const CONTENT_UPDATED_AT = "2026-11-17"
 
 export const pages: PageMeta[] = [
   {
