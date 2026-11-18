@@ -40,7 +40,7 @@ export const work: WorkEntry[] = [
       {
         title: "Chat SDK",
         href: "https://chat-sdk.dev",
-        points: ["One codebase, every chat platform."],
+        points: [],
         links: [{ title: "Changelog", href: "https://vercel.com/changelog/chat-sdk" }],
       },
     ],

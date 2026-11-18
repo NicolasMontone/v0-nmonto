@@ -8,6 +8,9 @@ const hoverLink =
 const inlineLink =
   "text-foreground underline decoration-dotted decoration-muted-foreground/60 underline-offset-4 transition-colors hover:decoration-foreground"
 
+const subLink =
+  "underline decoration-dotted decoration-muted-foreground/60 underline-offset-4 transition-colors hover:text-foreground hover:decoration-foreground"
+
 function reveal(delay: number) {
   return { "--d": `${delay}ms` } as React.CSSProperties
 }
@@ -22,7 +25,7 @@ function ExternalLink({ href, className, children }: { href: string; className?:
 
 function Item({ title, href, points, links }: WorkItem) {
   return (
-    <li className="grid items-baseline gap-x-6 gap-y-1 text-sm leading-snug sm:grid-cols-[9.5rem_1fr]">
+    <li className="flex flex-col gap-1.5 text-sm leading-snug">
       {href ? (
         <h4>
           <ExternalLink href={href} className={inlineLink}>
@@ -46,7 +49,7 @@ function Item({ title, href, points, links }: WorkItem) {
           <ul className="flex flex-wrap gap-x-4 gap-y-1.5">
             {links.map((link) => (
               <li key={link.href}>
-                <ExternalLink href={link.href} className={inlineLink}>
+                <ExternalLink href={link.href} className={subLink}>
                   {link.title}
                 </ExternalLink>
               </li>
