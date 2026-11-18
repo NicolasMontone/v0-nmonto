@@ -9,18 +9,73 @@ export const bio = "Software engineer at v0.app. From Buenos Aires, living in Sa
 export const welcome =
   "Thank you for stopping by my small corner of the internet. I hope you leave with a little inspiration."
 
-export const work: HomeEntry[] = [
+export type WorkLink = { title: string; href: string }
+
+export type WorkItem = { title: string; href?: string; points: string[]; links?: WorkLink[] }
+
+export type WorkEntry = { title: string; href: string; meta?: string; description?: string; items: WorkItem[] }
+
+export const work: WorkEntry[] = [
   {
-    title: "v0.app",
-    description: "Building the agent and the infrastructure.",
-    href: "https://v0.app",
+    title: "Vercel",
+    href: "https://vercel.com",
     meta: "Now",
+    items: [
+      {
+        title: "v0",
+        href: "https://v0.app",
+        points: ["Led the v0 agent."],
+        links: [
+          {
+            title: "Shopify storefronts",
+            href: "https://vercel.com/changelog/build-and-deploy-shopify-storefronts-on-vercel",
+          },
+          { title: "Chat SDK", href: "https://vercel.com/changelog/chat-sdk" },
+          {
+            title: "Snowflake data apps",
+            href: "https://vercel.com/blog/build-and-deploy-data-applications-on-snowflake-with-v0",
+          },
+          { title: "Platform API", href: "https://vercel.com/changelog/v0-platform-api-now-in-beta" },
+        ],
+      },
+    ],
   },
   {
     title: "pluggy.ai",
     description: "Open finance APIs for Latin America.",
     href: "https://pluggy.ai",
     meta: "Before",
+    items: [
+      {
+        title: "Head of Payments, Product Engineer",
+        points: [
+          "Created a payments solution on top of PIX.",
+          "Led product and engineering.",
+          "Handled sales and support.",
+          "Helped create and maintain Pluggy Connect (similar to Stripe Link).",
+        ],
+      },
+      {
+        title: "Product Engineer",
+        points: [
+          "Worked on Pluggy Connect (similar to Plaid Link), enabling connections to over 1 million Brazilian bank accounts.",
+          "Worked on Pluggy's API.",
+          "Developed and maintained SDKs in JavaScript, TypeScript, Java, and Flutter.",
+          "Created dashboards for analytics, credential management, and customization.",
+          "Maintained live APIs using Datadog and Sentry for monitoring.",
+          "Reverse-engineered banking apps to integrate new institutions.",
+          "Scraped banks with advanced web scraping techniques.",
+        ],
+      },
+      {
+        title: "Frontend Engineer",
+        points: ["Built the landing page and the dashboard."],
+        links: [
+          { title: "pluggy.ai", href: "https://pluggy.ai/" },
+          { title: "dashboard.pluggy.ai", href: "https://dashboard.pluggy.ai/" },
+        ],
+      },
+    ],
   },
 ]
 

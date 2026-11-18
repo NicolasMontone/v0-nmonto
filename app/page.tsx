@@ -6,6 +6,7 @@ import { Inspiration, type InspirationImage } from "@/components/inspiration"
 import { Magician } from "@/components/magician"
 import inspirations from "@/data/inspirations.json"
 import { Entry, Section } from "@/components/home/section"
+import { WorkEntry } from "@/components/home/work-entry"
 import { JsonLd } from "@/components/json-ld"
 import { RevealFastForward } from "@/components/reveal-fast-forward"
 import { Fade, Words } from "@/components/words"
@@ -93,7 +94,7 @@ export default function Home() {
 
         <Section title="Work" glyph={<ConnectionGlyph delay={WORK_START} />} delay={WORK_START}>
           {work.map((item) => (
-            <Entry key={item.href} {...item} delay={WORK_START} />
+            <WorkEntry key={item.href} {...item} delay={WORK_START} />
           ))}
         </Section>
 
