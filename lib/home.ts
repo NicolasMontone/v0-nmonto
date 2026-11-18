@@ -59,26 +59,6 @@ export const work: WorkEntry[] = [
           "Helped create and maintain Pluggy Connect (similar to Stripe Link).",
         ],
       },
-      {
-        title: "Product Engineer",
-        points: [
-          "Worked on Pluggy Connect (similar to Plaid Link), enabling connections to over 1 million Brazilian bank accounts.",
-          "Worked on Pluggy's API.",
-          "Developed and maintained SDKs in JavaScript, TypeScript, Java, and Flutter.",
-          "Created dashboards for analytics, credential management, and customization.",
-          "Maintained live APIs using Datadog and Sentry for monitoring.",
-          "Reverse-engineered banking apps to integrate new institutions.",
-          "Scraped banks with advanced web scraping techniques.",
-        ],
-      },
-      {
-        title: "Frontend Engineer",
-        points: ["Built the landing page and the dashboard."],
-        links: [
-          { title: "pluggy.ai", href: "https://pluggy.ai/" },
-          { title: "dashboard.pluggy.ai", href: "https://dashboard.pluggy.ai/" },
-        ],
-      },
     ],
   },
 ]
