@@ -30,13 +30,17 @@ export const work: WorkEntry[] = [
             title: "Shopify storefronts",
             href: "https://vercel.com/changelog/build-and-deploy-shopify-storefronts-on-vercel",
           },
-          { title: "Chat SDK", href: "https://vercel.com/changelog/chat-sdk" },
           {
             title: "Snowflake data apps",
             href: "https://vercel.com/blog/build-and-deploy-data-applications-on-snowflake-with-v0",
           },
           { title: "Platform API", href: "https://vercel.com/changelog/v0-platform-api-now-in-beta" },
         ],
+      },
+      {
+        title: "Chat SDK",
+        href: "https://vercel.com/changelog/chat-sdk",
+        points: ["One codebase, every chat platform."],
       },
     ],
   },

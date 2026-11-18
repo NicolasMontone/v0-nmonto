@@ -7,10 +7,11 @@ type SectionProps = {
   glyph?: React.ReactNode
   more?: { href: string; label: string }
   delay?: number
+  listClassName?: string
   children: React.ReactNode
 }
 
-export function Section({ title, glyph, more, delay = 0, children }: SectionProps) {
+export function Section({ title, glyph, more, delay = 0, listClassName = "gap-4", children }: SectionProps) {
   const id = title.toLowerCase()
   return (
     <section aria-labelledby={id} className="flex flex-col gap-4">
@@ -31,7 +32,7 @@ export function Section({ title, glyph, more, delay = 0, children }: SectionProp
           </Link>
         ) : null}
       </div>
-      <ul className="flex flex-col gap-4">{children}</ul>
+      <ul className={`flex flex-col ${listClassName}`}>{children}</ul>
     </section>
   )
 }

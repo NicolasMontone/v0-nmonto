@@ -92,7 +92,12 @@ export default function Home() {
           </div>
         </header>
 
-        <Section title="Work" glyph={<ConnectionGlyph delay={WORK_START} />} delay={WORK_START}>
+        <Section
+          title="Work"
+          glyph={<ConnectionGlyph delay={WORK_START} />}
+          delay={WORK_START}
+          listClassName="gap-10"
+        >
           {work.map((item) => (
             <WorkEntry key={item.href} {...item} delay={WORK_START} />
           ))}
