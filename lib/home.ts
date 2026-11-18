@@ -55,8 +55,6 @@ export const work: WorkEntry[] = [
         title: "Head of Payments, Product Engineer",
         points: [
           "Created a payments solution on top of PIX.",
-          "Led product and engineering.",
-          "Handled sales and support.",
           "Helped create and maintain Pluggy Connect (similar to Stripe Link).",
         ],
       },

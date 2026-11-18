@@ -22,16 +22,16 @@ function ExternalLink({ href, className, children }: { href: string; className?:
 
 function Item({ title, href, points, links }: WorkItem) {
   return (
-    <li className="grid gap-x-6 gap-y-1 text-sm leading-snug sm:grid-cols-[9.5rem_1fr]">
-      <h4 className="text-foreground text-balance">
-        {href ? (
-          <ExternalLink href={href} className={hoverLink}>
+    <li className="grid items-baseline gap-x-6 gap-y-1 text-sm leading-snug sm:grid-cols-[9.5rem_1fr]">
+      {href ? (
+        <h4>
+          <ExternalLink href={href} className={inlineLink}>
             {title}
           </ExternalLink>
-        ) : (
-          title
-        )}
-      </h4>
+        </h4>
+      ) : (
+        <h4 className="font-mono text-xs text-muted-foreground text-balance">{title}</h4>
+      )}
       <div className="flex flex-col gap-1.5 text-muted-foreground">
         {points.length > 0 ? (
           <ul className="flex flex-col gap-1.5">
