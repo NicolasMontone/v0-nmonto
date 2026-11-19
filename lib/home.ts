@@ -22,6 +22,11 @@ export const work: WorkEntry[] = [
     meta: "Now",
     items: [
       {
+        title: "Vercel Board",
+        href: "https://vercel.com/blog/introducing-vercel-board",
+        points: ["Co-creator."],
+      },
+      {
         title: "v0",
         href: "https://v0.app",
         points: ["Led the v0 agent."],
