@@ -43,6 +43,11 @@ export const work: WorkEntry[] = [
         points: [],
         links: [{ title: "Changelog", href: "https://vercel.com/changelog/chat-sdk" }],
       },
+      {
+        title: "Vercel Board",
+        href: "https://vercel.com/blog/introducing-vercel-board",
+        points: ["Co-creator."],
+      },
     ],
   },
   {
