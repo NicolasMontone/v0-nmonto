@@ -11,9 +11,9 @@ export const welcome =
 
 export type WorkLink = { title: string; href: string }
 
-export type Brand = "vercel" | "v0" | "chat-sdk" | "pluggy"
+export type Brand = "vercel" | "pluggy"
 
-export type WorkItem = { title: string; href?: string; logo?: Brand; points: string[]; links?: WorkLink[] }
+export type WorkItem = { title: string; href?: string; points: string[]; links?: WorkLink[] }
 
 export type WorkEntry = {
   title: string
@@ -39,7 +39,6 @@ export const work: WorkEntry[] = [
       {
         title: "v0",
         href: "https://v0.app",
-        logo: "v0",
         points: ["Led the v0 agent."],
         links: [
           {
@@ -56,7 +55,6 @@ export const work: WorkEntry[] = [
       {
         title: "Chat SDK",
         href: "https://chat-sdk.dev",
-        logo: "chat-sdk",
         points: [],
         links: [{ title: "Changelog", href: "https://vercel.com/changelog/chat-sdk" }],
       },

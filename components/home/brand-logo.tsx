@@ -6,17 +6,6 @@ const marks: Record<Brand, { viewBox: string; body: React.ReactNode }> = {
     viewBox: "0 0 24 24",
     body: <path d="m12 1.608 12 20.784H0Z" />,
   },
-  v0: {
-    viewBox: "0 0 24 24",
-    body: (
-      <path d="M14.066 6.028v2.22h5.729q.075-.001.148.005l-5.853 5.752a2 2 0 0 1-.024-.309V8.247h-2.353v5.45c0 2.322 1.935 4.222 4.258 4.222h5.675v-2.22h-5.675q-.03 0-.059-.003l5.729-5.629q.006.082.006.166v5.465H24v-5.465a4.204 4.204 0 0 0-4.205-4.205zM0 8.245l8.28 9.266c.839.94 2.396.346 2.396-.914V8.245H8.19v5.44l-4.86-5.44Z" />
-    ),
-  },
-  // Chat SDK has no mark of its own; this is the icon its site uses.
-  "chat-sdk": {
-    viewBox: "0 0 24 24",
-    body: <path fillRule="evenodd" d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24Zm0 6 5.8 10.09H6.2Z" />,
-  },
   pluggy: {
     viewBox: "0 0 43 28",
     body: (

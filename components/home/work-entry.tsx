@@ -24,14 +24,11 @@ function ExternalLink({ href, className, children }: { href: string; className?:
   )
 }
 
-function Item({ title, href, logo, points, links }: WorkItem) {
+function Item({ title, href, points, links }: WorkItem) {
   return (
     <li className="flex flex-col gap-1.5 text-sm leading-snug">
       {href ? (
         <h4>
-          {logo ? (
-            <BrandLogo brand={logo} className="mr-2 inline-block size-3.5 align-[-0.15em] text-muted-foreground" />
-          ) : null}
           <ExternalLink href={href} className={inlineLink}>
             {title}
           </ExternalLink>
