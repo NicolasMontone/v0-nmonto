@@ -11,14 +11,24 @@ export const welcome =
 
 export type WorkLink = { title: string; href: string }
 
+export type Brand = "vercel" | "pluggy"
+
 export type WorkItem = { title: string; href?: string; points: string[]; links?: WorkLink[] }
 
-export type WorkEntry = { title: string; href: string; meta?: string; description?: string; items: WorkItem[] }
+export type WorkEntry = {
+  title: string
+  href: string
+  logo?: Brand
+  meta?: string
+  description?: string
+  items: WorkItem[]
+}
 
 export const work: WorkEntry[] = [
   {
     title: "Vercel",
     href: "https://vercel.com",
+    logo: "vercel",
     meta: "Now",
     items: [
       {
@@ -54,6 +64,7 @@ export const work: WorkEntry[] = [
     title: "pluggy.ai",
     description: "Open finance APIs for Latin America.",
     href: "https://pluggy.ai",
+    logo: "pluggy",
     meta: "Before",
     items: [
       {
