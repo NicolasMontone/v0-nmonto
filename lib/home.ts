@@ -11,14 +11,24 @@ export const welcome =
 
 export type WorkLink = { title: string; href: string }
 
-export type WorkItem = { title: string; href?: string; points: string[]; links?: WorkLink[] }
+export type Brand = "vercel" | "v0" | "chat-sdk" | "pluggy"
 
-export type WorkEntry = { title: string; href: string; meta?: string; description?: string; items: WorkItem[] }
+export type WorkItem = { title: string; href?: string; logo?: Brand; points: string[]; links?: WorkLink[] }
+
+export type WorkEntry = {
+  title: string
+  href: string
+  logo?: Brand
+  meta?: string
+  description?: string
+  items: WorkItem[]
+}
 
 export const work: WorkEntry[] = [
   {
     title: "Vercel",
     href: "https://vercel.com",
+    logo: "vercel",
     meta: "Now",
     items: [
       {
@@ -29,6 +39,7 @@ export const work: WorkEntry[] = [
       {
         title: "v0",
         href: "https://v0.app",
+        logo: "v0",
         points: ["Led the v0 agent."],
         links: [
           {
@@ -45,6 +56,7 @@ export const work: WorkEntry[] = [
       {
         title: "Chat SDK",
         href: "https://chat-sdk.dev",
+        logo: "chat-sdk",
         points: [],
         links: [{ title: "Changelog", href: "https://vercel.com/changelog/chat-sdk" }],
       },
@@ -54,6 +66,7 @@ export const work: WorkEntry[] = [
     title: "pluggy.ai",
     description: "Open finance APIs for Latin America.",
     href: "https://pluggy.ai",
+    logo: "pluggy",
     meta: "Before",
     items: [
       {

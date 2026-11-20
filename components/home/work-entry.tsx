@@ -1,4 +1,5 @@
 import type React from "react"
+import { BrandLogo } from "@/components/home/brand-logo"
 import { Fade, Words } from "@/components/words"
 import type { WorkEntry as WorkEntryData, WorkItem } from "@/lib/home"
 
@@ -23,11 +24,14 @@ function ExternalLink({ href, className, children }: { href: string; className?:
   )
 }
 
-function Item({ title, href, points, links }: WorkItem) {
+function Item({ title, href, logo, points, links }: WorkItem) {
   return (
     <li className="flex flex-col gap-1.5 text-sm leading-snug">
       {href ? (
         <h4>
+          {logo ? (
+            <BrandLogo brand={logo} className="mr-2 inline-block size-3.5 align-[-0.15em] text-muted-foreground" />
+          ) : null}
           <ExternalLink href={href} className={inlineLink}>
             {title}
           </ExternalLink>
@@ -61,12 +65,25 @@ function Item({ title, href, points, links }: WorkItem) {
   )
 }
 
-export function WorkEntry({ title, href, meta, description, items, delay = 0 }: WorkEntryData & { delay?: number }) {
+export function WorkEntry({
+  title,
+  href,
+  logo,
+  meta,
+  description,
+  items,
+  delay = 0,
+}: WorkEntryData & { delay?: number }) {
   return (
     <li className="flex flex-col gap-4">
       <div className="flex flex-col gap-0.5">
         <div className="flex items-baseline justify-between gap-4">
           <h3 className="text-base">
+            {logo ? (
+              <Fade delay={delay} className="mr-2 text-muted-foreground">
+                <BrandLogo brand={logo} className="inline-block size-4 align-[-0.125em]" />
+              </Fade>
+            ) : null}
             <ExternalLink href={href} className={hoverLink}>
               <Words text={title} start={delay} step={0} />
             </ExternalLink>
