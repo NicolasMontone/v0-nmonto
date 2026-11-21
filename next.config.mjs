@@ -11,13 +11,14 @@ const nextConfig = {
   },
   async headers() {
     // Advertises the Markdown twin and the agent guide to clients that read HTTP
-    // Link headers (RFC 8288), and marks the page URL as varying on Accept.
+    // Link headers (RFC 8288). There is no `Vary: Accept` here on purpose: Vercel
+    // serves prerendered pages with their own Vary and drops this one. The
+    // Markdown and 406 responses set it themselves.
     const discovery = (markdown) => [
       {
         key: "Link",
         value: `<${markdown}>; rel="alternate"; type="text/markdown", </llms.txt>; rel="describedby"; type="text/plain"`,
       },
-      { key: "Vary", value: "Accept" },
     ]
     return [
       {
