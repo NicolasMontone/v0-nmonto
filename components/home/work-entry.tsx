@@ -24,6 +24,22 @@ function ExternalLink({ href, className, children }: { href: string; className?:
   )
 }
 
+const MARKDOWN_LINK = /\[([^\]]+)\]\(([^)]+)\)/
+
+// Splitting on a pattern with two groups yields [text, label, href, text, label, href, ...].
+function withLinks(text: string) {
+  const parts = text.split(MARKDOWN_LINK)
+  return parts.map((part, index) => {
+    if (index % 3 === 0) return part
+    if (index % 3 === 2) return null
+    return (
+      <ExternalLink key={index} href={parts[index + 1]} className={subLink}>
+        {part}
+      </ExternalLink>
+    )
+  })
+}
+
 function Item({ title, href, points, links }: WorkItem) {
   return (
     <li className="flex flex-col gap-1.5 text-sm leading-snug">
@@ -41,7 +57,7 @@ function Item({ title, href, points, links }: WorkItem) {
           <ul className="flex flex-col gap-1.5">
             {points.map((point) => (
               <li key={point} className="text-pretty">
-                {point}
+                {withLinks(point)}
               </li>
             ))}
           </ul>
@@ -68,9 +84,12 @@ export function WorkEntry({
   logo,
   meta,
   description,
+  role,
   items,
   delay = 0,
 }: WorkEntryData & { delay?: number }) {
+  const summary = [description, role].filter(Boolean).join(" | ")
+
   return (
     <li className="flex flex-col gap-4">
       <div className="flex flex-col gap-0.5">
@@ -91,17 +110,19 @@ export function WorkEntry({
             </Fade>
           ) : null}
         </div>
-        {description ? (
+        {summary ? (
           <Fade delay={delay} className="text-sm leading-relaxed text-muted-foreground">
-            {description}
+            {summary}
           </Fade>
         ) : null}
       </div>
-      <ul className="word flex flex-col gap-4" style={reveal(delay)}>
-        {items.map((item) => (
-          <Item key={item.title} {...item} />
-        ))}
-      </ul>
+      {items.length > 0 ? (
+        <ul className="word flex flex-col gap-4" style={reveal(delay)}>
+          {items.map((item) => (
+            <Item key={item.title} {...item} />
+          ))}
+        </ul>
+      ) : null}
     </li>
   )
 }

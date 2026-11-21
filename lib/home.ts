@@ -13,6 +13,7 @@ export type WorkLink = { title: string; href: string }
 
 export type Brand = "vercel" | "pluggy"
 
+/** `points` may contain Markdown links (`[label](href)`), rendered inline on the page. */
 export type WorkItem = { title: string; href?: string; points: string[]; links?: WorkLink[] }
 
 export type WorkEntry = {
@@ -23,6 +24,8 @@ export type WorkEntry = {
   /** True for the current employer; drives `worksFor` vs `alumniOf` in JSON-LD. */
   current?: boolean
   description?: string
+  /** Shown on the same line as the description, separated by a bar. */
+  role?: string
   items: WorkItem[]
 }
 
@@ -58,26 +61,20 @@ export const work: WorkEntry[] = [
       {
         title: "Chat SDK",
         href: "https://chat-sdk.dev",
-        points: [],
-        links: [{ title: "Changelog", href: "https://vercel.com/changelog/chat-sdk" }],
+        points: [
+          "Shipped the first version with the team, see more [here](https://vercel.com/changelog/chat-sdk).",
+        ],
       },
     ],
   },
   {
     title: "pluggy.ai",
-    description: "Open finance APIs for Latin America.",
+    description: "Open finance APIs for Latin America",
+    role: "Head of Payments",
     href: "https://pluggy.ai",
     logo: "pluggy",
     meta: "Before",
-    items: [
-      {
-        title: "Head of Payments, Product Engineer",
-        points: [
-          "Created a payments solution on top of PIX.",
-          "Helped create and maintain Pluggy Connect (similar to Stripe Link).",
-        ],
-      },
-    ],
+    items: [],
   },
 ]
 

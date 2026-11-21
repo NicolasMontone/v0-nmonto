@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 import Image from "next/image"
-import { ConnectionGlyph, LoveGlyph, SurpriseGlyph } from "@/components/glyphs"
 import { Hacker } from "@/components/hacker"
 import { InspirationLink } from "@/components/inspiration"
 import { Magician } from "@/components/magician"
@@ -83,12 +82,7 @@ export default function Home() {
           </p>
         </div>
 
-        <Section
-          title="Work"
-          glyph={<ConnectionGlyph delay={WORK_START} />}
-          delay={WORK_START}
-          listClassName="gap-10"
-        >
+        <Section title="Work" delay={WORK_START} listClassName="gap-10">
           {work.map((item) => (
             <WorkEntry key={item.href} {...item} delay={WORK_START} />
           ))}
@@ -96,7 +90,6 @@ export default function Home() {
 
         <Section
           title="Projects"
-          glyph={<SurpriseGlyph delay={PROJECTS_START} />}
           more={{ href: site.links.github, label: "GitHub" }}
           delay={PROJECTS_START}
         >
@@ -106,12 +99,9 @@ export default function Home() {
         </Section>
 
         <section id="elsewhere" aria-labelledby="elsewhere-title" className="flex flex-col gap-4">
-          <div className="flex flex-col gap-2">
-            <LoveGlyph delay={ELSEWHERE_START} />
-            <h2 id="elsewhere-title" className="text-sm text-muted-foreground">
-              <Words text="Elsewhere" start={ELSEWHERE_START} />
-            </h2>
-          </div>
+          <h2 id="elsewhere-title" className="text-sm text-muted-foreground">
+            <Words text="Elsewhere" start={ELSEWHERE_START} />
+          </h2>
           <ul className="flex flex-wrap gap-x-6 gap-y-2">
             {elsewhere.map((item) => (
               <li key={item.href}>
