@@ -13,6 +13,7 @@ export type WorkLink = { title: string; href: string }
 
 export type Brand = "vercel" | "pluggy"
 
+/** `points` may contain Markdown links (`[label](href)`), rendered inline on the page. */
 export type WorkItem = { title: string; href?: string; points: string[]; links?: WorkLink[] }
 
 export type WorkEntry = {
@@ -60,8 +61,9 @@ export const work: WorkEntry[] = [
       {
         title: "Chat SDK",
         href: "https://chat-sdk.dev",
-        points: ["Shipped the first version with the team."],
-        links: [{ title: "Changelog", href: "https://vercel.com/changelog/chat-sdk" }],
+        points: [
+          "Shipped the first version with the team, see more [here](https://vercel.com/changelog/chat-sdk).",
+        ],
       },
     ],
   },

@@ -24,6 +24,22 @@ function ExternalLink({ href, className, children }: { href: string; className?:
   )
 }
 
+const MARKDOWN_LINK = /\[([^\]]+)\]\(([^)]+)\)/
+
+// Splitting on a pattern with two groups yields [text, label, href, text, label, href, ...].
+function withLinks(text: string) {
+  const parts = text.split(MARKDOWN_LINK)
+  return parts.map((part, index) => {
+    if (index % 3 === 0) return part
+    if (index % 3 === 2) return null
+    return (
+      <ExternalLink key={index} href={parts[index + 1]} className={subLink}>
+        {part}
+      </ExternalLink>
+    )
+  })
+}
+
 function Item({ title, href, points, links }: WorkItem) {
   return (
     <li className="flex flex-col gap-1.5 text-sm leading-snug">
@@ -41,7 +57,7 @@ function Item({ title, href, points, links }: WorkItem) {
           <ul className="flex flex-col gap-1.5">
             {points.map((point) => (
               <li key={point} className="text-pretty">
-                {point}
+                {withLinks(point)}
               </li>
             ))}
           </ul>
