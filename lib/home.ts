@@ -20,6 +20,8 @@ export type WorkEntry = {
   href: string
   logo?: Brand
   meta?: string
+  /** True for the current employer; drives `worksFor` vs `alumniOf` in JSON-LD. */
+  current?: boolean
   description?: string
   items: WorkItem[]
 }
@@ -30,6 +32,7 @@ export const work: WorkEntry[] = [
     href: "https://vercel.com",
     logo: "vercel",
     meta: "Now",
+    current: true,
     items: [
       {
         title: "Vercel Board",
@@ -92,7 +95,7 @@ export const projects: HomeEntry[] = [
   {
     title: "Chat with your base",
     description: "Talk to your Postgres database with LLMs.",
-    href: "http://github.com/nicolasmontone/chat-with-your-base",
+    href: "https://github.com/nicolasmontone/chat-with-your-base",
   },
   {
     title: "TranslateMenu",

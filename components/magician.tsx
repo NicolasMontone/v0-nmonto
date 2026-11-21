@@ -48,6 +48,16 @@ export function Magician({ text, suffix = "" }: MagicianProps) {
     <span key={run} className={run > 0 ? "magic magic-play" : "magic"} onPointerEnter={play}>
       <span className="magic-text">{text}</span>
       {suffix}
+      {run > 0 ? <Trick /> : null}
+    </span>
+  )
+}
+
+// The dots and cards only exist while the trick plays, so they never reach the
+// server-rendered HTML (where they would read as "J Q A K 7" inside the bio).
+function Trick() {
+  return (
+    <>
       <span aria-hidden="true" className="magic-origin">
         {DOTS.map((dot, i) => (
           <span
@@ -84,6 +94,6 @@ export function Magician({ text, suffix = "" }: MagicianProps) {
           </span>
         ))}
       </span>
-    </span>
+    </>
   )
 }

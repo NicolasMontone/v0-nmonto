@@ -1,13 +1,12 @@
 import { NextResponse, type NextRequest } from "next/server"
-import { getMarkdownForPath, prefersMarkdown } from "@/lib/content"
+import { negotiate, notAcceptableText } from "@/lib/content"
+import { getPageByPath, markdownPath } from "@/lib/site"
 
 // Applies to the human-facing content pages only. Static assets, _next,
 // sitemap.xml, robots.txt, llms.txt and the catch-all 404 route are excluded.
 export const config = {
   matcher: ["/", "/privacy"],
 }
-
-const VARY = "Accept, Accept-Encoding"
 
 export function middleware(req: NextRequest) {
   // Never intercept React Server Component payloads or router prefetches; those
@@ -16,28 +15,30 @@ export function middleware(req: NextRequest) {
     return NextResponse.next()
   }
 
-  const accept = req.headers.get("accept")
+  const representation = negotiate(req.headers.get("accept"))
 
-  // Content negotiation: serve Markdown when the client explicitly asks for it.
-  if (prefersMarkdown(accept)) {
-    const markdown = getMarkdownForPath(req.nextUrl.pathname)
-    if (markdown) {
-      return new NextResponse(markdown, {
-        status: 200,
-        headers: {
-          "Content-Type": "text/markdown; charset=utf-8",
-          // Accept must be in Vary so CDNs cache the HTML and Markdown variants
-          // separately instead of serving whichever landed in cache first.
-          Vary: VARY,
-          "Cache-Control": "public, max-age=3600, s-maxage=86400",
-          "X-Content-Type-Options": "nosniff",
-        },
-      })
+  if (representation === null) {
+    return new NextResponse(notAcceptableText(), {
+      status: 406,
+      headers: {
+        "Content-Type": "text/plain; charset=utf-8",
+        Vary: "Accept",
+        "X-Content-Type-Options": "nosniff",
+      },
+    })
+  }
+
+  // Content negotiation: the Markdown twin lives at <page>.md, served by the
+  // catch-all route handler. Rewriting there (instead of answering from here)
+  // keeps one code path for both URLs and gives HEAD requests the right headers.
+  if (representation === "markdown") {
+    const page = getPageByPath(req.nextUrl.pathname)
+    if (page) {
+      const url = req.nextUrl.clone()
+      url.pathname = markdownPath(page)
+      return NextResponse.rewrite(url)
     }
   }
 
-  // HTML variant: advertise that the representation varies on Accept.
-  const res = NextResponse.next()
-  res.headers.set("Vary", VARY)
-  return res
+  return NextResponse.next()
 }
