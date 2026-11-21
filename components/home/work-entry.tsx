@@ -68,9 +68,12 @@ export function WorkEntry({
   logo,
   meta,
   description,
+  role,
   items,
   delay = 0,
 }: WorkEntryData & { delay?: number }) {
+  const summary = [description, role].filter(Boolean).join(" | ")
+
   return (
     <li className="flex flex-col gap-4">
       <div className="flex flex-col gap-0.5">
@@ -91,17 +94,19 @@ export function WorkEntry({
             </Fade>
           ) : null}
         </div>
-        {description ? (
+        {summary ? (
           <Fade delay={delay} className="text-sm leading-relaxed text-muted-foreground">
-            {description}
+            {summary}
           </Fade>
         ) : null}
       </div>
-      <ul className="word flex flex-col gap-4" style={reveal(delay)}>
-        {items.map((item) => (
-          <Item key={item.title} {...item} />
-        ))}
-      </ul>
+      {items.length > 0 ? (
+        <ul className="word flex flex-col gap-4" style={reveal(delay)}>
+          {items.map((item) => (
+            <Item key={item.title} {...item} />
+          ))}
+        </ul>
+      ) : null}
     </li>
   )
 }

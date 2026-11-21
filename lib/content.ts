@@ -15,7 +15,9 @@ function homeList(entries: HomeEntry[]): string {
 function workList(entries: WorkEntry[]): string {
   return entries
     .flatMap((e) => [
-      `- [${e.title}](${e.href})${e.meta ? ` (${e.meta})` : ""}${e.description ? ` — ${e.description}` : ""}`,
+      `- [${e.title}](${e.href})${e.meta ? ` (${e.meta})` : ""}${
+        e.description || e.role ? ` — ${[e.description, e.role].filter(Boolean).join(" | ")}` : ""
+      }`,
       ...e.items.flatMap((item) => [
         `  - ${item.href ? `[${item.title}](${item.href})` : item.title}`,
         ...item.points.map((point) => `    - ${point}`),
