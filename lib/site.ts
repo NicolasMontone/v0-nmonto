@@ -39,7 +39,7 @@ export const topics = [
   "Close-up magic",
 ] as const
 
-export type PageSlug = "" | "privacy"
+export type PageSlug = "" | "inspiration" | "privacy"
 
 export interface PageMeta {
   /** Route path, e.g. "/" or "/about". */
@@ -67,6 +67,14 @@ export const pages: PageMeta[] = [
     description: site.description,
     lastmod: CONTENT_UPDATED_AT,
     priority: 1,
+  },
+  {
+    path: "/inspiration",
+    slug: "inspiration",
+    title: "Inspiration — nmonto.com",
+    description: "Images Nicolas Montone keeps coming back to.",
+    lastmod: CONTENT_UPDATED_AT,
+    priority: 0.5,
   },
   {
     path: "/privacy",

@@ -5,7 +5,7 @@ import { getPageByPath, markdownPath } from "@/lib/site"
 // Applies to the human-facing content pages only. Static assets, _next,
 // sitemap.xml, robots.txt, llms.txt and the catch-all 404 route are excluded.
 export const config = {
-  matcher: ["/", "/privacy"],
+  matcher: ["/", "/inspiration", "/privacy"],
 }
 
 export function middleware(req: NextRequest) {

@@ -4,6 +4,7 @@
 
 import { pages, pageUrl, site, type PageMeta, type PageSlug } from "./site"
 import { bio, elsewhere, projects, welcome, work, type HomeEntry, type WorkEntry } from "./home"
+import { inspirationImages } from "./inspirations"
 
 function homeList(entries: HomeEntry[]): string {
   return entries
@@ -31,7 +32,7 @@ const pageBody: Record<PageSlug, string> = {
 
 ${bio}
 
-${welcome}
+${welcome.replace("inspiration", `[inspiration](${site.url}/inspiration)`)}
 
 ## Work
 
@@ -46,6 +47,15 @@ ${homeList(projects)}
 There is no public email address; direct messages are the intended channel.
 
 ${homeList(elsewhere)}
+`,
+
+  inspiration: `# Inspiration
+
+${inspirationImages.length} things ${site.person} keeps coming back to.
+
+${inspirationImages
+  .map((image) => `- [${image.title}](${site.url}${image.url})${image.by ? ` — ${image.by}` : ""}`)
+  .join("\n")}
 `,
 
   privacy: `# Privacy

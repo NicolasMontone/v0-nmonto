@@ -86,6 +86,7 @@ describe("getPageByPath", () => {
   it("matches known paths and ignores trailing slashes", () => {
     expect(getPageByPath("/privacy")?.slug).toBe("privacy")
     expect(getPageByPath("/privacy/")?.slug).toBe("privacy")
+    expect(getPageByPath("/inspiration")?.slug).toBe("inspiration")
     expect(getPageByPath("/")?.slug).toBe("")
     expect(getPageByPath("/nope")).toBeUndefined()
   })
