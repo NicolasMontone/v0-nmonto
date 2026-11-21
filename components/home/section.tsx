@@ -4,24 +4,20 @@ import { Fade, Words } from "@/components/words"
 
 type SectionProps = {
   title: string
-  glyph?: React.ReactNode
   more?: { href: string; label: string }
   delay?: number
   listClassName?: string
   children: React.ReactNode
 }
 
-export function Section({ title, glyph, more, delay = 0, listClassName = "gap-4", children }: SectionProps) {
+export function Section({ title, more, delay = 0, listClassName = "gap-4", children }: SectionProps) {
   const id = title.toLowerCase()
   return (
     <section aria-labelledby={id} className="flex flex-col gap-4">
-      <div className="flex items-end justify-between">
-        <div className="flex flex-col gap-2">
-          {glyph}
-          <h2 id={id} className="text-sm text-muted-foreground">
-            <Words text={title} start={delay} step={0} />
-          </h2>
-        </div>
+      <div className="flex items-baseline justify-between">
+        <h2 id={id} className="text-sm text-muted-foreground">
+          <Words text={title} start={delay} step={0} />
+        </h2>
         {more ? (
           <Link
             href={more.href}

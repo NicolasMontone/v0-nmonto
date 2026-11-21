@@ -2,13 +2,7 @@
 
 import { useEffect } from "react"
 
-const REVEAL_ANIMATIONS = new Set([
-  "word-in",
-  "glyph-dot",
-  "glyph-line",
-  "glyph-slide-left",
-  "glyph-slide-right",
-])
+const REVEAL_ANIMATIONS = new Set(["word-in"])
 const COMPRESSION = 0.12
 const MAX_REMAINING_MS = 500
 const TRIGGERS = ["wheel", "touchmove", "scroll", "keydown"] as const
