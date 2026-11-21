@@ -50,6 +50,17 @@ export function Hacker({ text, suffix = "" }: HackerProps) {
     setRun((prev) => prev + 1)
   }
 
+  // Until the first scramble the word is plain text, so the server-rendered HTML
+  // carries it once instead of a screen-reader copy plus a visual copy.
+  if (run === 0) {
+    return (
+      <span className="whitespace-nowrap" onPointerEnter={play}>
+        {text}
+        {suffix}
+      </span>
+    )
+  }
+
   return (
     <span className="whitespace-nowrap" onPointerEnter={play}>
       <span className="sr-only">

@@ -5,11 +5,18 @@
 export const site = {
   name: "monto",
   person: "Nicolas Montone",
+  givenName: "Nicolas",
+  familyName: "Montone",
+  domain: "nmonto.com",
   url: "https://nmonto.com",
   role: "Software Engineer at v0.app",
+  jobTitle: "Software Engineer",
   location: "San Francisco, California",
   description:
-    "Nicolas Montone (monto) is a software engineer at v0.app based in San Francisco. He builds developer tools and AI applications, performs magic, and does reverse engineering.",
+    "Nicolas Montone (monto) is a software engineer at Vercel working on v0, based in San Francisco. He builds AI agents and developer tools. Magician and hacker.",
+  image: { path: "/profile.jpg", width: 400, height: 400 },
+  ogImage: { path: "/og.png", width: 1200, height: 630 },
+  xHandle: "@montonenico",
   links: {
     github: "https://github.com/nicolasmontone",
     x: "https://x.com/montonenico",
@@ -17,6 +24,20 @@ export const site = {
     linkedin: "https://www.linkedin.com/in/nicolas-montone",
   },
 } as const
+
+// Every topic names something that is on the page. They feed JSON-LD `knowsAbout`
+// and the keywords meta tag, which is what search and answer engines pair with the
+// name when they look this site up.
+export const topics = [
+  "v0",
+  "AI agents",
+  "AI SDK",
+  "Developer tools",
+  "Reverse engineering",
+  "Android dynamic instrumentation",
+  "Open finance",
+  "Close-up magic",
+] as const
 
 export type PageSlug = "" | "privacy"
 
@@ -36,13 +57,13 @@ export interface PageMeta {
 }
 
 // Bump when page copy changes so agents/crawlers see an accurate lastmod.
-export const CONTENT_UPDATED_AT = "2026-11-17"
+export const CONTENT_UPDATED_AT = "2026-11-20"
 
 export const pages: PageMeta[] = [
   {
     path: "/",
     slug: "",
-    title: "Nicolas Montone — Software Engineer",
+    title: "Nicolas Montone (monto) — Software Engineer at Vercel",
     description: site.description,
     lastmod: CONTENT_UPDATED_AT,
     priority: 1,
@@ -57,7 +78,27 @@ export const pages: PageMeta[] = [
   },
 ]
 
+export const homePage = pages[0]
+
+function normalize(pathname: string): string {
+  return pathname !== "/" && pathname.endsWith("/") ? pathname.slice(0, -1) : pathname
+}
+
 export function getPageByPath(pathname: string): PageMeta | undefined {
-  const normalized = pathname !== "/" && pathname.endsWith("/") ? pathname.slice(0, -1) : pathname
+  const normalized = normalize(pathname)
   return pages.find((p) => p.path === normalized)
+}
+
+/** Absolute canonical URL of a page. */
+export function pageUrl(page: PageMeta): string {
+  return `${site.url}${page.path}`
+}
+
+/** Path of the always-Markdown twin: "/" -> "/index.md", "/privacy" -> "/privacy.md". */
+export function markdownPath(page: PageMeta): string {
+  return page.path === "/" ? "/index.md" : `${page.path}.md`
+}
+
+export function getPageByMarkdownPath(pathname: string): PageMeta | undefined {
+  return pages.find((p) => markdownPath(p) === pathname)
 }

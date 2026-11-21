@@ -1,10 +1,16 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import { getPageByPath, markdownPath } from "@/lib/site"
+
+const page = getPageByPath("/privacy")!
 
 export const metadata: Metadata = {
-  title: "Privacy — nmonto.com",
-  description: "Privacy policy for nmonto.com, the personal website of Nicolas Montone.",
-  alternates: { canonical: "/privacy" },
+  title: page.title,
+  description: page.description,
+  alternates: {
+    canonical: page.path,
+    types: { "text/markdown": markdownPath(page) },
+  },
 }
 
 export default function PrivacyPage() {

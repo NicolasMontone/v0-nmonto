@@ -4,57 +4,61 @@ import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
-import { site } from "@/lib/site"
+import { homePage, site, topics } from "@/lib/site"
 import "./globals.css"
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Nicolas Montone — Software Engineer",
+    default: homePage.title,
     template: "%s",
   },
   description: site.description,
-  applicationName: site.name,
+  applicationName: site.person,
   authors: [{ name: site.person, url: site.url }],
   creator: site.person,
   generator: "v0.app",
-  keywords: [
-    "Nicolas Montone",
-    "monto",
-    "software engineer",
-    "v0.app",
-    "AI SDK",
-    "reverse engineering",
-    "San Francisco",
-  ],
-  alternates: {
-    canonical: "/",
+  keywords: [site.person, site.name, "software engineer", "Vercel", ...topics, "San Francisco"],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
   },
   icons: {
     icon: "/favicon.svg",
+    apple: "/apple-icon.png",
   },
   openGraph: {
-    type: "website",
+    type: "profile",
+    firstName: site.givenName,
+    lastName: site.familyName,
+    username: site.name,
     url: site.url,
-    siteName: site.name,
-    title: "Nicolas Montone — Software Engineer",
+    siteName: site.person,
+    title: homePage.title,
     description: site.description,
     locale: "en_US",
     images: [
       {
-        url: "/og.png",
-        width: 1200,
-        height: 630,
-        alt: "Nicolas Montone — Software Engineer at v0.app",
+        url: site.ogImage.path,
+        width: site.ogImage.width,
+        height: site.ogImage.height,
+        alt: `${site.person} (${site.name}), software engineer at Vercel`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nicolas Montone — Software Engineer",
+    title: homePage.title,
     description: site.description,
-    creator: "@montonenico",
-    images: ["/og.png"],
+    creator: site.xHandle,
+    images: [site.ogImage.path],
   },
 }
 
