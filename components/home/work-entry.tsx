@@ -34,7 +34,7 @@ function Item({ title, href, points, links }: WorkItem) {
           </ExternalLink>
         </h4>
       ) : (
-        <h4 className="font-mono text-xs text-muted-foreground text-balance">{title}</h4>
+        <h4 className="text-xs text-muted-foreground text-balance">{title}</h4>
       )}
       <div className="flex flex-col gap-1.5 text-muted-foreground">
         {points.length > 0 ? (

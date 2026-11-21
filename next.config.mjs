@@ -9,6 +9,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  experimental: {
+    viewTransition: true,
+  },
   async headers() {
     // Advertises the Markdown twin and the agent guide to clients that read HTTP
     // Link headers (RFC 8288). There is no `Vary: Accept` here on purpose: Vercel
@@ -29,6 +32,7 @@ const nextConfig = {
         ],
       },
       { source: "/", headers: discovery("/index.md") },
+      { source: "/inspiration", headers: discovery("/inspiration.md") },
       { source: "/privacy", headers: discovery("/privacy.md") },
     ]
   },

@@ -1,11 +1,9 @@
 import type { Metadata } from "next"
 import Image from "next/image"
-import Link from "next/link"
 import { ConnectionGlyph, LoveGlyph, SurpriseGlyph } from "@/components/glyphs"
 import { Hacker } from "@/components/hacker"
-import { Inspiration, type InspirationImage } from "@/components/inspiration"
+import { InspirationLink } from "@/components/inspiration"
 import { Magician } from "@/components/magician"
-import inspirations from "@/data/inspirations.json"
 import { Entry, Section } from "@/components/home/section"
 import { WorkEntry } from "@/components/home/work-entry"
 import { JsonLd } from "@/components/json-ld"
@@ -46,21 +44,10 @@ function bioAccent(word: string) {
   return null
 }
 
-const inspirationImages: InspirationImage[] = inspirations.items
-  .filter((item) => item.media?.contentType?.startsWith("image/"))
-  .map((item) => ({
-    id: item.id,
-    title: item.title,
-    by: item.by,
-    url: item.media.url,
-    width: item.media.width ?? 1200,
-    height: item.media.height ?? 800,
-  }))
-
 function welcomeAccent(word: string) {
   const [, core, suffix] = word.match(/^(.*?)([.,!?]*)$/) ?? [word, word, ""]
   if (core.toLowerCase() !== "inspiration") return null
-  return <Inspiration text={core} suffix={suffix} images={inspirationImages} />
+  return <InspirationLink text={core} suffix={suffix} />
 }
 
 export default function Home() {
@@ -80,7 +67,7 @@ export default function Home() {
                 width={64}
                 height={64}
                 priority
-                className="size-16 rounded-full object-cover grayscale"
+                className="size-16 rounded-full object-cover"
               />
             </Fade>
             <h1 className="text-xl text-foreground text-balance">
@@ -118,39 +105,29 @@ export default function Home() {
           ))}
         </Section>
 
-        <div className="flex flex-col gap-4">
-          <section id="elsewhere" aria-labelledby="elsewhere-title" className="flex flex-col gap-4">
-            <div className="flex flex-col gap-2">
-              <LoveGlyph delay={ELSEWHERE_START} />
-              <h2 id="elsewhere-title" className="text-sm text-muted-foreground">
-                <Words text="Elsewhere" start={ELSEWHERE_START} />
-              </h2>
-            </div>
-            <ul className="flex flex-wrap gap-x-6 gap-y-2">
-              {elsewhere.map((item) => (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
-                    target="_blank"
-                    rel="me noopener noreferrer"
-                    title={item.description}
-                    className="text-base text-foreground underline-offset-4 decoration-muted-foreground/50 decoration-dotted hover:underline"
-                  >
-                    <Fade delay={ELSEWHERE_START}>{item.title}</Fade>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </section>
-          <footer className="flex">
-            <Link
-              href="/privacy"
-              className="-my-1 py-1 font-mono text-xs text-muted-foreground transition-colors hover:text-foreground"
-            >
-              <Fade delay={ELSEWHERE_START}>Privacy</Fade>
-            </Link>
-          </footer>
-        </div>
+        <section id="elsewhere" aria-labelledby="elsewhere-title" className="flex flex-col gap-4">
+          <div className="flex flex-col gap-2">
+            <LoveGlyph delay={ELSEWHERE_START} />
+            <h2 id="elsewhere-title" className="text-sm text-muted-foreground">
+              <Words text="Elsewhere" start={ELSEWHERE_START} />
+            </h2>
+          </div>
+          <ul className="flex flex-wrap gap-x-6 gap-y-2">
+            {elsewhere.map((item) => (
+              <li key={item.href}>
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="me noopener noreferrer"
+                  title={item.description}
+                  className="text-base text-foreground underline-offset-4 decoration-muted-foreground/50 decoration-dotted hover:underline"
+                >
+                  <Fade delay={ELSEWHERE_START}>{item.title}</Fade>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
       </div>
     </main>
   )
